@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:air_pay/variables/colorpalette.dart';
@@ -26,20 +28,17 @@ class myTextField extends StatelessWidget {
         hintStyle: TextStyle(
             color: darkcolor['disabled'], fontWeight: FontWeight.normal),
         suffixIcon: isObscured
-            ? Obx(() => IconButton(
-                  icon: Icon(
-                    // Based on passwordVisible state choose the icon
-                    isChecked == false
-                        ? Icons.visibility
-                        : Icons.visibility_off,
-                    color: Theme.of(context).primaryColorDark,
-                  ),
-                  onPressed: () {
-                    isChecked == false
-                        ? isChecked = true.obs
-                        : isChecked = false.obs;
-                  },
-                ))
+            ? IconButton(
+                icon: Obx(() {
+                  return isChecked.isFalse
+                      ? Icon(Icons.visibility, color: darkcolor['disabled'])
+                      : Icon(Icons.visibility_off,
+                          color: darkcolor['disabled']);
+                }),
+                onPressed: () {
+                  isChecked.toggle();
+                },
+              )
             : null,
         contentPadding: const EdgeInsets.all(10),
         border: OutlineInputBorder(
