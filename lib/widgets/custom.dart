@@ -9,18 +9,20 @@ class myTextField extends StatelessWidget {
     super.key,
     this.isObscured = false,
     this.hintText,
+    this.textEditingController,
   });
 
   final bool isObscured;
   final String? hintText;
+  final TextEditingController? textEditingController;
 
   @override
   Widget build(BuildContext context) {
     RxBool isChecked = true.obs;
     return Obx(() => TextField(
           autofocus: false,
-          controller: TextEditingController(),
           style: TextStyle(color: darkcolor['contrast']),
+          controller: textEditingController,
           obscureText: isObscured ? isChecked.value : isObscured,
           decoration: InputDecoration(
             hintText: hintText,
@@ -51,5 +53,14 @@ class myTextField extends StatelessWidget {
             ),
           ),
         ));
+  }
+}
+
+class myButton extends StatelessWidget {
+  const myButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
   }
 }
