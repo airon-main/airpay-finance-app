@@ -27,9 +27,9 @@ class Login extends StatelessWidget {
                   fontSize: 32),
             ),
             const SizedBox(height: 20),
-            const myTextField(hintText: "Username"),
-            const myTextField(hintText: "Email / Phone Number"),
-            const myTextField(
+            myTextField(hintText: "Username"),
+            myTextField(hintText: "Email / Phone Number"),
+            myTextField(
               hintText: "Password",
               isObscured: true,
             ),
