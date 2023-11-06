@@ -1,4 +1,5 @@
 import 'package:air_pay/extensions.dart';
+import 'package:air_pay/pages/Shopping%20Page/shoppingPage.dart';
 import 'package:air_pay/pages/home/home.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class _NavigationState extends State<Navigation> {
 
   static const List<Widget> _pages = <Widget>[
     Home(),
-    Placeholder(),
+    ShoppingPage(),
     Placeholder(),
     Placeholder(),
   ];
