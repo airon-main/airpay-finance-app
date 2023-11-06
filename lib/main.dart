@@ -1,3 +1,4 @@
+import 'package:air_pay/pages/login/login.dart';
 import 'package:air_pay/pages/navigation/navigation.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: darkcolor['main']),
         useMaterial3: true,
       ),
-      home: Navigation(),
+      home: const Login(),
     );
   }
 }

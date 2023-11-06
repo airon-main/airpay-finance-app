@@ -27,12 +27,26 @@ class Login extends StatelessWidget {
                   fontSize: 32),
             ),
             const SizedBox(height: 20),
-            myTextField(hintText: "Username"),
-            myTextField(hintText: "Email / Phone Number"),
-            myTextField(
-              hintText: "Password",
-              isObscured: true,
+            const myTextField(hintText: "Username"),
+            const myTextField(hintText: "Email / Phone Number"),
+            const myTextField(hintText: "Password", isObscured: true),
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Forgot Password?",
+                    style: TextStyle(color: darkcolor['contrast'])),
+                Text("Terms and Services",
+                    style: TextStyle(color: darkcolor['contrast'])),
+              ],
             ),
+            const SizedBox(height: 20, width: double.infinity),
+            myButton(
+              text: "Login",
+              backgroundColor: darkcolor['main'],
+              foregroundColor: darkcolor['contrastmain'],
+              textAlign: TextAlign.center,
+            )
           ].withSpaceBetween(height: 10),
         ),
       ),
