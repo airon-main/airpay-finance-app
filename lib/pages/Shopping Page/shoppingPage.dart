@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import '../Component.dart';
+import 'komponen/Component.dart';
+import 'searchBar.dart';
+import 'popularPage.dart';
 
 class ShoppingPage extends StatefulWidget {
   const ShoppingPage({Key? key}) : super(key: key);

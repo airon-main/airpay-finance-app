@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:landing_page/Component.dart';
+import 'komponen/Component.dart';
 
 
 class popularPage extends StatefulWidget {
