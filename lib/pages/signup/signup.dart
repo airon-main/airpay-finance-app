@@ -4,8 +4,8 @@ import 'package:air_pay/extensions.dart';
 import 'package:air_pay/widgets/custom.dart';
 import 'package:get/get.dart';
 
-class Login extends StatelessWidget {
-  const Login({super.key});
+class Signup extends StatelessWidget {
+  const Signup({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class Login extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              "Login",
+              "Signup",
               textAlign: TextAlign.center,
               style: TextStyle(
                   fontFamily: "Rugen",
@@ -31,12 +31,11 @@ class Login extends StatelessWidget {
             const myTextField(hintText: "Username"),
             const myTextField(hintText: "Email / Phone Number"),
             const myTextField(hintText: "Password", isObscured: true),
+            const myTextField(hintText: "Re-enter Password", isObscured: true),
             Row(
               mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text("Forgot Password?",
-                    style: TextStyle(color: darkcolor['contrast'])),
                 Text("Terms and Services",
                     style: TextStyle(
                         color: darkcolor['link'],
@@ -46,16 +45,16 @@ class Login extends StatelessWidget {
             const SizedBox(height: 20, width: double.infinity),
             myButton(
               onClick: () {},
-              text: "Login",
+              text: "Signup",
               backgroundColor: darkcolor['main'],
               foregroundColor: darkcolor['contrastmain'],
               textAlign: TextAlign.center,
             ),
             myButton(
               onClick: () {
-                Get.offNamed("/signup");
+                Get.offNamed("/login");
               },
-              text: "Signup",
+              text: "Login",
               backgroundColor: darkcolor['card'],
               foregroundColor: darkcolor['contrast'],
               textAlign: TextAlign.center,

@@ -16,7 +16,6 @@ class myTextField extends StatefulWidget {
   @override
   myTextFieldState createState() => myTextFieldState();
 }
-
 class myTextFieldState extends State<myTextField> {
   bool isChecked = true;
   @override
@@ -70,6 +69,7 @@ class myButton extends StatelessWidget {
     this.backgroundColor = Colors.white,
     this.foregroundColor = Colors.black,
     this.isExpand = true,
+    required this.onClick,
   });
   final IconData? prefixIcon;
   final IconData? suffixIcon;
@@ -78,13 +78,14 @@ class myButton extends StatelessWidget {
   final Color backgroundColor;
   final Color foregroundColor;
   final bool isExpand;
+  final VoidCallback onClick;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 48,
       child: TextButton(
-        onPressed: () {},
+        onPressed: onClick,
         style: TextButton.styleFrom(
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
