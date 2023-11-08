@@ -13,11 +13,8 @@ class ShoppingPage extends StatefulWidget {
 class _ShoppingPageState extends State<ShoppingPage> {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery
-        .of(context)
-        .size;
+    final size = MediaQuery.of(context).size;
     final padSize = 16.0;
-
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(size.width * (padSize * 5 / size.width)),
@@ -28,13 +25,18 @@ class _ShoppingPageState extends State<ShoppingPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Shopping Page", style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w900,
-                  fontFamily: 'Lato',
-                ),),
-                SizedBox(width: size.width * (padSize / size.width),),
+                Text(
+                  "Shopping Page",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w900,
+                    fontFamily: 'Lato',
+                  ),
+                ),
+                SizedBox(
+                  width: size.width * (padSize / size.width),
+                ),
                 RoundedIconButton(
                   icon: Icons.notifications_none,
                   onTap: () {},
@@ -47,10 +49,7 @@ class _ShoppingPageState extends State<ShoppingPage> {
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Search(),
-            popularPage()
-          ],
+          children: [Search(), popularPage()],
         ),
       ),
     );
