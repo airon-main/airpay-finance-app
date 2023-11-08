@@ -130,7 +130,7 @@ class promoPage extends StatelessWidget {
                 Flexible(
                   flex: 3,
                   child: Container(
-                      padding: EdgeInsets.all(2),
+                  padding: EdgeInsets.only(left: 5,top: 5),
                       height: 60,
                       width: 233,
                       decoration: BoxDecoration(
@@ -254,3 +254,132 @@ class AppColors {
   static const Color Green = Color(0xff23c552);
   static const Color red = Color(0xfff84f31);
 }
+
+class TopUpNominal extends StatelessWidget {
+  final String imageAssetPath;
+  final String text1;
+  final String text2;
+  final String text3;
+  const TopUpNominal({Key? key, required this.imageAssetPath, required this.text1, required this.text2, required this.text3}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(10),
+      child: Row(children: [
+        Expanded(
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(6),
+              color: AppColors.card,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Flexible(
+                  flex: 1,
+                  child: Container(
+                    height: 60,
+                    clipBehavior: Clip.hardEdge,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(5),
+                          bottomLeft: Radius.circular(5)),
+                    ),
+                    child: Image.asset(
+                      imageAssetPath,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                Flexible(
+                  flex: 3,
+                  child: Container(
+                      padding: EdgeInsets.only(left: 5,top: 5),
+                      height: 60,
+                      width: 233,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(5),
+                            bottomLeft: Radius.circular(5)),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            text1,
+                            style: TextStyle(
+                                fontSize: 10,
+                                fontWeight: FontWeight.normal,
+                                color: AppColors.disabled,
+                                fontFamily: 'Roboto'),
+                          ),
+                          Text(
+                            text2,
+                            style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.normal,
+                                color: Colors.white,
+                                fontFamily: 'Roboto'),
+                          ),
+                          Text(
+                            text3,
+                            style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.normal,
+                                color: AppColors.main,
+                                fontFamily: 'Roboto'),
+                          ),
+                        ],
+                      )),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ]),
+    );
+  }
+}
+
+
+
+
+class customElevatedButton extends StatelessWidget {
+  final String text;
+  final VoidCallback onPressed;
+  final Color backgroundColor;
+  final Color textColor;
+
+  const customElevatedButton({
+    Key? key,
+    required this.text,
+    required this.onPressed,
+    required this.backgroundColor,
+    required this.textColor,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(5),
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all<Color>(backgroundColor), // Background color
+          foregroundColor: MaterialStateProperty.all<Color>(textColor), // Text color
+          textStyle: MaterialStateProperty.all<TextStyle>(TextStyle(fontSize: 16)), // Text style
+          padding: MaterialStateProperty.all<EdgeInsetsGeometry>(EdgeInsets.all(8)), // Padding
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8.0), // Border radius
+            ),
+          ),
+        ),
+        child: Text(text),
+      ),
+    );
+  }
+}
+
