@@ -89,7 +89,6 @@ class _buyPageState extends State<buyPage> {
               judulPage(title: "Email Receipt (Optional)", title1: null),
               const myTextField(hintText: "Email"),
               judulPage(title: "Confirm Payment", title1: null),
-
               Container(
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
