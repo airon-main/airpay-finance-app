@@ -1,11 +1,12 @@
 import 'package:air_pay/extensions.dart';
+import 'package:air_pay/pages/Shopping%20Page/Payment%20Page/electricPage.dart';
 import 'package:air_pay/pages/Shopping%20Page/shoppingPage.dart';
 import 'package:air_pay/pages/home/home.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'Shopping Page/Payment Page/buyPage.dart';
+import 'Shopping Page/Payment Page/topupPage.dart';
 
 class Navigation extends StatefulWidget {
   const Navigation({super.key});
@@ -21,7 +22,7 @@ class _NavigationState extends State<Navigation> {
     Home(),
     ShoppingPage(),
     buyPage(),
-    Placeholder(),
+    electricPage(),
   ];
 
   void _onItemTapped(int index) {
