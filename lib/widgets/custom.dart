@@ -21,7 +21,7 @@ class myTextField extends StatelessWidget {
       style: TextStyle(color: darkcolor['contrast']),
       decoration: InputDecoration(
         hintText: hintText,
-        fillColor: darkcolor["carddark"],
+        fillColor: darkcolor["card"],
         filled: true,
         hintStyle: TextStyle(
             color: darkcolor['disabled'], fontWeight: FontWeight.normal),

@@ -46,9 +46,9 @@ class shopCon extends StatelessWidget {
 
 class judulPage extends StatelessWidget {
   final String title;
-  final String title1;
+  final String? title1;
 
-  const judulPage({Key? key, required this.title, required this.title1})
+  const judulPage({Key? key, required this.title, this.title1})
       : super(key: key);
 
   @override
@@ -63,12 +63,13 @@ class judulPage extends StatelessWidget {
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 16,
-                fontWeight: FontWeight.w900,
+                fontWeight: FontWeight.normal,
                 fontFamily: 'Lato',
               ),
             ),
+            if (title1 != null)
             Text(
-              title1,
+              title1!,
               style: TextStyle(
                 color: AppColors.disabled,
                 fontFamily: 'Roboto',

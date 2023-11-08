@@ -13,15 +13,17 @@ class ShoppingPage extends StatefulWidget {
 class _ShoppingPageState extends State<ShoppingPage> {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    final size = MediaQuery
+        .of(context)
+        .size;
     final padSize = 16.0;
 
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize:  Size.fromHeight(size.width * (padSize * 5 / size.width)),
+        preferredSize: Size.fromHeight(size.width * (padSize * 5 / size.width)),
         child: Container(
           color: AppColors.cardDark,
-          padding:  EdgeInsets.all(size.width * (padSize / size.width)),
+          padding: EdgeInsets.all(size.width * (padSize / size.width)),
           child: SafeArea(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

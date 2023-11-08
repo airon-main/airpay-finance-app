@@ -5,6 +5,8 @@ import 'package:air_pay/variables/colorpalette.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'Shopping Page/Payment Page/buyPage.dart';
+
 class Navigation extends StatefulWidget {
   const Navigation({super.key});
 
@@ -18,7 +20,7 @@ class _NavigationState extends State<Navigation> {
   static const List<Widget> _pages = <Widget>[
     Home(),
     ShoppingPage(),
-    Placeholder(),
+    buyPage(),
     Placeholder(),
   ];
 

@@ -32,7 +32,6 @@ class _popularPageState extends State<popularPage> {
               )
             ],
           ),
-
           Row(
             children: [
               Expanded(
