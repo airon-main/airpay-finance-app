@@ -13,5 +13,4 @@ Map darkcolor = {
   'blue' : Color(0xff2450ec),
   'yellow' : Color(0xffe7e714),
   'link' : Color(0xff188cf6),
-
 };

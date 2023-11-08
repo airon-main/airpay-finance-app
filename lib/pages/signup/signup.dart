@@ -44,7 +44,9 @@ class Signup extends StatelessWidget {
             ),
             const SizedBox(height: 20, width: double.infinity),
             myButton(
-              onClick: () {},
+              onClick: () {
+                Get.toNamed("/enterpin", arguments: "signup");
+              },
               text: "Signup",
               backgroundColor: darkcolor['main'],
               foregroundColor: darkcolor['contrastmain'],
