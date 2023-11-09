@@ -1,10 +1,16 @@
 import 'package:air_pay/extensions.dart';
+import 'package:air_pay/pages/Shopping%20Page/Payment%20Page/electricPage.dart';
+import 'package:air_pay/pages/Shopping%20Page/Payment%20Page/topupPage.dart';
+import 'package:air_pay/pages/cardPage/addCardPage.dart';
+import 'package:air_pay/pages/cardPage/cardPage.dart';
 import 'package:air_pay/pages/home/home.dart';
 import 'package:air_pay/pages/navigation/navigationController.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+
+import '../Shopping Page/shoppingPage.dart';
 
 class Navigation extends StatelessWidget {
   Navigation({super.key});
@@ -86,9 +92,9 @@ class Navigation extends StatelessWidget {
             index: navigationController.tabIndex.value,
             children: const [
               Home(),
-              Placeholder(),
-              Placeholder(),
-              Placeholder(),
+              ShoppingPage(),
+              myCardPage(),
+              buyPage(),
             ],
           )),
     );

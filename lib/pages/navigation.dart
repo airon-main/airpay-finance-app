@@ -9,14 +9,14 @@ import 'package:flutter/services.dart';
 import 'Shopping Page/Payment Page/topupPage.dart';
 import 'cardPage/cardPage.dart';
 
-class Navigation extends StatefulWidget {
-  const Navigation({super.key});
+class NavigationPage extends StatefulWidget {
+  const NavigationPage({super.key});
 
   @override
-  State<Navigation> createState() => _NavigationState();
+  State<NavigationPage> createState() => _NavigationPageState();
 }
 
-class _NavigationState extends State<Navigation> {
+class _NavigationPageState extends State<NavigationPage> {
   int _selectedIndex = 0;
 
   static const List<Widget> _pages = <Widget>[

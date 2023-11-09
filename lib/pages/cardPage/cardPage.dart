@@ -1,7 +1,6 @@
+import 'package:air_pay/extensions.dart';
 import 'package:flutter/material.dart';
-
 import '../Shopping Page/komponen/Component.dart';
-import 'cardComponPage.dart';
 class myCardPage extends StatefulWidget {
   const myCardPage({Key? key}) : super(key: key);
 
@@ -45,19 +44,34 @@ class _myCardPageState extends State<myCardPage> {
           ),
         ),
       ),
-      body: SingleChildScrollView(
+      body: Container(
+        height: double.infinity,
+        padding: EdgeInsets.all(10),
+        decoration: BoxDecoration(color: AppColors.cardDark),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(color: AppColors.cardDark),
-              child: Column(
-                children: [
-                ],
-              ),
-            )
-          ],
+            children: [
+              myCard(imagePath: "assets/images/Frame 83.png", text1: "Airpay E-Money", text2: "Rp.120,000", text3: "Top Up", text4: "•", text5: "Transfer"),
+              myCard(imagePath: "assets/images/Ovo.png", text1: "OVO E-Money", text2: "Rp.120,000", text3: "Top Up", text4: "•", text5: "Transfer"),
+              myCard(imagePath: "assets/images/BNI.png", text1: "1234 5678 0987", text2: "Rp.120,000", text3: "Top Up", text4: "•", text5: "Transfer"),
+              Container(
+                height: 77,
+                width: double.infinity,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                  color: AppColors.card
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.add, color: AppColors.contrast,),
+                    Text("Add Card", style: TextStyle(
+                      color: AppColors.contrast
+                    ),)
+                  ].withSpaceBetween(width: 5),
+                ),
+              )
+            ].withSpaceBetween(height: 10)
         ),
       ),
     );
