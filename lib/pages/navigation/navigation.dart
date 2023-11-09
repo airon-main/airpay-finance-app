@@ -94,7 +94,7 @@ class Navigation extends StatelessWidget {
               Home(),
               ShoppingPage(),
               myCardPage(),
-              buyPage(),
+              addCardPage(),
             ],
           )),
     );
