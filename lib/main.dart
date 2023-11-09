@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       ),
       home: const SplashScreen(),
       getPages: [
-        GetPage(name: "/", page: () => Navigation()),
+        GetPage(name: "/home", page: () => Navigation()),
         GetPage(name: "/login", page: () => const Login()),
         GetPage(name: "/signup", page: () => const Signup()),
         GetPage(name: "/enterpin", page: () => const EnterPin()),
