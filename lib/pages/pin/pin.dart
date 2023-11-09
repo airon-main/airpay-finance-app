@@ -64,7 +64,7 @@ class EnterPin extends StatelessWidget {
             const SizedBox(height: 20, width: double.infinity),
             myButton(
               onClick: () {
-                Get.offNamed("/");
+                Get.offAllNamed("/home");
               },
               text: data == "signup" ? "Looks good" : "I think it's Correct",
               backgroundColor: darkcolor['main'],
