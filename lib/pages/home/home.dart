@@ -17,7 +17,7 @@ class Home extends StatelessWidget {
         decimalSeparator: "");
     nominalFormat.updateValue(500000);
     return SingleChildScrollView(
-      physics: const ClampingScrollPhysics(),
+      physics: ClampingScrollPhysics(),
       child: Container(
         color: darkcolor['background'],
         width: double.infinity,
