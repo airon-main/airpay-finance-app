@@ -20,7 +20,10 @@ class _electricPageState extends State<electricPage> {
           preferredSize:
           Size.fromHeight(size.width * (padSize * 5 / size.width)),
           child: Container(
-            color: AppColors.cardDark,
+            decoration: BoxDecoration(
+              border: Border(bottom: BorderSide(color: AppColors.card,width: 1)),
+              color: AppColors.cardDark,
+            ),
             padding: EdgeInsets.all(size.width * (padSize / size.width)),
             child: SafeArea(
               child: Row(
@@ -50,7 +53,10 @@ class _electricPageState extends State<electricPage> {
         body: SingleChildScrollView(
             child: Container(
               padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(color: AppColors.cardDark),
+              decoration: BoxDecoration(
+                border: Border(bottom: BorderSide(color: AppColors.card,width: 1)),
+                color: AppColors.cardDark,
+              ),
               child: Column(
                 children: [
                   judulPage(title: "Nomor Meter/ID Pelanggan*", title1: null),

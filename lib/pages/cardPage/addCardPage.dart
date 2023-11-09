@@ -1,16 +1,12 @@
+import 'package:air_pay/extensions.dart';
+import 'package:air_pay/widgets/custom.dart';
 import 'package:flutter/material.dart';
-import 'komponen/Component.dart';
-import 'searchBar.dart';
-import 'popularPage.dart';
 
-class ShoppingPage extends StatefulWidget {
-  const ShoppingPage({Key? key}) : super(key: key);
+import '../Shopping Page/komponen/Component.dart';
 
-  @override
-  State<ShoppingPage> createState() => _ShoppingPageState();
-}
+class addCardPage extends StatelessWidget {
+  const addCardPage({Key? key}) : super(key: key);
 
-class _ShoppingPageState extends State<ShoppingPage> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -29,7 +25,7 @@ class _ShoppingPageState extends State<ShoppingPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Shopping Page",
+                  "My Cards",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,
@@ -49,10 +45,17 @@ class _ShoppingPageState extends State<ShoppingPage> {
           ),
         ),
       ),
-      body: SingleChildScrollView(
+      body: Container(
+        height: double.infinity,
+        padding: EdgeInsets.all(10),
+        decoration: BoxDecoration(color: AppColors.background),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [Search(), popularPage()],
+          children: [
+            judulPage(title: "Enter Card Data"),
+            myTextField(hintText: "Account Number",),
+            myCustomElevatedButton(text: "Add Custom Picture", onPressed: (){}, backgroundColor: AppColors.cardDark, textColor: Colors.white),
+            myCustomElevatedButton(text: "Scan", onPressed: () {}, backgroundColor: AppColors.main, textColor: Colors.black)
+          ].withSpaceBetween(height: 10),
         ),
       ),
     );

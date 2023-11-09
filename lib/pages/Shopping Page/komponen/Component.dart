@@ -1,3 +1,4 @@
+import 'package:air_pay/extensions.dart';
 import 'package:flutter/material.dart';
 
 class shopCon extends StatelessWidget {
@@ -363,6 +364,7 @@ class customElevatedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 44,
       padding: EdgeInsets.all(5),
       child: ElevatedButton(
         onPressed: onPressed,
@@ -383,3 +385,145 @@ class customElevatedButton extends StatelessWidget {
   }
 }
 
+class myCard extends StatelessWidget {
+  const myCard({Key? key, required this.imagePath, required this.text1, required this.text2, required this.text3, required this.text4, required this.text5}) : super(key: key);
+  final String imagePath;
+  final String text1;
+  final String text2;
+  final String text3;
+  final String text4;
+  final String text5;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(6),
+        color: AppColors.card,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Container(
+            height: 77,
+            width: 133,
+            clipBehavior: Clip.hardEdge,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(5),
+                  bottomLeft: Radius.circular(5)),
+            ),
+            child: Image.asset(
+              imagePath,
+              fit: BoxFit.cover,
+            ),
+          ),
+          Expanded(
+            child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                height: 77,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(5),
+                      bottomLeft: Radius.circular(5)),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      text1,
+                      style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.normal,
+                          color: AppColors.disabled,
+                          fontFamily: 'Roboto'),
+                    ),
+                    Text(
+                      text2,
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.white,
+                          fontFamily: 'Roboto'),
+                    ),
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            text3,
+                            style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.normal,
+                                color: AppColors.contrast,
+                                fontFamily: 'Roboto'),
+                          ),
+                          Text(
+                            text4,
+                            style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.normal,
+                                color: AppColors.disabled,
+                                fontFamily: 'Roboto'),
+                          ),
+                          Text(
+                            text5,
+                            style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.normal,
+                                color: AppColors.contrast,
+                                fontFamily: 'Roboto'),
+                          ),
+                        ].withSpaceBetween(width: 2),
+                      ),
+                    )
+                  ],
+                )),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
+class myCustomElevatedButton extends StatelessWidget {
+  final String text;
+  final VoidCallback onPressed;
+  final Color backgroundColor;
+  final Color textColor;
+
+  const myCustomElevatedButton({
+    Key? key,
+    required this.text,
+    required this.onPressed,
+    required this.backgroundColor,
+    required this.textColor,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 44,
+      width: double.infinity,
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all<Color>(backgroundColor), // Background color
+          foregroundColor: MaterialStateProperty.all<Color>(textColor), // Text color
+          textStyle: MaterialStateProperty.all<TextStyle>(TextStyle(fontSize: 16, fontWeight: FontWeight.bold)), // Text style
+          padding: MaterialStateProperty.all<EdgeInsetsGeometry>(EdgeInsets.all(10)), // Padding
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8.0), // Border radius
+            ),
+          ),
+        ),
+        child: Text(text),
+      ),
+    );
+  }
+}
