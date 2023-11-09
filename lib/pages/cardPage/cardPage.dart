@@ -54,7 +54,6 @@ class _myCardPageState extends State<myCardPage> {
               decoration: BoxDecoration(color: AppColors.cardDark),
               child: Column(
                 children: [
-
                 ],
               ),
             )

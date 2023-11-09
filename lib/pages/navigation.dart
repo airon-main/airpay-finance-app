@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'Shopping Page/Payment Page/topupPage.dart';
+import 'cardPage/cardPage.dart';
 
 class Navigation extends StatefulWidget {
   const Navigation({super.key});
@@ -22,7 +23,7 @@ class _NavigationState extends State<Navigation> {
     Home(),
     ShoppingPage(),
     buyPage(),
-    electricPage(),
+    myCardPage(),
   ];
 
   void _onItemTapped(int index) {
