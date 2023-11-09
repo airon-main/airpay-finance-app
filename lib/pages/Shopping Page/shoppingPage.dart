@@ -19,7 +19,10 @@ class _ShoppingPageState extends State<ShoppingPage> {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(size.width * (padSize * 5 / size.width)),
         child: Container(
-          color: AppColors.cardDark,
+          decoration: BoxDecoration(
+            border: Border(bottom: BorderSide(color: AppColors.card,width: 1)),
+            color: AppColors.cardDark,
+          ),
           padding: EdgeInsets.all(size.width * (padSize / size.width)),
           child: SafeArea(
             child: Row(

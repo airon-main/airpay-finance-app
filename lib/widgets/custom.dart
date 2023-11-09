@@ -27,7 +27,7 @@ class myTextFieldState extends State<myTextField> {
       obscureText: widget.isObscured ? isChecked : widget.isObscured,
       decoration: InputDecoration(
         hintText: widget.hintText,
-        fillColor: darkcolor["carddark"],
+        fillColor: darkcolor["card"],
         filled: true,
         hintStyle: TextStyle(
             color: darkcolor['disabled'], fontWeight: FontWeight.normal),
