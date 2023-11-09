@@ -9,5 +9,8 @@ Map darkcolor = {
   'carddark': const Color(0xff222222),
   'disabled': const Color(0xff888888),
   'green': const Color(0xff23c552),
-  'red': const Color(0xfff84f31)
+  'red': const Color(0xfff84f31),
+  'blue' : Color(0xff2450ec),
+  'yellow' : Color(0xffe7e714),
+  'link' : Color(0xff188cf6),
 };
