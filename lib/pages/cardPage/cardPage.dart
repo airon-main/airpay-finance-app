@@ -51,7 +51,7 @@ class _myCardPageState extends State<myCardPage> {
       body: Container(
         height: double.infinity,
         padding: EdgeInsets.all(10),
-        decoration: BoxDecoration(color: AppColors.cardDark),
+        decoration: BoxDecoration(color: AppColors.background),
         child: Column(
             children: [
               myCard(imagePath: "assets/images/Frame 83.png", text1: "Airpay E-Money", text2: "Rp.120,000", text3: "Top Up", text4: "•", text5: "Transfer"),

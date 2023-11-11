@@ -1,6 +1,8 @@
 import 'package:air_pay/extensions.dart';
 import 'package:flutter/material.dart';
 
+import '../../../widgets/custom.dart';
+
 class shopCon extends StatelessWidget {
   final String imagePath;
   final String title;
@@ -524,6 +526,27 @@ class myCustomElevatedButton extends StatelessWidget {
         ),
         child: Text(text),
       ),
+    );
+  }
+}
+
+class detailAccInfo extends StatelessWidget {
+  const detailAccInfo({Key? key, required this.childWidget, required this.text}) : super(key: key);
+  final Widget childWidget;
+  final String text;
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children:[
+        Container(
+          width: 90,
+          alignment: Alignment.centerLeft,
+          child: Text(text,style: TextStyle(color: AppColors.disabled),),
+        ),
+        Expanded(
+          child: childWidget,
+        ),
+      ],
     );
   }
 }
