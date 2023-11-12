@@ -8,7 +8,8 @@ class shopCon extends StatelessWidget {
   final String title;
   final String imageAssetPath;
 
-  shopCon({
+  const shopCon({
+    super.key,
     required this.imagePath,
     required this.title,
     required this.imageAssetPath,
@@ -18,7 +19,7 @@ class shopCon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         alignment: Alignment.centerLeft,
-        padding: EdgeInsets.all(5),
+        padding: const EdgeInsets.all(5),
         child: Container(
           width: 165,
           height: 100,
@@ -29,12 +30,12 @@ class shopCon extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(imagePath),
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
                 Text(
                   title,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontFamily: 'Roboto',
                     fontSize: 12,
@@ -57,13 +58,13 @@ class judulPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.all(7),
+        padding: const EdgeInsets.all(7),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               title,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 16,
                 fontWeight: FontWeight.normal,
@@ -71,14 +72,14 @@ class judulPage extends StatelessWidget {
               ),
             ),
             if (title1 != null)
-            Text(
-              title1!,
-              style: TextStyle(
-                color: AppColors.disabled,
-                fontFamily: 'Roboto',
-                fontSize: 12,
-              ),
-            )
+              Text(
+                title1!,
+                style: const TextStyle(
+                  color: AppColors.disabled,
+                  fontFamily: 'Roboto',
+                  fontSize: 12,
+                ),
+              )
           ],
         ));
   }
@@ -103,7 +104,7 @@ class promoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       child: Row(children: [
         Expanded(
           child: Container(
@@ -119,7 +120,7 @@ class promoPage extends StatelessWidget {
                   child: Container(
                     height: 60,
                     clipBehavior: Clip.hardEdge,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(5),
                           bottomLeft: Radius.circular(5)),
@@ -133,10 +134,10 @@ class promoPage extends StatelessWidget {
                 Flexible(
                   flex: 3,
                   child: Container(
-                  padding: EdgeInsets.only(left: 5,top: 5),
+                      padding: const EdgeInsets.only(left: 5, top: 5),
                       height: 60,
                       width: 233,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(5),
                             bottomLeft: Radius.circular(5)),
@@ -147,7 +148,7 @@ class promoPage extends StatelessWidget {
                         children: [
                           Text(
                             text1,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 10,
                                 fontWeight: FontWeight.normal,
                                 color: AppColors.disabled,
@@ -155,7 +156,7 @@ class promoPage extends StatelessWidget {
                           ),
                           Text(
                             text2,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.normal,
                                 color: Colors.white,
@@ -163,7 +164,7 @@ class promoPage extends StatelessWidget {
                           ),
                           Text(
                             text3,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.normal,
                                 color: AppColors.main,
@@ -176,7 +177,7 @@ class promoPage extends StatelessWidget {
                     flex: 1,
                     child: Container(
                       height: 60,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           color: AppColors.Green,
                           borderRadius: BorderRadius.only(
                               bottomRight: Radius.circular(5),
@@ -184,7 +185,7 @@ class promoPage extends StatelessWidget {
                       child: Center(
                         child: Text(
                           text4,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.bold,
                               fontFamily: 'Roboto'),
@@ -213,7 +214,7 @@ class RoundedIconButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final padSize = 12.0;
+    const padSize = 12.0;
     return Material(
       shape: const CircleBorder(),
       clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -263,12 +264,18 @@ class TopUpNominal extends StatelessWidget {
   final String text1;
   final String text2;
   final String text3;
-  const TopUpNominal({Key? key, required this.imageAssetPath, required this.text1, required this.text2, required this.text3}) : super(key: key);
+  const TopUpNominal(
+      {Key? key,
+      required this.imageAssetPath,
+      required this.text1,
+      required this.text2,
+      required this.text3})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       child: Row(children: [
         Expanded(
           child: Container(
@@ -284,7 +291,7 @@ class TopUpNominal extends StatelessWidget {
                   child: Container(
                     height: 60,
                     clipBehavior: Clip.hardEdge,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(5),
                           bottomLeft: Radius.circular(5)),
@@ -298,10 +305,10 @@ class TopUpNominal extends StatelessWidget {
                 Flexible(
                   flex: 3,
                   child: Container(
-                      padding: EdgeInsets.only(left: 5,top: 5),
+                      padding: const EdgeInsets.only(left: 5, top: 5),
                       height: 60,
                       width: 233,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(5),
                             bottomLeft: Radius.circular(5)),
@@ -312,7 +319,7 @@ class TopUpNominal extends StatelessWidget {
                         children: [
                           Text(
                             text1,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 10,
                                 fontWeight: FontWeight.normal,
                                 color: AppColors.disabled,
@@ -320,7 +327,7 @@ class TopUpNominal extends StatelessWidget {
                           ),
                           Text(
                             text2,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.normal,
                                 color: Colors.white,
@@ -328,7 +335,7 @@ class TopUpNominal extends StatelessWidget {
                           ),
                           Text(
                             text3,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.normal,
                                 color: AppColors.main,
@@ -345,9 +352,6 @@ class TopUpNominal extends StatelessWidget {
     );
   }
 }
-
-
-
 
 class customElevatedButton extends StatelessWidget {
   final String text;
@@ -367,14 +371,18 @@ class customElevatedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 44,
-      padding: EdgeInsets.all(5),
+      padding: const EdgeInsets.all(5),
       child: ElevatedButton(
         onPressed: onPressed,
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all<Color>(backgroundColor), // Background color
-          foregroundColor: MaterialStateProperty.all<Color>(textColor), // Text color
-          textStyle: MaterialStateProperty.all<TextStyle>(TextStyle(fontSize: 16)), // Text style
-          padding: MaterialStateProperty.all<EdgeInsetsGeometry>(EdgeInsets.all(8)), // Padding
+          backgroundColor: MaterialStateProperty.all<Color>(
+              backgroundColor), // Background color
+          foregroundColor:
+              MaterialStateProperty.all<Color>(textColor), // Text color
+          textStyle: MaterialStateProperty.all<TextStyle>(
+              const TextStyle(fontSize: 16)), // Text style
+          padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+              const EdgeInsets.all(8)), // Padding
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8.0), // Border radius
@@ -388,7 +396,15 @@ class customElevatedButton extends StatelessWidget {
 }
 
 class myCard extends StatelessWidget {
-  const myCard({Key? key, required this.imagePath, required this.text1, required this.text2, required this.text3, required this.text4, required this.text5}) : super(key: key);
+  const myCard(
+      {Key? key,
+      required this.imagePath,
+      required this.text1,
+      required this.text2,
+      required this.text3,
+      required this.text4,
+      required this.text5})
+      : super(key: key);
   final String imagePath;
   final String text1;
   final String text2;
@@ -409,10 +425,9 @@ class myCard extends StatelessWidget {
             height: 77,
             width: 133,
             clipBehavior: Clip.hardEdge,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(5),
-                  bottomLeft: Radius.circular(5)),
+                  topLeft: Radius.circular(5), bottomLeft: Radius.circular(5)),
             ),
             child: Image.asset(
               imagePath,
@@ -421,10 +436,11 @@ class myCard extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
                 height: 77,
                 width: double.infinity,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(5),
                       bottomLeft: Radius.circular(5)),
@@ -435,7 +451,7 @@ class myCard extends StatelessWidget {
                   children: [
                     Text(
                       text1,
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.normal,
                           color: AppColors.disabled,
@@ -443,7 +459,7 @@ class myCard extends StatelessWidget {
                     ),
                     Text(
                       text2,
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.normal,
                           color: Colors.white,
@@ -457,7 +473,7 @@ class myCard extends StatelessWidget {
                         children: [
                           Text(
                             text3,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.normal,
                                 color: AppColors.contrast,
@@ -465,7 +481,7 @@ class myCard extends StatelessWidget {
                           ),
                           Text(
                             text4,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.normal,
                                 color: AppColors.disabled,
@@ -473,7 +489,7 @@ class myCard extends StatelessWidget {
                           ),
                           Text(
                             text5,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.normal,
                                 color: AppColors.contrast,
@@ -491,7 +507,6 @@ class myCard extends StatelessWidget {
   }
 }
 
-
 class myCustomElevatedButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
@@ -508,16 +523,20 @@ class myCustomElevatedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 44,
       width: double.infinity,
       child: ElevatedButton(
         onPressed: onPressed,
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all<Color>(backgroundColor), // Background color
-          foregroundColor: MaterialStateProperty.all<Color>(textColor), // Text color
-          textStyle: MaterialStateProperty.all<TextStyle>(TextStyle(fontSize: 16, fontWeight: FontWeight.bold)), // Text style
-          padding: MaterialStateProperty.all<EdgeInsetsGeometry>(EdgeInsets.all(10)), // Padding
+          backgroundColor: MaterialStateProperty.all<Color>(
+              backgroundColor), // Background color
+          foregroundColor:
+              MaterialStateProperty.all<Color>(textColor), // Text color
+          textStyle: MaterialStateProperty.all<TextStyle>(const TextStyle(
+              fontSize: 16, fontWeight: FontWeight.bold)), // Text style
+          padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+              const EdgeInsets.all(10)), // Padding
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8.0), // Border radius
@@ -531,17 +550,21 @@ class myCustomElevatedButton extends StatelessWidget {
 }
 
 class detailAccInfo extends StatelessWidget {
-  const detailAccInfo({Key? key, required this.childWidget, required this.text}) : super(key: key);
+  const detailAccInfo({Key? key, required this.childWidget, required this.text})
+      : super(key: key);
   final Widget childWidget;
   final String text;
   @override
   Widget build(BuildContext context) {
     return Row(
-      children:[
+      children: [
         Container(
           width: 90,
           alignment: Alignment.centerLeft,
-          child: Text(text,style: TextStyle(color: AppColors.disabled),),
+          child: Text(
+            text,
+            style: const TextStyle(color: AppColors.disabled),
+          ),
         ),
         Expanded(
           child: childWidget,

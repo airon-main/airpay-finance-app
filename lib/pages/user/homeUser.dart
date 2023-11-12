@@ -1,7 +1,7 @@
 import 'package:air_pay/widgets/custom.dart';
 import 'package:flutter/material.dart';
 import 'package:air_pay/extensions.dart';
-import '../Shopping Page/komponen/Component.dart';
+import '../shop/komponen/Component.dart';
 
 class homeUserPage extends StatelessWidget {
   const homeUserPage({Key? key}) : super(key: key);
@@ -9,13 +9,13 @@ class homeUserPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final padSize = 16.0;
+    const padSize = 16.0;
     return Scaffold(
         appBar: PreferredSize(
           preferredSize:
               Size.fromHeight(size.width * (padSize * 5 / size.width)),
           child: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               border:
                   Border(bottom: BorderSide(color: AppColors.card, width: 1)),
               color: AppColors.cardDark,
@@ -25,7 +25,7 @@ class homeUserPage extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     "Shopping Page",
                     style: TextStyle(
                       color: Colors.white,
@@ -48,8 +48,8 @@ class homeUserPage extends StatelessWidget {
         ),
         body: Container(
           height: double.infinity,
-          padding: EdgeInsets.all(10),
-          decoration: BoxDecoration(color: AppColors.cardDark),
+          padding: const EdgeInsets.all(10),
+          decoration: const BoxDecoration(color: AppColors.cardDark),
           child: Column(
             children: [
               Column(
@@ -66,12 +66,12 @@ class homeUserPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Text(
+                  const Text(
                     "Altan Assyfa Naura Putra",
                     style: TextStyle(
                         color: AppColors.contrast, fontWeight: FontWeight.bold),
                   ),
-                  Text(
+                  const Text(
                     "altantheprodigy@gmail.com",
                     style: TextStyle(
                         color: AppColors.disabled,
