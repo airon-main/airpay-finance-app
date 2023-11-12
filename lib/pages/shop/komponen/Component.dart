@@ -583,7 +583,6 @@ class dropdownChoices extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 7),
       child: Row(
         children: [
           Text(text, style: TextStyle(
@@ -609,7 +608,7 @@ class dropdownChoices extends StatelessWidget {
               ),
             ),
           )
-        ].withSpaceBetween(width: 21),
+        ].withSpaceBetween(width: 25),
       ),
     );
   }

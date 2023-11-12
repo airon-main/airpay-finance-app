@@ -1,10 +1,11 @@
 import 'package:air_pay/extensions.dart';
+import 'package:air_pay/widgets/custom.dart';
 import 'package:flutter/material.dart';
 
 import '../../shop/komponen/Component.dart';
 
-class apperancePage extends StatelessWidget {
-  const apperancePage({Key? key}) : super(key: key);
+class cachePage extends StatelessWidget {
+  const cachePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class apperancePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
-                  "Apperance",
+                  "Cache",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,
@@ -47,43 +48,19 @@ class apperancePage extends StatelessWidget {
       body: Container(
         width: double.infinity,
         padding: EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          color: AppColors.background
-        ),
+        decoration: BoxDecoration(color: AppColors.background),
         child: Column(
           children: [
-            judulPage(title: "Themes"),
-            Container(
-              padding: EdgeInsets.only(left: 0),
-              child: Row(
-                children: [
-                  Text("Custom Color", style: TextStyle(
-                    color: AppColors.disabled
-                  ),),
-                  Expanded(
-                    child: Container(
-                      height: 44,
-                      decoration: BoxDecoration(
-                        color: AppColors.card,
-                        borderRadius: BorderRadius.all(Radius.circular(5))
-                      ),
-                      padding: EdgeInsets.only(left: 10, bottom: 10, top: 10),
-                      child: Row(
-                        children: [
-                          Icon(Icons.circle, size: 18, color: AppColors.main,),
-                          Expanded(
-                            child: Text("#f2ce18", style: TextStyle(
-                                color: AppColors.disabled
-                            ),),
-                          )
-                        ].withSpaceBetween(width: 5),
-                      ),
-                    ),
-                  )
-                ].withSpaceBetween(width: 10),
-              ),
-            ),
-            dropdownChoices(text: "Icon Theme", text1: "Baseline", icon: Icons.arrow_drop_down_rounded)
+            detailAccInfo(
+                childWidget: myButton(
+                  text: "Clean   120MB",
+                  onClick: () {},
+                  textAlign: TextAlign.center,
+                  backgroundColor: AppColors.card,
+                  foregroundColor: AppColors.contrast,
+                ),
+                text: "Cache"),
+            dropdownChoices(text: "Max Size", text1: "128MB", icon: Icons.arrow_drop_down_rounded)
           ].withSpaceBetween(height: 10),
         ),
       ),
