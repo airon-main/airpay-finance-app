@@ -101,9 +101,11 @@ class myButton extends StatelessWidget {
         child: Row(
           children: [
             prefixIcon == null ? const SizedBox(width: 0) : Icon(prefixIcon),
+            const SizedBox(width: 10),
             isExpand
                 ? Expanded(child: Text(text, textAlign: textAlign))
                 : Text(text, textAlign: textAlign),
+            const SizedBox(width: 10),
             suffixIcon == null ? const SizedBox(width: 0) : Icon(suffixIcon),
           ],
         ),
