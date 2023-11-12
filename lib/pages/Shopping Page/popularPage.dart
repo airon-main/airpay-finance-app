@@ -13,7 +13,7 @@ class _popularPageState extends State<popularPage> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(10),
-      decoration: BoxDecoration(color: AppColors.cardDark),
+      decoration: BoxDecoration(color: AppColors.background),
       child: Column(
         children: [
           judulPage(title: "Most Popular", title1: "View more"),

@@ -3,6 +3,8 @@ import 'package:air_pay/pages/Shopping%20Page/Payment%20Page/topupPage.dart';
 import 'package:air_pay/pages/cardPage/cardPage.dart';
 import 'package:air_pay/pages/Shopping%20Page/shoppingPage.dart';
 import 'package:air_pay/pages/home/home.dart';
+import 'package:air_pay/pages/homeUserPage/detailUserPage/accountInformation.dart';
+import 'package:air_pay/pages/homeUserPage/homeUser.dart';
 import 'package:air_pay/pages/navigation/navigationController.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 import 'package:flutter/material.dart';
@@ -82,7 +84,7 @@ class Navigation extends StatelessWidget {
               Home(),
               ShoppingPage(),
               myCardPage(),
-              buyPage(),
+              homeUserPage(),
             ],
           )),
     );
