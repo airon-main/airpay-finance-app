@@ -3,19 +3,25 @@ import 'package:air_pay/extensions.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 
 class myTextField extends StatefulWidget {
+  const myTextField(
+      {super.key,
+      this.isObscured = false,
+      this.hintText,
+      this.textEditingController,
+      this.backgroundColor = const Color(0xff222222),
+      this.foregroundColor = const Color(0xffffffff),
+      this.hintColor = const Color(0xffF2CE18)});
   final bool isObscured;
   final String? hintText;
   final TextEditingController? textEditingController;
-  const myTextField({
-    super.key,
-    this.isObscured = false,
-    this.hintText,
-    this.textEditingController,
-  });
+  final Color backgroundColor;
+  final Color foregroundColor;
+  final Color hintColor;
 
   @override
   myTextFieldState createState() => myTextFieldState();
 }
+
 class myTextFieldState extends State<myTextField> {
   bool isChecked = true;
   @override
@@ -27,7 +33,7 @@ class myTextFieldState extends State<myTextField> {
       obscureText: widget.isObscured ? isChecked : widget.isObscured,
       decoration: InputDecoration(
         hintText: widget.hintText,
-        fillColor: darkcolor["cardDark"],
+        fillColor: darkcolor["carddark"],
         filled: true,
         hintStyle: TextStyle(
             color: darkcolor['disabled'], fontWeight: FontWeight.normal),
@@ -66,8 +72,8 @@ class myButton extends StatelessWidget {
     this.suffixIcon,
     this.text = "",
     this.textAlign = TextAlign.start,
-    this.backgroundColor = Colors.white,
-    this.foregroundColor = Colors.black,
+    this.backgroundColor = const Color(0xff292929),
+    this.foregroundColor = const Color(0xffffffff),
     this.isExpand = true,
     required this.onClick,
   });
