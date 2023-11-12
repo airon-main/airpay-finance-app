@@ -14,18 +14,21 @@ class _ShoppingPageState extends State<ShoppingPage> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final padSize = 16.0;
+    const padSize = 16.0;
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(size.width * (padSize * 5 / size.width)),
         child: Container(
-          color: AppColors.cardDark,
+          decoration: const BoxDecoration(
+            border: Border(bottom: BorderSide(color: AppColors.card, width: 1)),
+            color: AppColors.cardDark,
+          ),
           padding: EdgeInsets.all(size.width * (padSize / size.width)),
           child: SafeArea(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   "Shopping Page",
                   style: TextStyle(
                     color: Colors.white,
@@ -46,7 +49,7 @@ class _ShoppingPageState extends State<ShoppingPage> {
           ),
         ),
       ),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [Search(), popularPage()],

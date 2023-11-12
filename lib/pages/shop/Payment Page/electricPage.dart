@@ -1,32 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:air_pay/widgets/custom.dart';
-import 'package:air_pay/pages/Shopping Page/komponen/Component.dart';
+import 'package:air_pay/pages/shop/komponen/Component.dart';
 
-class buyPage extends StatefulWidget {
-  const buyPage({Key? key}) : super(key: key);
+class electricPage extends StatefulWidget {
+  const electricPage({Key? key}) : super(key: key);
 
   @override
-  State<buyPage> createState() => _buyPageState();
+  State<electricPage> createState() => _electricPageState();
 }
 
-class _buyPageState extends State<buyPage> {
+class _electricPageState extends State<electricPage> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final padSize = 16.0;
+    const padSize = 16.0;
 
     return Scaffold(
         appBar: PreferredSize(
           preferredSize:
               Size.fromHeight(size.width * (padSize * 5 / size.width)),
           child: Container(
-            color: AppColors.cardDark,
+            decoration: const BoxDecoration(
+              border:
+                  Border(bottom: BorderSide(color: AppColors.card, width: 1)),
+              color: AppColors.cardDark,
+            ),
             padding: EdgeInsets.all(size.width * (padSize / size.width)),
             child: SafeArea(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     "Shopping Page",
                     style: TextStyle(
                       color: Colors.white,
@@ -49,48 +53,47 @@ class _buyPageState extends State<buyPage> {
         ),
         body: SingleChildScrollView(
             child: Container(
-          padding: EdgeInsets.all(10),
-          decoration: BoxDecoration(color: AppColors.cardDark),
+          padding: const EdgeInsets.all(10),
+          decoration: const BoxDecoration(
+            border: Border(bottom: BorderSide(color: AppColors.card, width: 1)),
+            color: AppColors.cardDark,
+          ),
           child: Column(
             children: [
-              judulPage(title: "Enter User ID*", title1: null),
-              const myTextField(hintText: "Username"),
-              SizedBox(
-                height: 10,
-              ),
-              const myTextField(hintText: "Zone ID"),
-              judulPage(title: "Select TopUp Nominal*", title1: null),
-              promoPage(
-                  imageAssetPath: "assets/images/Rectangle 55.png",
-                  text1: "Mobbile Legends",
-                  text2: "999,999 Diamonds",
+              const judulPage(title: "Nomor Meter/ID Pelanggan*", title1: null),
+              const myTextField(hintText: "Nomor Meter/ID Pelanggan"),
+              const judulPage(title: "Select TopUp Nominal*", title1: null),
+              const promoPage(
+                  imageAssetPath: "assets/images/kelistrikan.png",
+                  text1: "Token Listrik",
+                  text2: "999,999 Token Listrik",
                   text3: "Rp.10.000",
                   text4: "99%"),
-              TopUpNominal(
-                  imageAssetPath: "assets/images/Rectangle 55.png",
-                  text1: "Mobbile Legends",
-                  text2: "40 Diamonds",
+              const TopUpNominal(
+                  imageAssetPath: "assets/images/kelistrikan.png",
+                  text1: "Token Listrik",
+                  text2: "10,000 Token Listrik",
                   text3: "Rp.13.000"),
-              TopUpNominal(
-                  imageAssetPath: "assets/images/Rectangle 55.png",
-                  text1: "Mobbile Legends",
-                  text2: "120 Diamonds",
-                  text3: "Rp.50.000"),
-              TopUpNominal(
-                  imageAssetPath: "assets/images/Rectangle 55.png",
-                  text1: "Mobbile Legends",
-                  text2: "500 Diamonds",
-                  text3: "Rp.100.000"),
-              TopUpNominal(
-                  imageAssetPath: "assets/images/Rectangle 55.png",
-                  text1: "Mobbile Legends",
-                  text2: "2,000 Diamonds",
-                  text3: "Rp.500.000"),
-              judulPage(title: "Email Receipt (Optional)", title1: null),
+              const TopUpNominal(
+                  imageAssetPath: "assets/images/kelistrikan.png",
+                  text1: "Token Listrik",
+                  text2: "10,000 Token Listrik",
+                  text3: "Rp.13.000"),
+              const TopUpNominal(
+                  imageAssetPath: "assets/images/kelistrikan.png",
+                  text1: "Token Listrik",
+                  text2: "10,000 Token Listrik",
+                  text3: "Rp.13.000"),
+              const TopUpNominal(
+                  imageAssetPath: "assets/images/kelistrikan.png",
+                  text1: "Token Listrik",
+                  text2: "10,000 Token Listrik",
+                  text3: "Rp.13.000"),
+              const judulPage(title: "Email Receipt (Optional)", title1: null),
               const myTextField(hintText: "Email"),
-              judulPage(title: "Confirm Payment", title1: null),
+              const judulPage(title: "Confirm Payment", title1: null),
               Container(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(6),
                   color: AppColors.card,
@@ -98,8 +101,8 @@ class _buyPageState extends State<buyPage> {
                 child: Column(
                   children: [
                     Container(
-                      padding: EdgeInsets.all(1),
-                      child: Row(
+                      padding: const EdgeInsets.all(1),
+                      child: const Row(
                         children: [
                           Text(
                             "Your Total :",
@@ -128,8 +131,16 @@ class _buyPageState extends State<buyPage> {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            customElevatedButton(text: "Cancel", onPressed: (){}, backgroundColor: AppColors.cardDark, textColor: Colors.white),
-                            customElevatedButton(text: "Confirm", onPressed: () {}, backgroundColor: AppColors.main, textColor: Colors.black)
+                            customElevatedButton(
+                                text: "Cancel",
+                                onPressed: () {},
+                                backgroundColor: AppColors.cardDark,
+                                textColor: Colors.white),
+                            customElevatedButton(
+                                text: "Confirm",
+                                onPressed: () {},
+                                backgroundColor: AppColors.main,
+                                textColor: Colors.black)
                           ],
                         ),
                       ),
@@ -139,8 +150,6 @@ class _buyPageState extends State<buyPage> {
               )
             ],
           ),
-        )
-        )
-    );
+        )));
   }
 }
