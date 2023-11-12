@@ -5,6 +5,7 @@ import 'package:air_pay/pages/shop/shoppingPage.dart';
 import 'package:air_pay/pages/home/home.dart';
 import 'package:air_pay/pages/user/detailUserPage/accountInformation.dart';
 import 'package:air_pay/pages/user/detailUserPage/apperance.dart';
+import 'package:air_pay/pages/user/detailUserPage/setting.dart';
 import 'package:air_pay/pages/user/homeUser.dart';
 import 'package:air_pay/pages/navigation/navigationController.dart';
 import 'package:air_pay/variables/colorpalette.dart';
@@ -85,7 +86,7 @@ class Navigation extends StatelessWidget {
               Home(),
               ShoppingPage(),
               myCardPage(),
-              apperancePage(),
+              settingPage(),
             ],
           )),
     );
