@@ -1,8 +1,6 @@
 import 'package:air_pay/extensions.dart';
 import 'package:flutter/material.dart';
 
-import '../../../widgets/custom.dart';
-
 class shopCon extends StatelessWidget {
   final String imagePath;
   final String title;
