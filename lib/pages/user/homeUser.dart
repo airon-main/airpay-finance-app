@@ -27,7 +27,7 @@ class homeUserPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Shopping Page",
+                    "Account",
                     style: TextStyle(
                       color: darkcolor['contrast'],
                       fontSize: 16,

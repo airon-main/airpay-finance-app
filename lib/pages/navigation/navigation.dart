@@ -87,7 +87,7 @@ class Navigation extends StatelessWidget {
             index: navigationController.tabIndex.value,
             children: const [
               Home(),
-              addCardPage(),
+              ShoppingPage(),
               myCardPage(),
               homeUserPage(),
             ],

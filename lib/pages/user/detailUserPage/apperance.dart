@@ -1,4 +1,5 @@
 import 'package:air_pay/extensions.dart';
+import 'package:air_pay/variables/colorpalette.dart';
 import 'package:flutter/material.dart';
 
 import '../../shop/komponen/Component.dart';
@@ -14,19 +15,19 @@ class apperancePage extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(size.width * (padSize * 5 / size.width)),
         child: Container(
-          decoration: const BoxDecoration(
-            border: Border(bottom: BorderSide(color: AppColors.card, width: 1)),
-            color: AppColors.cardDark,
+          decoration: BoxDecoration(
+            border: Border(bottom: BorderSide(color: darkcolor['card'], width: 1)),
+            color: darkcolor['carddark'],
           ),
           padding: EdgeInsets.all(size.width * (padSize / size.width)),
           child: SafeArea(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
+                 Text(
                   "Apperance",
                   style: TextStyle(
-                    color: Colors.white,
+                    color: darkcolor['contrast'],
                     fontSize: 16,
                     fontWeight: FontWeight.w900,
                     fontFamily: 'Lato',
@@ -48,7 +49,7 @@ class apperancePage extends StatelessWidget {
         width: double.infinity,
         padding: EdgeInsets.all(10),
         decoration: BoxDecoration(
-          color: AppColors.background
+          color: darkcolor['background']
         ),
         child: Column(
           children: [
@@ -58,22 +59,22 @@ class apperancePage extends StatelessWidget {
               child: Row(
                 children: [
                   Text("Custom Color", style: TextStyle(
-                    color: AppColors.disabled
+                    color: darkcolor['disabled']
                   ),),
                   Expanded(
                     child: Container(
                       height: 44,
                       decoration: BoxDecoration(
-                        color: AppColors.card,
+                        color: darkcolor['card'],
                         borderRadius: BorderRadius.all(Radius.circular(5))
                       ),
                       padding: EdgeInsets.only(left: 10, bottom: 10, top: 10),
                       child: Row(
                         children: [
-                          Icon(Icons.circle, size: 18, color: AppColors.main,),
+                          Icon(Icons.circle, size: 18, color: darkcolor['main'],),
                           Expanded(
                             child: Text("#f2ce18", style: TextStyle(
-                                color: AppColors.disabled
+                                color: darkcolor['disabled']
                             ),),
                           )
                         ].withSpaceBetween(width: 5),
