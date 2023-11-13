@@ -1,3 +1,4 @@
+import 'package:air_pay/variables/colorpalette.dart';
 import 'package:flutter/material.dart';
 import 'package:air_pay/widgets/custom.dart';
 import 'package:air_pay/pages/shop/komponen/Component.dart';
@@ -20,20 +21,20 @@ class _electricPageState extends State<electricPage> {
           preferredSize:
               Size.fromHeight(size.width * (padSize * 5 / size.width)),
           child: Container(
-            decoration: const BoxDecoration(
+            decoration:  BoxDecoration(
               border:
-                  Border(bottom: BorderSide(color: AppColors.card, width: 1)),
-              color: AppColors.cardDark,
+                  Border(bottom: BorderSide(color: darkcolor['card'], width: 1)),
+              color: darkcolor['background'],
             ),
             padding: EdgeInsets.all(size.width * (padSize / size.width)),
             child: SafeArea(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
+                   Text(
                     "Shopping Page",
                     style: TextStyle(
-                      color: Colors.white,
+                      color: darkcolor['contrast'],
                       fontSize: 16,
                       fontWeight: FontWeight.w900,
                       fontFamily: 'Lato',
@@ -54,9 +55,9 @@ class _electricPageState extends State<electricPage> {
         body: SingleChildScrollView(
             child: Container(
           padding: const EdgeInsets.all(10),
-          decoration: const BoxDecoration(
-            border: Border(bottom: BorderSide(color: AppColors.card, width: 1)),
-            color: AppColors.cardDark,
+          decoration: BoxDecoration(
+            border: Border(bottom: BorderSide(color: darkcolor['card'], width: 1)),
+            color: darkcolor['carddark'],
           ),
           child: Column(
             children: [
@@ -96,20 +97,20 @@ class _electricPageState extends State<electricPage> {
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(6),
-                  color: AppColors.card,
+                  color: darkcolor['card'],
                 ),
                 child: Column(
                   children: [
                     Container(
                       padding: const EdgeInsets.all(1),
-                      child: const Row(
+                      child:  Row(
                         children: [
                           Text(
                             "Your Total :",
                             style: TextStyle(
                                 fontSize: 15,
                                 fontWeight: FontWeight.normal,
-                                color: Colors.white,
+                                color: darkcolor['contrast'],
                                 fontFamily: 'Roboto'),
                           ),
                           Text(
@@ -117,7 +118,7 @@ class _electricPageState extends State<electricPage> {
                             style: TextStyle(
                                 fontSize: 15,
                                 fontWeight: FontWeight.normal,
-                                color: AppColors.main,
+                                color: darkcolor['main'],
                                 fontFamily: 'Roboto'),
                           ),
                         ],
@@ -134,13 +135,13 @@ class _electricPageState extends State<electricPage> {
                             customElevatedButton(
                                 text: "Cancel",
                                 onPressed: () {},
-                                backgroundColor: AppColors.cardDark,
-                                textColor: Colors.white),
+                                backgroundColor: darkcolor['carddark'],
+                                textColor: darkcolor['contrast']),
                             customElevatedButton(
                                 text: "Confirm",
                                 onPressed: () {},
-                                backgroundColor: AppColors.main,
-                                textColor: Colors.black)
+                                backgroundColor: darkcolor['main'],
+                                textColor: darkcolor['contrastmain'])
                           ],
                         ),
                       ),

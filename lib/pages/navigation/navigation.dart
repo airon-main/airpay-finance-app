@@ -1,9 +1,14 @@
 import 'package:air_pay/extensions.dart';
+import 'package:air_pay/pages/card/addCardPage.dart';
+import 'package:air_pay/pages/shop/Payment%20Page/electricPage.dart';
 import 'package:air_pay/pages/shop/Payment%20Page/topupPage.dart';
 import 'package:air_pay/pages/card/cardPage.dart';
 import 'package:air_pay/pages/shop/shoppingPage.dart';
 import 'package:air_pay/pages/home/home.dart';
 import 'package:air_pay/pages/user/detailUserPage/accountInformation.dart';
+import 'package:air_pay/pages/user/detailUserPage/apperance.dart';
+import 'package:air_pay/pages/user/detailUserPage/cache.dart';
+import 'package:air_pay/pages/user/detailUserPage/setting.dart';
 import 'package:air_pay/pages/user/homeUser.dart';
 import 'package:air_pay/pages/navigation/navigationController.dart';
 import 'package:air_pay/variables/colorpalette.dart';

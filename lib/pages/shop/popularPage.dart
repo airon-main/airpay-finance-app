@@ -1,3 +1,4 @@
+import 'package:air_pay/variables/colorpalette.dart';
 import 'package:flutter/material.dart';
 import 'komponen/Component.dart';
 
@@ -13,7 +14,7 @@ class _popularPageState extends State<popularPage> {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(10),
-      decoration: const BoxDecoration(color: AppColors.background),
+      decoration: BoxDecoration(color: darkcolor["background"]),
       child: Column(
         children: [
           const judulPage(title: "Most Popular", title1: "View more"),

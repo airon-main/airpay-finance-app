@@ -1,3 +1,4 @@
+import 'package:air_pay/variables/colorpalette.dart';
 import 'package:flutter/material.dart';
 import 'package:air_pay/widgets/custom.dart';
 import 'komponen/Component.dart';
@@ -14,8 +15,8 @@ class _SearchState extends State<Search> {
   Widget build(BuildContext context) {
     return Container(
         padding: const EdgeInsets.all(10),
-        decoration: const BoxDecoration(
-          color: AppColors.card,
+        decoration: BoxDecoration(
+          color: darkcolor['card'],
         ),
         child: const myTextField(
           hintText: "Search",

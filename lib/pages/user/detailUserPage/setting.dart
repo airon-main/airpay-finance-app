@@ -1,12 +1,10 @@
-import 'package:air_pay/extensions.dart';
-import 'package:air_pay/variables/colorpalette.dart';
-import 'package:air_pay/widgets/custom.dart';
 import 'package:flutter/material.dart';
 
-import '../shop/komponen/Component.dart';
+import '../../../variables/colorpalette.dart';
+import '../../shop/komponen/Component.dart';
 
-class addCardPage extends StatelessWidget {
-  const addCardPage({Key? key}) : super(key: key);
+class settingPage extends StatelessWidget {
+  const settingPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +15,8 @@ class addCardPage extends StatelessWidget {
         preferredSize: Size.fromHeight(size.width * (padSize * 5 / size.width)),
         child: Container(
           decoration: BoxDecoration(
-            border: Border(bottom: BorderSide(color: darkcolor['card'], width: 1)),
+            border:
+                Border(bottom: BorderSide(color: darkcolor['card'], width: 1)),
             color: darkcolor['background'],
           ),
           padding: EdgeInsets.all(size.width * (padSize / size.width)),
@@ -25,8 +24,8 @@ class addCardPage extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                 Text(
-                  "My Cards",
+                Text(
+                  "Settings",
                   style: TextStyle(
                     color: darkcolor['contrast'],
                     fontSize: 16,
@@ -47,26 +46,16 @@ class addCardPage extends StatelessWidget {
         ),
       ),
       body: Container(
-        height: double.infinity,
-        padding: const EdgeInsets.all(10),
+        width: double.infinity,
+        padding: EdgeInsets.all(10),
         decoration: BoxDecoration(color: darkcolor['background']),
         child: Column(
           children: [
-            const judulPage(title: "Enter Card Data"),
-            const myTextField(
-              hintText: "Account Number",
-            ),
-            myCustomElevatedButton(
-                text: "Add Custom Picture",
-                onPressed: () {},
-                backgroundColor: darkcolor['carddark'],
-                textColor: darkcolor['contrast']),
-            myCustomElevatedButton(
-                text: "Scan",
-                onPressed: () {},
-                backgroundColor: darkcolor['main'],
-                textColor: darkcolor['contrastmain'])
-          ].withSpaceBetween(height: 10),
+            dropdownChoices(
+                text: "Language",
+                text1: "English",
+                icon: Icons.arrow_drop_down_rounded)
+          ],
         ),
       ),
     );

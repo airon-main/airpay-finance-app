@@ -1,3 +1,4 @@
+import 'package:air_pay/variables/colorpalette.dart';
 import 'package:air_pay/widgets/custom.dart';
 import 'package:flutter/material.dart';
 import 'package:air_pay/extensions.dart';
@@ -15,20 +16,20 @@ class homeUserPage extends StatelessWidget {
           preferredSize:
               Size.fromHeight(size.width * (padSize * 5 / size.width)),
           child: Container(
-            decoration: const BoxDecoration(
-              border:
-                  Border(bottom: BorderSide(color: AppColors.card, width: 1)),
-              color: AppColors.cardDark,
+            decoration: BoxDecoration(
+              border: Border(
+                  bottom: BorderSide(color: darkcolor['card'], width: 1)),
+              color: darkcolor['carddark'],
             ),
             padding: EdgeInsets.all(size.width * (padSize / size.width)),
             child: SafeArea(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    "Shopping Page",
+                  Text(
+                    "Account",
                     style: TextStyle(
-                      color: Colors.white,
+                      color: darkcolor['contrast'],
                       fontSize: 16,
                       fontWeight: FontWeight.w900,
                       fontFamily: 'Lato',
@@ -49,7 +50,7 @@ class homeUserPage extends StatelessWidget {
         body: Container(
           height: double.infinity,
           padding: const EdgeInsets.all(10),
-          decoration: const BoxDecoration(color: AppColors.cardDark),
+          decoration: BoxDecoration(color: darkcolor['background']),
           child: Column(
             children: [
               Column(
@@ -59,22 +60,23 @@ class homeUserPage extends StatelessWidget {
                   Center(
                     child: ClipOval(
                       child: Image.asset(
-                        "assets/images/aku api.jpeg",
+                        "assets/images/Frame 93.png",
                         fit: BoxFit.cover,
                         height: 75,
                         width: 75,
                       ),
                     ),
                   ),
-                  const Text(
+                  Text(
                     "Altan Assyfa Naura Putra",
                     style: TextStyle(
-                        color: AppColors.contrast, fontWeight: FontWeight.bold),
+                        color: darkcolor['contrast'],
+                        fontWeight: FontWeight.bold),
                   ),
-                  const Text(
+                  Text(
                     "altantheprodigy@gmail.com",
                     style: TextStyle(
-                        color: AppColors.disabled,
+                        color: darkcolor['disabled'],
                         fontWeight: FontWeight.normal),
                   )
                 ].withSpaceBetween(height: 5),
@@ -82,40 +84,40 @@ class homeUserPage extends StatelessWidget {
               myButton(
                 onClick: () {},
                 text: "Account Information",
-                backgroundColor: AppColors.card,
-                foregroundColor: AppColors.disabled,
+                backgroundColor: darkcolor['card'],
+                foregroundColor: darkcolor['disabled'],
                 prefixIcon: Icons.person,
                 suffixIcon: Icons.arrow_forward_rounded,
               ),
               myButton(
                 onClick: () {},
                 text: "Apperance",
-                backgroundColor: AppColors.card,
-                foregroundColor: AppColors.disabled,
+                backgroundColor: darkcolor['card'],
+                foregroundColor: darkcolor['disabled'],
                 prefixIcon: Icons.edit_rounded,
                 suffixIcon: Icons.arrow_forward_rounded,
               ),
               myButton(
                 onClick: () {},
                 text: "Settings",
-                backgroundColor: AppColors.card,
-                foregroundColor: AppColors.disabled,
+                backgroundColor: darkcolor['card'],
+                foregroundColor: darkcolor['disabled'],
                 prefixIcon: Icons.settings_rounded,
                 suffixIcon: Icons.arrow_forward_rounded,
               ),
               myButton(
                 onClick: () {},
                 text: "Cache",
-                backgroundColor: AppColors.card,
-                foregroundColor: AppColors.disabled,
+                backgroundColor: darkcolor['card'],
+                foregroundColor: darkcolor['disabled'],
                 prefixIcon: Icons.edit_rounded,
                 suffixIcon: Icons.arrow_forward_rounded,
               ),
               myButton(
                 onClick: () {},
                 text: "About Us",
-                backgroundColor: AppColors.card,
-                foregroundColor: AppColors.disabled,
+                backgroundColor: darkcolor['card'],
+                foregroundColor: darkcolor['disabled'],
                 prefixIcon: Icons.info_outline_rounded,
                 suffixIcon: Icons.arrow_forward_rounded,
               ),
