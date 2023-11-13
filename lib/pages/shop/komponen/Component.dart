@@ -1,4 +1,5 @@
 import 'package:air_pay/extensions.dart';
+import 'package:air_pay/variables/colorpalette.dart';
 import 'package:flutter/material.dart';
 
 import '../../../widgets/custom.dart';
@@ -35,8 +36,8 @@ class shopCon extends StatelessWidget {
                 ),
                 Text(
                   title,
-                  style: const TextStyle(
-                    color: Colors.white,
+                  style: TextStyle(
+                    color: darkcolor['contrast'],
                     fontFamily: 'Roboto',
                     fontSize: 12,
                   ),
@@ -64,8 +65,8 @@ class judulPage extends StatelessWidget {
           children: [
             Text(
               title,
-              style: const TextStyle(
-                color: Colors.white,
+              style: TextStyle(
+                color: darkcolor['contrast'],
                 fontSize: 16,
                 fontWeight: FontWeight.normal,
                 fontFamily: 'Lato',
@@ -74,8 +75,8 @@ class judulPage extends StatelessWidget {
             if (title1 != null)
               Text(
                 title1!,
-                style: const TextStyle(
-                  color: AppColors.disabled,
+                style: TextStyle(
+                  color: darkcolor['disabled'],
                   fontFamily: 'Roboto',
                   fontSize: 12,
                 ),
@@ -110,7 +111,7 @@ class promoPage extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(6),
-              color: AppColors.card,
+              color: darkcolor['card'],
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -148,26 +149,26 @@ class promoPage extends StatelessWidget {
                         children: [
                           Text(
                             text1,
-                            style: const TextStyle(
+                            style: TextStyle(
                                 fontSize: 10,
                                 fontWeight: FontWeight.normal,
-                                color: AppColors.disabled,
+                                color: darkcolor['disabled'],
                                 fontFamily: 'Roboto'),
                           ),
                           Text(
                             text2,
-                            style: const TextStyle(
+                            style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.normal,
-                                color: Colors.white,
+                                color: darkcolor['contrast'],
                                 fontFamily: 'Roboto'),
                           ),
                           Text(
                             text3,
-                            style: const TextStyle(
+                            style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.normal,
-                                color: AppColors.main,
+                                color: darkcolor['main'],
                                 fontFamily: 'Roboto'),
                           ),
                         ],
@@ -177,8 +178,8 @@ class promoPage extends StatelessWidget {
                     flex: 1,
                     child: Container(
                       height: 60,
-                      decoration: const BoxDecoration(
-                          color: AppColors.Green,
+                      decoration: BoxDecoration(
+                          color: darkcolor['green'],
                           borderRadius: BorderRadius.only(
                               bottomRight: Radius.circular(5),
                               topRight: Radius.circular(5))),
@@ -218,7 +219,7 @@ class RoundedIconButton extends StatelessWidget {
     return Material(
       shape: const CircleBorder(),
       clipBehavior: Clip.antiAliasWithSaveLayer,
-      color: AppColors.card,
+      color: darkcolor['card'],
       child: InkWell(
         onTap: onTap,
         child: Padding(
@@ -228,7 +229,7 @@ class RoundedIconButton extends StatelessWidget {
           // Sesuaikan padding sesuai kebutuhan
           child: Icon(
             icon,
-            color: AppColors.contrast,
+            color: darkcolor['contrast'],
           ),
         ),
       ),
@@ -236,28 +237,6 @@ class RoundedIconButton extends StatelessWidget {
   }
 }
 
-class AppColors {
-  static const Color greenAppBar = Color(0xFF00880C);
-  static const Color blackText = Color(0xFF4A4A4A);
-  static const Color blueGotab = Color(0xFF0081A0);
-  static const Color greenConMenu = Color(0xFFE5F9D4);
-  static const Color greenImgMenu = Color(0xFF3D872A);
-  static const Color redConMenu = Color(0xFFFAE3E2);
-  static const Color redImgMenu = Color(0xFFDC3F3D);
-  static const Color purpleImgMenu = Color(0xFF87027B);
-  static const Color blueConMenu = Color(0xFFD8F2F9);
-  static const Color blueImgMenu = Color(0xFF0AAFD9);
-  static const Color blackMoreMenu = Color(0xFFEDEDED);
-  static const Color main = Color(0xffF2CE18);
-  static const Color contrasmain = Color(0xff000000);
-  static const Color contrast = Color(0xffffffff);
-  static const Color background = Color(0xff1b1b1b);
-  static const Color card = Color(0xff292929);
-  static const Color cardDark = Color(0xff222222);
-  static const Color disabled = Color(0xff888888);
-  static const Color Green = Color(0xff23c552);
-  static const Color red = Color(0xfff84f31);
-}
 
 class TopUpNominal extends StatelessWidget {
   final String imageAssetPath;
@@ -281,7 +260,7 @@ class TopUpNominal extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(6),
-              color: AppColors.card,
+              color: darkcolor['card'],
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -319,26 +298,26 @@ class TopUpNominal extends StatelessWidget {
                         children: [
                           Text(
                             text1,
-                            style: const TextStyle(
+                            style: TextStyle(
                                 fontSize: 10,
                                 fontWeight: FontWeight.normal,
-                                color: AppColors.disabled,
+                                color: darkcolor['disabled'],
                                 fontFamily: 'Roboto'),
                           ),
                           Text(
                             text2,
-                            style: const TextStyle(
+                            style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.normal,
-                                color: Colors.white,
+                                color: darkcolor['contrast'],
                                 fontFamily: 'Roboto'),
                           ),
                           Text(
                             text3,
-                            style: const TextStyle(
+                            style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.normal,
-                                color: AppColors.main,
+                                color: darkcolor['main'],
                                 fontFamily: 'Roboto'),
                           ),
                         ],
@@ -416,7 +395,7 @@ class myCard extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6),
-        color: AppColors.card,
+        color: darkcolor['card']
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -451,18 +430,18 @@ class myCard extends StatelessWidget {
                   children: [
                     Text(
                       text1,
-                      style: const TextStyle(
+                      style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.normal,
-                          color: AppColors.disabled,
+                          color: darkcolor['disabled'],
                           fontFamily: 'Roboto'),
                     ),
                     Text(
                       text2,
-                      style: const TextStyle(
+                      style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.normal,
-                          color: Colors.white,
+                          color: darkcolor['contrast'],
                           fontFamily: 'Roboto'),
                     ),
                     Align(
@@ -473,26 +452,26 @@ class myCard extends StatelessWidget {
                         children: [
                           Text(
                             text3,
-                            style: const TextStyle(
+                            style: TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.normal,
-                                color: AppColors.contrast,
+                                color: darkcolor['contrast'],
                                 fontFamily: 'Roboto'),
                           ),
                           Text(
                             text4,
-                            style: const TextStyle(
+                            style: TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.normal,
-                                color: AppColors.disabled,
+                                color: darkcolor['disabled'],
                                 fontFamily: 'Roboto'),
                           ),
                           Text(
                             text5,
-                            style: const TextStyle(
+                            style: TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.normal,
-                                color: AppColors.contrast,
+                                color: darkcolor['contrast'],
                                 fontFamily: 'Roboto'),
                           ),
                         ].withSpaceBetween(width: 2),
@@ -563,7 +542,7 @@ class detailAccInfo extends StatelessWidget {
           alignment: Alignment.centerLeft,
           child: Text(
             text,
-            style: const TextStyle(color: AppColors.disabled),
+            style: TextStyle(color: darkcolor['disabled']),
           ),
         ),
         Expanded(

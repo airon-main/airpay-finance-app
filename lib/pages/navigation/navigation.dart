@@ -1,4 +1,6 @@
 import 'package:air_pay/extensions.dart';
+import 'package:air_pay/pages/card/addCardPage.dart';
+import 'package:air_pay/pages/shop/Payment%20Page/electricPage.dart';
 import 'package:air_pay/pages/shop/Payment%20Page/topupPage.dart';
 import 'package:air_pay/pages/card/cardPage.dart';
 import 'package:air_pay/pages/shop/shoppingPage.dart';
@@ -82,7 +84,7 @@ class Navigation extends StatelessWidget {
             index: navigationController.tabIndex.value,
             children: const [
               Home(),
-              ShoppingPage(),
+              addCardPage(),
               myCardPage(),
               homeUserPage(),
             ],

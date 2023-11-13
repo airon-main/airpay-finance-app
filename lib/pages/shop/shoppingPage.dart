@@ -1,3 +1,4 @@
+import 'package:air_pay/variables/colorpalette.dart';
 import 'package:flutter/material.dart';
 import 'komponen/Component.dart';
 import 'searchBar.dart';
@@ -19,19 +20,20 @@ class _ShoppingPageState extends State<ShoppingPage> {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(size.width * (padSize * 5 / size.width)),
         child: Container(
-          decoration: const BoxDecoration(
-            border: Border(bottom: BorderSide(color: AppColors.card, width: 1)),
-            color: AppColors.cardDark,
+          decoration: BoxDecoration(
+            border:
+                Border(bottom: BorderSide(color: darkcolor['card'], width: 1)),
+            color: darkcolor['carddark'],
           ),
           padding: EdgeInsets.all(size.width * (padSize / size.width)),
           child: SafeArea(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
+                Text(
                   "Shopping Page",
                   style: TextStyle(
-                    color: Colors.white,
+                    color: darkcolor['contrast'],
                     fontSize: 16,
                     fontWeight: FontWeight.w900,
                     fontFamily: 'Lato',

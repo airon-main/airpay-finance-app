@@ -1,3 +1,4 @@
+import 'package:air_pay/variables/colorpalette.dart';
 import 'package:flutter/material.dart';
 import 'package:air_pay/widgets/custom.dart';
 import 'package:air_pay/pages/shop/komponen/Component.dart';
@@ -20,20 +21,20 @@ class _buyPageState extends State<buyPage> {
           preferredSize:
               Size.fromHeight(size.width * (padSize * 5 / size.width)),
           child: Container(
-            decoration: const BoxDecoration(
-              border:
-                  Border(bottom: BorderSide(color: AppColors.card, width: 1)),
-              color: AppColors.cardDark,
+            decoration: BoxDecoration(
+              border: Border(
+                  bottom: BorderSide(color: darkcolor['card'], width: 1)),
+              color: darkcolor['background'],
             ),
             padding: EdgeInsets.all(size.width * (padSize / size.width)),
             child: SafeArea(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
+                  Text(
                     "Shopping Page",
                     style: TextStyle(
-                      color: Colors.white,
+                      color: darkcolor['contrast'],
                       fontSize: 16,
                       fontWeight: FontWeight.w900,
                       fontFamily: 'Lato',
@@ -54,7 +55,7 @@ class _buyPageState extends State<buyPage> {
         body: SingleChildScrollView(
           child: Container(
             padding: const EdgeInsets.all(10),
-            decoration: const BoxDecoration(color: AppColors.cardDark),
+            decoration: BoxDecoration(color: darkcolor['background']),
             child: Column(
               children: [
                 const judulPage(title: "Enter User ID*", title1: null),
@@ -98,20 +99,20 @@ class _buyPageState extends State<buyPage> {
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(6),
-                    color: AppColors.card,
+                    color: darkcolor['card'],
                   ),
                   child: Column(
                     children: [
                       Container(
                         padding: const EdgeInsets.all(1),
-                        child: const Row(
+                        child: Row(
                           children: [
                             Text(
                               "Your Total :",
                               style: TextStyle(
                                   fontSize: 15,
                                   fontWeight: FontWeight.normal,
-                                  color: Colors.white,
+                                  color: darkcolor['contrast'],
                                   fontFamily: 'Roboto'),
                             ),
                             Text(
@@ -119,7 +120,7 @@ class _buyPageState extends State<buyPage> {
                               style: TextStyle(
                                   fontSize: 15,
                                   fontWeight: FontWeight.normal,
-                                  color: AppColors.main,
+                                  color: darkcolor['main'],
                                   fontFamily: 'Roboto'),
                             ),
                           ],
@@ -136,13 +137,13 @@ class _buyPageState extends State<buyPage> {
                               customElevatedButton(
                                   text: "Cancel",
                                   onPressed: () {},
-                                  backgroundColor: AppColors.cardDark,
-                                  textColor: Colors.white),
+                                  backgroundColor: darkcolor['carddark'],
+                                  textColor: darkcolor['contrast']),
                               customElevatedButton(
                                   text: "Confirm",
                                   onPressed: () {},
-                                  backgroundColor: AppColors.main,
-                                  textColor: Colors.black)
+                                  backgroundColor: darkcolor['main'],
+                                  textColor: darkcolor['contrastmain'])
                             ],
                           ),
                         ),
