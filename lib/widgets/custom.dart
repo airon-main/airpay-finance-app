@@ -145,6 +145,7 @@ class myImageButton extends StatelessWidget {
     this.width,
     this.icon,
     this.text = "",
+    this.imagePath = 'assets/images/pln.png',
     this.textAlign = TextAlign.start,
     this.backgroundColor = const Color(0xff292929),
     this.foregroundColor = const Color(0xffffffff),
@@ -154,6 +155,7 @@ class myImageButton extends StatelessWidget {
   final double? width;
   final IconData? icon;
   final String text;
+  final String imagePath;
   final TextAlign textAlign;
   final Color backgroundColor;
   final Color foregroundColor;
@@ -172,10 +174,10 @@ class myImageButton extends StatelessWidget {
           width: double.infinity,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
-            image: const DecorationImage(
-              image: AssetImage('assets/images/pln.png'),
+            image: DecorationImage(
+              image: AssetImage(imagePath),
               fit: BoxFit.cover,
-              colorFilter: ColorFilter.mode(
+              colorFilter: const ColorFilter.mode(
                 Colors.black45,
                 BlendMode.darken,
               ),
