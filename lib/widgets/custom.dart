@@ -10,13 +10,17 @@ class myTextField extends StatefulWidget {
       this.textEditingController,
       this.backgroundColor = const Color(0xff222222),
       this.foregroundColor = const Color(0xffffffff),
-      this.hintColor = const Color(0xffF2CE18)});
+      this.hintColor = const Color(0xffF2CE18),
+      this.label = "",
+      this.labelWidth});
   final bool isObscured;
   final String? hintText;
   final TextEditingController? textEditingController;
   final Color backgroundColor;
   final Color foregroundColor;
   final Color hintColor;
+  final String label;
+  final double? labelWidth;
 
   @override
   myTextFieldState createState() => myTextFieldState();
@@ -26,41 +30,58 @@ class myTextFieldState extends State<myTextField> {
   bool isChecked = true;
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      autofocus: false,
-      style: TextStyle(color: darkcolor['contrast']),
-      controller: widget.textEditingController,
-      obscureText: widget.isObscured ? isChecked : widget.isObscured,
-      decoration: InputDecoration(
-        hintText: widget.hintText,
-        fillColor: darkcolor["carddark"],
-        filled: true,
-        hintStyle: TextStyle(
-            color: darkcolor['disabled'], fontWeight: FontWeight.normal),
-        suffixIcon: widget.isObscured
-            ? IconButton(
-                icon: Icon(
-                  // Based on passwordVisible state choose the icon
-                  isChecked ? Icons.visibility : Icons.visibility_off,
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        SizedBox(
+          width: widget.labelWidth,
+          child: Text(
+            widget.label,
+            style: TextStyle(color: darkcolor['disabled']),
+          ),
+        ),
+        Expanded(
+          child: TextField(
+            autofocus: false,
+            style: TextStyle(color: darkcolor['contrast']),
+            controller: widget.textEditingController,
+            obscureText: widget.isObscured ? isChecked : widget.isObscured,
+            decoration: InputDecoration(
+              hintText: widget.hintText,
+              fillColor: darkcolor["carddark"],
+              filled: true,
+              hintStyle: TextStyle(
                   color: darkcolor['disabled'],
-                ),
-                onPressed: () {
-                  // Update the state i.e. toogle the state of passwordVisible variable
-                  setState(() {
-                    isChecked = !isChecked;
-                  });
-                },
-              )
-            : null,
-        contentPadding: const EdgeInsets.all(10),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(5),
-          borderSide: BorderSide.none,
+                  fontWeight: FontWeight.normal,
+                  fontSize: 14),
+              suffixIcon: widget.isObscured
+                  ? IconButton(
+                      icon: Icon(
+                        // Based on passwordVisible state choose the icon
+                        isChecked ? Icons.visibility : Icons.visibility_off,
+                        color: darkcolor['disabled'],
+                      ),
+                      onPressed: () {
+                        // Update the state i.e. toogle the state of passwordVisible variable
+                        setState(() {
+                          isChecked = !isChecked;
+                        });
+                      },
+                    )
+                  : null,
+              contentPadding: const EdgeInsets.all(10),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(5),
+                borderSide: BorderSide.none,
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: darkcolor['main'], width: 0.5),
+              ),
+            ),
+          ),
         ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: darkcolor['main'], width: 0.5),
-        ),
-      ),
+      ],
     );
   }
 }
@@ -100,13 +121,16 @@ class myButton extends StatelessWidget {
             foregroundColor: foregroundColor),
         child: Row(
           children: [
-            prefixIcon == null ? const SizedBox(width: 0) : Icon(prefixIcon),
+            Icon(prefixIcon),
             const SizedBox(width: 10),
-            isExpand
-                ? Expanded(child: Text(text, textAlign: textAlign))
-                : Text(text, textAlign: textAlign),
+            Expanded(
+                child: Text(
+              text,
+              textAlign: textAlign,
+              style: const TextStyle(fontSize: 14),
+            )),
             const SizedBox(width: 10),
-            suffixIcon == null ? const SizedBox(width: 0) : Icon(suffixIcon),
+            Icon(suffixIcon),
           ],
         ),
       ),
