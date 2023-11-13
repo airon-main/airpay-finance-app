@@ -173,10 +173,6 @@ class Home extends StatelessWidget {
                   },
                 ),
               ),
-              myColumnButton(
-                onClick: () {},
-                text: "Label test",
-              )
             ].withSpaceBetween(height: 10),
           ),
         ),

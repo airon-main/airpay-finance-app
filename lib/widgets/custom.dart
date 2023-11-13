@@ -138,8 +138,8 @@ class myButton extends StatelessWidget {
   }
 }
 
-class myColumnButton extends StatelessWidget {
-  const myColumnButton({
+class myImageButton extends StatelessWidget {
+  const myImageButton({
     super.key,
     this.height,
     this.width,
@@ -173,34 +173,30 @@ class myColumnButton extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
             image: const DecorationImage(
-                image: AssetImage('assets/images/pln.png'), fit: BoxFit.cover),
+              image: AssetImage('assets/images/pln.png'),
+              fit: BoxFit.cover,
+              colorFilter: ColorFilter.mode(
+                Colors.black45,
+                BlendMode.darken,
+              ),
+            ),
           ),
           child: Padding(
             padding: const EdgeInsets.all(10),
-            child: Text(text),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(icon, color: Colors.white),
+                Text(
+                  text,
+                  style: const TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.normal),
+                ),
+              ].withSpaceBetween(height: 5),
+            ),
           ),
         ),
       ),
-      // child: TextButton(
-      //   onPressed: onClick,
-      //   style: TextButton.styleFrom(
-      //       shape:
-      //           RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-      //       padding: const EdgeInsets.symmetric(horizontal: 10),
-      //       backgroundColor: backgroundColor,
-      //       foregroundColor: foregroundColor,),
-      //   child: Row(
-      //     children: [
-      //       Icon(icon),
-      //       const SizedBox(width: 10),
-      //       Text(
-      //         text,
-      //         textAlign: textAlign,
-      //         style: const TextStyle(fontSize: 14),
-      //       ),
-      //     ],
-      //   ),
-      // ),
     );
   }
 }
