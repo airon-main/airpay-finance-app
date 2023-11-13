@@ -22,12 +22,12 @@ class _popularPageState extends State<popularPage> {
             children: [
               Expanded(
                   child: shopCon(
-                      imagePath: 'assets/images/gamepad.png',
+                      icon: Icons.videogame_asset,
                       title: "Top Up",
                       imageAssetPath: "assets/images/topup.png")),
               Expanded(
                 child: shopCon(
-                    imagePath: 'assets/images/listrik.png',
+                    icon: Icons.videogame_asset,
                     title: "PLN",
                     imageAssetPath: "assets/images/kelistrikan.png"),
               )
@@ -37,12 +37,12 @@ class _popularPageState extends State<popularPage> {
             children: [
               Expanded(
                   child: shopCon(
-                      imagePath: 'assets/images/sehat.png',
+                      icon: Icons.add_box,
                       title: "BPJS",
                       imageAssetPath: "assets/images/kesehatan.png")),
               Expanded(
                 child: shopCon(
-                    imagePath: 'assets/images/air.png',
+                    icon: Icons.water_drop_sharp,
                     title: "PDAM",
                     imageAssetPath: "assets/images/perairan.png"),
               )
