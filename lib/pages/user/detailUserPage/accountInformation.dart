@@ -1,4 +1,5 @@
 import 'package:air_pay/extensions.dart';
+import 'package:air_pay/variables/colorpalette.dart';
 import 'package:air_pay/widgets/custom.dart';
 import 'package:flutter/material.dart';
 
@@ -15,19 +16,20 @@ class accountInfoPage extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(size.width * (padSize * 5 / size.width)),
         child: Container(
-          decoration: const BoxDecoration(
-            border: Border(bottom: BorderSide(color: AppColors.card, width: 1)),
-            color: AppColors.cardDark,
+          decoration: BoxDecoration(
+            border:
+                Border(bottom: BorderSide(color: darkcolor['card'], width: 1)),
+            color: darkcolor['background'],
           ),
           padding: EdgeInsets.all(size.width * (padSize / size.width)),
           child: SafeArea(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
+                Text(
                   "Account Information",
                   style: TextStyle(
-                    color: Colors.white,
+                    color: darkcolor['contrast'],
                     fontSize: 16,
                     fontWeight: FontWeight.w900,
                     fontFamily: 'Lato',
@@ -48,7 +50,7 @@ class accountInfoPage extends StatelessWidget {
       body: Container(
         height: double.infinity,
         padding: const EdgeInsets.all(10),
-        decoration: const BoxDecoration(color: AppColors.background),
+        decoration: BoxDecoration(color: darkcolor['background']),
         child: Column(
           children: [
             Container(
@@ -89,8 +91,8 @@ class accountInfoPage extends StatelessWidget {
                   text: "change Button",
                   onClick: () {},
                   textAlign: TextAlign.center,
-                  backgroundColor: AppColors.card,
-                  foregroundColor: AppColors.contrast,
+                  backgroundColor: darkcolor['card'],
+                  foregroundColor: darkcolor['contrast'],
                 ),
                 text: "Password"),
             const detailAccInfo(
