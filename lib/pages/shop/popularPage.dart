@@ -15,9 +15,9 @@ class _popularPageState extends State<popularPage> {
     return Container(
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(color: darkcolor["background"]),
-      child: Column(
+      child: const Column(
         children: [
-          const judulPage(title: "Most Popular", title1: "View more"),
+          judulPage(title: "Most Popular", title1: "View more"),
           Row(
             children: [
               Expanded(
@@ -48,23 +48,23 @@ class _popularPageState extends State<popularPage> {
               )
             ],
           ),
-          const SizedBox(
+          SizedBox(
             height: 20,
           ),
-          const judulPage(title: "Promo", title1: "View more"),
-          const promoPage(
+          judulPage(title: "Promo", title1: "View more"),
+          promoPage(
               imageAssetPath: "assets/images/Rectangle 55.png",
               text1: "Mobbile Legends",
               text2: "999,999 Diamonds",
               text3: "Rp.10.000",
               text4: "99%"),
-          const promoPage(
+          promoPage(
               imageAssetPath: "assets/images/gensin.png",
               text1: "Genshin Impact",
               text2: "999,999 Diamonds",
               text3: "Rp.10.000",
               text4: "99%"),
-          const promoPage(
+          promoPage(
               imageAssetPath: "assets/images/kuota.png",
               text1: "Kuota",
               text2: "999,999 Diamonds",
