@@ -3,7 +3,7 @@ import 'package:air_pay/pages/card/addCardPage.dart';
 import 'package:air_pay/pages/shop/Payment%20Page/electricPage.dart';
 import 'package:air_pay/pages/shop/Payment%20Page/topupPage.dart';
 import 'package:air_pay/pages/card/cardPage.dart';
-import 'package:air_pay/pages/shop/shoppingPage.dart';
+import 'package:air_pay/pages/shop/shop.dart';
 import 'package:air_pay/pages/home/home.dart';
 import 'package:air_pay/pages/user/detailUserPage/accountInformation.dart';
 import 'package:air_pay/pages/user/detailUserPage/apperance.dart';
