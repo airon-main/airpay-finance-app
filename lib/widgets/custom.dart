@@ -137,3 +137,70 @@ class myButton extends StatelessWidget {
     );
   }
 }
+
+class myColumnButton extends StatelessWidget {
+  const myColumnButton({
+    super.key,
+    this.height,
+    this.width,
+    this.icon,
+    this.text = "",
+    this.textAlign = TextAlign.start,
+    this.backgroundColor = const Color(0xff292929),
+    this.foregroundColor = const Color(0xffffffff),
+    required this.onClick,
+  });
+  final double? height;
+  final double? width;
+  final IconData? icon;
+  final String text;
+  final TextAlign textAlign;
+  final Color backgroundColor;
+  final Color foregroundColor;
+  final VoidCallback onClick;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: height,
+      width: width,
+      child: MaterialButton(
+        padding: EdgeInsets.zero,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+        onPressed: onClick,
+        child: Container(
+          width: double.infinity,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(5),
+            image: const DecorationImage(
+                image: AssetImage('assets/images/pln.png'), fit: BoxFit.cover),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Text(text),
+          ),
+        ),
+      ),
+      // child: TextButton(
+      //   onPressed: onClick,
+      //   style: TextButton.styleFrom(
+      //       shape:
+      //           RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+      //       padding: const EdgeInsets.symmetric(horizontal: 10),
+      //       backgroundColor: backgroundColor,
+      //       foregroundColor: foregroundColor,),
+      //   child: Row(
+      //     children: [
+      //       Icon(icon),
+      //       const SizedBox(width: 10),
+      //       Text(
+      //         text,
+      //         textAlign: textAlign,
+      //         style: const TextStyle(fontSize: 14),
+      //       ),
+      //     ],
+      //   ),
+      // ),
+    );
+  }
+}

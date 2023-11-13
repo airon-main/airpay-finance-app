@@ -1,6 +1,7 @@
 import 'package:air_pay/extensions.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 import 'package:air_pay/variables/transaction.dart';
+import 'package:air_pay/widgets/custom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
@@ -172,6 +173,10 @@ class Home extends StatelessWidget {
                   },
                 ),
               ),
+              myColumnButton(
+                onClick: () {},
+                text: "Label test",
+              )
             ].withSpaceBetween(height: 10),
           ),
         ),
