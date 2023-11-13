@@ -552,3 +552,43 @@ class detailAccInfo extends StatelessWidget {
     );
   }
 }
+
+
+class dropdownChoices extends StatelessWidget {
+  const dropdownChoices({Key? key, required this.text, required this.text1, required this.icon}) : super(key: key);
+  final String text;
+  final String text1;
+  final IconData icon;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Row(
+        children: [
+          Text(text, style: TextStyle(
+              color: AppColors.disabled
+          ),),
+          Expanded(
+            child: Container(
+              height: 44,
+              decoration: BoxDecoration(
+                  color: AppColors.card,
+                  borderRadius: BorderRadius.all(Radius.circular(5))
+              ),
+              padding: EdgeInsets.all(10),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Text(text1, style: TextStyle(
+                        color: AppColors.contrast
+                    ),),
+                  ),
+                  Icon(icon, size: 30, color: AppColors.contrast,),
+                ],
+              ),
+            ),
+          )
+        ].withSpaceBetween(width: 25),
+      ),
+    );
+  }
+}
