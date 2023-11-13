@@ -2,6 +2,7 @@ import 'package:air_pay/extensions.dart';
 import 'package:air_pay/widgets/custom.dart';
 import 'package:flutter/material.dart';
 
+import '../../../variables/colorpalette.dart';
 import '../../shop/komponen/Component.dart';
 
 class cachePage extends StatelessWidget {
@@ -15,19 +16,20 @@ class cachePage extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(size.width * (padSize * 5 / size.width)),
         child: Container(
-          decoration: const BoxDecoration(
-            border: Border(bottom: BorderSide(color: AppColors.card, width: 1)),
-            color: AppColors.cardDark,
+          decoration: BoxDecoration(
+            border:
+                Border(bottom: BorderSide(color: darkcolor['card'], width: 1)),
+            color: darkcolor['background'],
           ),
           padding: EdgeInsets.all(size.width * (padSize / size.width)),
           child: SafeArea(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
+                Text(
                   "Cache",
                   style: TextStyle(
-                    color: Colors.white,
+                    color: darkcolor['contrast'],
                     fontSize: 16,
                     fontWeight: FontWeight.w900,
                     fontFamily: 'Lato',
@@ -48,7 +50,7 @@ class cachePage extends StatelessWidget {
       body: Container(
         width: double.infinity,
         padding: EdgeInsets.all(10),
-        decoration: BoxDecoration(color: AppColors.background),
+        decoration: BoxDecoration(color: darkcolor['background']),
         child: Column(
           children: [
             detailAccInfo(
@@ -56,11 +58,14 @@ class cachePage extends StatelessWidget {
                   text: "Clean   120MB",
                   onClick: () {},
                   textAlign: TextAlign.center,
-                  backgroundColor: AppColors.card,
-                  foregroundColor: AppColors.contrast,
+                  backgroundColor: darkcolor['card'],
+                  foregroundColor: darkcolor['contrast'],
                 ),
                 text: "Cache"),
-            dropdownChoices(text: "Max Size", text1: "128MB", icon: Icons.arrow_drop_down_rounded)
+            dropdownChoices(
+                text: "Max Size",
+                text1: "128MB",
+                icon: Icons.arrow_drop_down_rounded)
           ].withSpaceBetween(height: 10),
         ),
       ),

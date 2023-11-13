@@ -563,13 +563,13 @@ class dropdownChoices extends StatelessWidget {
       child: Row(
         children: [
           Text(text, style: TextStyle(
-              color: AppColors.disabled
+              color: darkcolor['disabled']
           ),),
           Expanded(
             child: Container(
               height: 44,
               decoration: BoxDecoration(
-                  color: AppColors.card,
+                  color: darkcolor['card'],
                   borderRadius: BorderRadius.all(Radius.circular(5))
               ),
               padding: EdgeInsets.all(10),
@@ -577,10 +577,10 @@ class dropdownChoices extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Text(text1, style: TextStyle(
-                        color: AppColors.contrast
+                        color: darkcolor['contrast']
                     ),),
                   ),
-                  Icon(icon, size: 30, color: AppColors.contrast,),
+                  Icon(icon, size: 30, color: darkcolor['contrast'],),
                 ],
               ),
             ),
