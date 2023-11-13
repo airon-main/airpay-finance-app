@@ -2,7 +2,7 @@ import 'package:air_pay/extensions.dart';
 import 'package:air_pay/widgets/custom.dart';
 import 'package:flutter/material.dart';
 
-import '../../Shopping Page/komponen/Component.dart';
+import '../../shop/komponen/Component.dart';
 
 class accountInfoPage extends StatelessWidget {
   const accountInfoPage({Key? key}) : super(key: key);
@@ -10,12 +10,12 @@ class accountInfoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final padSize = 16.0;
+    const padSize = 16.0;
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(size.width * (padSize * 5 / size.width)),
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             border: Border(bottom: BorderSide(color: AppColors.card, width: 1)),
             color: AppColors.cardDark,
           ),
@@ -24,7 +24,7 @@ class accountInfoPage extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   "Account Information",
                   style: TextStyle(
                     color: Colors.white,
@@ -47,17 +47,17 @@ class accountInfoPage extends StatelessWidget {
       ),
       body: Container(
         height: double.infinity,
-        padding: EdgeInsets.all(10),
-        decoration: BoxDecoration(color: AppColors.background),
+        padding: const EdgeInsets.all(10),
+        decoration: const BoxDecoration(color: AppColors.background),
         child: Column(
           children: [
             Container(
-              padding: EdgeInsets.symmetric(vertical: 10),
+              padding: const EdgeInsets.symmetric(vertical: 10),
               alignment: Alignment.center,
               child: Container(
                 height: 75,
                 width: 75,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     image: DecorationImage(
                   image: AssetImage("assets/images/Frame 93.png"),
                   fit: BoxFit.cover,
@@ -69,17 +69,17 @@ class accountInfoPage extends StatelessWidget {
                 ),
               ),
             ),
-            detailAccInfo(
+            const detailAccInfo(
                 childWidget: myTextField(
                   hintText: "altantheprodigy",
                 ),
                 text: "Username"),
-            detailAccInfo(
+            const detailAccInfo(
                 childWidget: myTextField(
                   hintText: "Altan Assyfa Naura Putra",
                 ),
                 text: "Full Name"),
-            detailAccInfo(
+            const detailAccInfo(
                 childWidget: myTextField(
                   hintText: "altantheprodigy@gmail.com",
                 ),
@@ -93,7 +93,7 @@ class accountInfoPage extends StatelessWidget {
                   foregroundColor: AppColors.contrast,
                 ),
                 text: "Password"),
-            detailAccInfo(
+            const detailAccInfo(
                 childWidget: myTextField(
                   hintText: "1a2B3c4D5e6F7g8",
                 ),
