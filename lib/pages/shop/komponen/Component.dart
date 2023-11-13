@@ -590,3 +590,31 @@ class dropdownChoices extends StatelessWidget {
     );
   }
 }
+
+class rowAboutUs extends StatelessWidget {
+  const rowAboutUs({Key? key, required this.text,  required this.text1,  required this.text2}) : super(key: key);
+final String text;
+final String text1;
+final String text2;
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Row(
+          children: [
+            Text(text,style: TextStyle(
+                color: darkcolor['contrast']
+            ),),
+            Text(text1,style: TextStyle(
+                color: darkcolor['disabled']
+            ),),
+          ].withSpaceBetween(width: 5),
+        ),
+        Text(text2,style: TextStyle(
+            color: darkcolor['contrast']
+        ),)
+      ],
+    );
+  }
+}
