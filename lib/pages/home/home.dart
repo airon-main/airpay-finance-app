@@ -73,12 +73,13 @@ class Home extends StatelessWidget {
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        physics: const ClampingScrollPhysics(),
-        child: Container(
-          color: darkcolor['background'],
-          width: double.infinity,
-          padding: const EdgeInsets.all(10),
+      body: Container(
+        color: darkcolor['background'],
+        width: double.infinity,
+        height: double.infinity,
+        padding: const EdgeInsets.all(10),
+        child: SingleChildScrollView(
+          physics: const ClampingScrollPhysics(),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -135,8 +136,8 @@ class Home extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text("Latest Transaction",
-                      style:
-                          TextStyle(fontSize: 14, color: darkcolor['contrast'])),
+                      style: TextStyle(
+                          fontSize: 14, color: darkcolor['contrast'])),
                   GestureDetector(
                     onTap: () {},
                     child: Text(
