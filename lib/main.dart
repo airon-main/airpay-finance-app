@@ -1,5 +1,6 @@
 import 'package:air_pay/pages/login/login.dart';
 import 'package:air_pay/pages/navigation/navigation.dart';
+import 'package:air_pay/pages/home/scan/scan.dart';
 import 'package:air_pay/pages/pin/pin.dart';
 import 'package:air_pay/pages/signup/signup.dart';
 import 'package:air_pay/pages/splash/splash.dart';
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
       home: const SplashScreen(),
       getPages: [
         GetPage(name: "/home", page: () => Navigation()),
+        GetPage(name: "/home/scan", page: () => const Scan()),
         GetPage(name: "/login", page: () => const Login()),
         GetPage(name: "/signup", page: () => const Signup()),
         GetPage(name: "/enterpin", page: () => const EnterPin()),
