@@ -17,7 +17,8 @@ class _ShoppingPageState extends State<ShoppingPage> {
     return Scaffold(
       appBar: const myAppBar(
         title: "Shopping Page",
-        //* Penggunaan jika ada tombol back
+        borderColor: Colors.transparent, //* menghilangkan border bottom
+        //* Penggunaan jika ada tombol back, masukkan ke gesture detector kalau mau ada logic get.back
         // prefixWidget: Container(
         //   padding: const EdgeInsets.only(right: 10),
         //   width: 34,

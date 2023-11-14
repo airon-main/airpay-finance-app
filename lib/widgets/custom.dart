@@ -209,9 +209,11 @@ class myAppBar extends StatelessWidget implements PreferredSizeWidget {
     super.key,
     this.title = "",
     this.prefixWidget = const SizedBox(height: 0, width: 0),
+    this.borderColor = const Color(0xff292929),
   });
   final String title;
   final Widget prefixWidget;
+  final Color borderColor;
 
   @override
   Widget build(BuildContext context) {
@@ -224,7 +226,12 @@ class myAppBar extends StatelessWidget implements PreferredSizeWidget {
       flexibleSpace: Container(
         height: double.infinity,
         alignment: Alignment.bottomCenter,
-        color: darkcolor['background'],
+        decoration: BoxDecoration(
+          color: darkcolor['background'],
+          border: Border(
+            bottom: BorderSide(width: 1, color: borderColor),
+          ),
+        ),
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
