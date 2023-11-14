@@ -48,11 +48,16 @@ class apperancePage extends StatelessWidget {
               label: "Custom Color",
               labelWidth: 100,
             ),
-            const dropdownChoices(
-                text: "Icon Theme",
-                text1: "Baseline",
-                icon: Icons.arrow_drop_down_rounded),
-            const mySwitch(),
+            myButton(
+              onClick: () {},
+              label: "Icon Theme",
+              labelWidth: 100,
+              text: "Baseline",
+              suffixIcon: Icons.arrow_drop_down_rounded,
+            ),
+            const mySwitch(
+              label: "Light Theme",
+            ),
           ].withSpaceBetween(height: 10),
         ),
       ),

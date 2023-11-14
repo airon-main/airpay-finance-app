@@ -100,6 +100,8 @@ class myButton extends StatelessWidget {
     this.foregroundColor = const Color(0xffffffff),
     this.isExpand = true,
     required this.onClick,
+    this.label = "",
+    this.labelWidth,
   });
   final IconData? prefixIcon;
   final IconData? suffixIcon;
@@ -109,34 +111,51 @@ class myButton extends StatelessWidget {
   final Color foregroundColor;
   final bool isExpand;
   final VoidCallback onClick;
+  final String label;
+  final double? labelWidth;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 48,
-      child: TextButton(
-        onPressed: onClick,
-        style: TextButton.styleFrom(
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            backgroundColor: backgroundColor,
-            foregroundColor: foregroundColor),
-        child: Row(
-          children: [
-            Icon(prefixIcon),
-            const SizedBox(width: 10),
-            Expanded(
-                child: Text(
-              text,
-              textAlign: textAlign,
-              style: const TextStyle(fontSize: 14),
-            )),
-            const SizedBox(width: 10),
-            Icon(suffixIcon),
-          ],
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        SizedBox(
+          width: labelWidth,
+          child: Text(
+            label,
+            style: TextStyle(color: darkcolor['disabled']),
+          ),
         ),
-      ),
+        Expanded(
+          child: SizedBox(
+            height: 48,
+            child: TextButton(
+              onPressed: onClick,
+              style: TextButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5)),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  backgroundColor: backgroundColor,
+                  foregroundColor: foregroundColor),
+              child: Row(
+                children: [
+                  Icon(prefixIcon),
+                  const SizedBox(width: 10),
+                  Expanded(
+                      child: Text(
+                    text,
+                    textAlign: textAlign,
+                    style: const TextStyle(fontSize: 14),
+                  )),
+                  const SizedBox(width: 10),
+                  Icon(suffixIcon),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
@@ -272,7 +291,11 @@ class myAppBar extends StatelessWidget implements PreferredSizeWidget {
 }
 
 class mySwitch extends StatelessWidget {
-  const mySwitch({super.key});
+  const mySwitch({
+    super.key,
+    this.label = "",
+  });
+  final String label;
 
   @override
   Widget build(BuildContext context) {
@@ -282,7 +305,7 @@ class mySwitch extends StatelessWidget {
       children: [
         const SizedBox(width: 0),
         Text(
-          "Outline Icons",
+          label,
           style: TextStyle(color: darkcolor['disabled']),
         ),
         const Spacer(),
