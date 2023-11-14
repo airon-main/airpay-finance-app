@@ -1,7 +1,9 @@
+import 'package:air_pay/widgets/customController.dart';
 import 'package:flutter/material.dart';
 import 'package:air_pay/extensions.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 
 class myTextField extends StatefulWidget {
   const myTextField(
@@ -267,4 +269,39 @@ class myAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+}
+
+class mySwitch extends StatelessWidget {
+  const mySwitch({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    mySwitchController ctr = Get.put(mySwitchController());
+    return Row(
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        const SizedBox(width: 0),
+        Text(
+          "Outline Icons",
+          style: TextStyle(color: darkcolor['disabled']),
+        ),
+        const Spacer(),
+        SizedBox(
+          height: 30,
+          width: 52,
+          child: Obx(() => Switch(
+                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                inactiveTrackColor: darkcolor['card'],
+                inactiveThumbColor: darkcolor['disabled'],
+                activeTrackColor: darkcolor['disabled'],
+                activeColor: darkcolor['contrast'],
+                trackOutlineColor:
+                    const MaterialStatePropertyAll<Color>(Colors.transparent),
+                value: ctr.on.value,
+                onChanged: (val) => ctr.toggle(),
+              )),
+        )
+      ],
+    );
+  }
 }

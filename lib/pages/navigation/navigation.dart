@@ -6,7 +6,7 @@ import 'package:air_pay/pages/card/cardPage.dart';
 import 'package:air_pay/pages/shop/shop.dart';
 import 'package:air_pay/pages/home/home.dart';
 import 'package:air_pay/pages/user/detailUserPage/accountInformation.dart';
-import 'package:air_pay/pages/user/detailUserPage/apperance.dart';
+import 'package:air_pay/pages/user/detailUserPage/appearance.dart';
 import 'package:air_pay/pages/user/detailUserPage/cache.dart';
 import 'package:air_pay/pages/user/detailUserPage/setting.dart';
 import 'package:air_pay/pages/user/homeUser.dart';
