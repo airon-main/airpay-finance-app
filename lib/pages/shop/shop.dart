@@ -70,39 +70,54 @@ class _ShoppingPageState extends State<ShoppingPage> {
               child: SingleChildScrollView(
                 child: Container(
                   padding: const EdgeInsets.all(10),
-                  child: const Column(
+                  child: Column(
                     children: [
                       judulPage(title: "Most Popular", title1: "View more"),
                       Row(
                         children: [
                           Expanded(
-                              child: shopCon(
-                                  imagePath: 'assets/images/gamepad.png',
-                                  title: "Top Up",
-                                  imageAssetPath: "assets/images/topup.png")),
+                              child: myImageButton(
+                            onClick: () {},
+                            icon: Icons.videogame_asset,
+                            imagePath: 'assets/images/topup.png',
+                                text: "Top Up",
+                            height: 100,
+                            width: 165,
+                          )),
+                          SizedBox(width: 10,),
                           Expanded(
-                            child: shopCon(
-                                imagePath: 'assets/images/listrik.png',
-                                title: "PLN",
-                                imageAssetPath:
-                                    "assets/images/kelistrikan.png"),
-                          )
+                              child: myImageButton(
+                                onClick: () {},
+                                icon: Icons.videogame_asset,
+                                imagePath: 'assets/images/PLN.png',
+                                text: "PLN ",
+                                height: 100,
+                                width: 165,
+                              )),
                         ],
                       ),
+                      SizedBox(height: 10,),
                       Row(
                         children: [
                           Expanded(
-                              child: shopCon(
-                                  imagePath: 'assets/images/sehat.png',
-                                  title: "BPJS",
-                                  imageAssetPath:
-                                      "assets/images/kesehatan.png")),
+                              child: myImageButton(
+                                onClick: () {},
+                                icon: Icons.add_box,
+                                imagePath: 'assets/images/BPJS.png',
+                                text: "BPJS",
+                                height: 100,
+                                width: 165,
+                              )),
+                          SizedBox(width: 10,),
                           Expanded(
-                            child: shopCon(
-                                imagePath: 'assets/images/air.png',
-                                title: "PDAM",
-                                imageAssetPath: "assets/images/perairan.png"),
-                          )
+                              child: myImageButton(
+                                onClick: () {},
+                                icon: Icons.water_drop_sharp,
+                                imagePath: 'assets/images/PDAM.png',
+                                text: "PDAM",
+                                height: 100,
+                                width: 165,
+                              )),
                         ],
                       ),
                       SizedBox(
@@ -132,7 +147,7 @@ class _ShoppingPageState extends State<ShoppingPage> {
                 ),
               ),
             ),
-          ],
+          ].withSpaceBetween(height: 10),
         ),
       ),
     );
