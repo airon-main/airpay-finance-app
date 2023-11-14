@@ -13,40 +13,25 @@ class homeUserPage extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     const padSize = 16.0;
     return Scaffold(
-        appBar: PreferredSize(
-          preferredSize:
-              Size.fromHeight(size.width * (padSize * 5 / size.width)),
-          child: Container(
-            decoration: BoxDecoration(
-              border: Border(
-                  bottom: BorderSide(color: darkcolor['card'], width: 1)),
-              color: darkcolor['carddark'],
-            ),
-            padding: EdgeInsets.all(size.width * (padSize / size.width)),
-            child: SafeArea(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Account",
-                    style: TextStyle(
-                      color: darkcolor['contrast'],
-                      fontSize: 16,
-                      fontWeight: FontWeight.w900,
-                      fontFamily: 'Lato',
-                    ),
-                  ),
-                  SizedBox(
-                    width: size.width * (padSize / size.width),
-                  ),
-                  RoundedIconButton(
-                    icon: Icons.notifications_none,
-                    onTap: () {},
-                  ),
-                ],
-              ),
-            ),
-          ),
+        appBar: const myAppBar(
+          title: "Appereance",
+          // borderColor: Colors.transparent, //* menghilangkan border bottom
+          //* Penggunaan jika ada tombol back, masukkan ke gesture detector kalau mau ada logic get.back
+          // prefixWidget: GestureDetector(
+          //   onTap: () {
+          //     Get.back();
+          //   },
+          //   child: Container(
+          //     padding: const EdgeInsets.only(right: 10),
+          //     width: 34,
+          //     height: 34,
+          //     child: Icon(
+          //       Icons.arrow_back,
+          //       color: darkcolor['contrast'],
+          //       size: 22,
+          //     ),
+          //   ),
+          // ),
         ),
         body: Container(
           height: double.infinity,
@@ -83,7 +68,9 @@ class homeUserPage extends StatelessWidget {
                 ].withSpaceBetween(height: 5),
               ),
               myButton(
-                onClick: () {},
+                onClick: () {
+                  Get.toNamed("/user/account");
+                },
                 text: "Account Information",
                 backgroundColor: darkcolor['card'],
                 foregroundColor: darkcolor['disabled'],
@@ -101,7 +88,9 @@ class homeUserPage extends StatelessWidget {
                 suffixIcon: Icons.arrow_forward_rounded,
               ),
               myButton(
-                onClick: () {},
+                onClick: () {
+                  Get.toNamed("/user/setting");
+                },
                 text: "Settings",
                 backgroundColor: darkcolor['card'],
                 foregroundColor: darkcolor['disabled'],
@@ -109,7 +98,9 @@ class homeUserPage extends StatelessWidget {
                 suffixIcon: Icons.arrow_forward_rounded,
               ),
               myButton(
-                onClick: () {},
+                onClick: () {
+                  Get.toNamed("/user/cache");
+                },
                 text: "Cache",
                 backgroundColor: darkcolor['card'],
                 foregroundColor: darkcolor['disabled'],

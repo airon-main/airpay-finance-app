@@ -2,47 +2,32 @@ import 'package:air_pay/extensions.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 import 'package:air_pay/widgets/custom.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../shop/komponen/Component.dart';
 
-class accountInfoPage extends StatelessWidget {
-  const accountInfoPage({Key? key}) : super(key: key);
+class Account extends StatelessWidget {
+  const Account({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    const padSize = 16.0;
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(size.width * (padSize * 5 / size.width)),
-        child: Container(
-          decoration: BoxDecoration(
-            border:
-                Border(bottom: BorderSide(color: darkcolor['card'], width: 1)),
-            color: darkcolor['background'],
-          ),
-          padding: EdgeInsets.all(size.width * (padSize / size.width)),
-          child: SafeArea(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Account Information",
-                  style: TextStyle(
-                    color: darkcolor['contrast'],
-                    fontSize: 16,
-                    fontWeight: FontWeight.w900,
-                    fontFamily: 'Lato',
-                  ),
-                ),
-                SizedBox(
-                  width: size.width * (padSize / size.width),
-                ),
-                RoundedIconButton(
-                  icon: Icons.notifications_none,
-                  onTap: () {},
-                ),
-              ],
+      appBar: myAppBar(
+        title: "Appereance",
+        // borderColor: Colors.transparent, //* menghilangkan border bottom
+        //* Penggunaan jika ada tombol back, masukkan ke gesture detector kalau mau ada logic get.back
+        prefixWidget: GestureDetector(
+          onTap: () {
+            Get.back();
+          },
+          child: Container(
+            padding: const EdgeInsets.only(right: 10),
+            width: 34,
+            height: 34,
+            child: Icon(
+              Icons.arrow_back,
+              color: darkcolor['contrast'],
+              size: 22,
             ),
           ),
         ),
@@ -64,42 +49,41 @@ class accountInfoPage extends StatelessWidget {
                   image: AssetImage("assets/images/Frame 93.png"),
                   fit: BoxFit.cover,
                 )),
-                child: Image.asset(
-                  "assets/images/camera.png",
-                  height: 24,
-                  width: 24,
+                child: const Icon(
+                  Icons.camera_alt_rounded,
+                  color: Colors.white,
                 ),
               ),
             ),
-            const detailAccInfo(
-                childWidget: myTextField(
-                  hintText: "altantheprodigy",
-                ),
-                text: "Username"),
-            const detailAccInfo(
-                childWidget: myTextField(
-                  hintText: "Altan Assyfa Naura Putra",
-                ),
-                text: "Full Name"),
-            const detailAccInfo(
-                childWidget: myTextField(
-                  hintText: "altantheprodigy@gmail.com",
-                ),
-                text: "Email"),
-            detailAccInfo(
-                childWidget: myButton(
-                  text: "change Button",
-                  onClick: () {},
-                  textAlign: TextAlign.center,
-                  backgroundColor: darkcolor['card'],
-                  foregroundColor: darkcolor['contrast'],
-                ),
-                text: "Password"),
-            const detailAccInfo(
-                childWidget: myTextField(
-                  hintText: "1a2B3c4D5e6F7g8",
-                ),
-                text: "AirPay ID"),
+            const myTextField(
+              label: "Username",
+              labelWidth: 90,
+              hintText: "altantheprodigy",
+            ),
+            const myTextField(
+              label: "Full Name",
+              labelWidth: 90,
+              hintText: "Altan Assyfa Naura Putra",
+            ),
+            const myTextField(
+              label: "Email",
+              labelWidth: 90,
+              hintText: "altantheprodigy@gmail.com",
+            ),
+            myButton(
+              label: "Password",
+              labelWidth: 90,
+              text: "Change Password",
+              onClick: () {},
+              textAlign: TextAlign.center,
+              backgroundColor: darkcolor['card'],
+              foregroundColor: darkcolor['contrast'],
+            ),
+            const myTextField(
+              label: "AirPay ID",
+              labelWidth: 90,
+              hintText: "1a2B3c4D5e6F7g8",
+            ),
           ].withSpaceBetween(height: 10),
         ),
       ),

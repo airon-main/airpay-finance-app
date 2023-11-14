@@ -6,8 +6,8 @@ import 'package:get/get.dart';
 
 import '../../shop/komponen/Component.dart';
 
-class apperancePage extends StatelessWidget {
-  const apperancePage({Key? key}) : super(key: key);
+class Appearance extends StatelessWidget {
+  const Appearance({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +53,7 @@ class apperancePage extends StatelessWidget {
               label: "Icon Theme",
               labelWidth: 100,
               text: "Baseline",
-              suffixIcon: Icons.arrow_drop_down_rounded,
+              textAlign: TextAlign.center,
             ),
             const mySwitch(
               label: "Light Theme",

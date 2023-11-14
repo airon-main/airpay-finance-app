@@ -4,7 +4,10 @@ import 'package:air_pay/pages/home/scan/scan.dart';
 import 'package:air_pay/pages/pin/pin.dart';
 import 'package:air_pay/pages/signup/signup.dart';
 import 'package:air_pay/pages/splash/splash.dart';
+import 'package:air_pay/pages/user/detail/accountInformation.dart';
 import 'package:air_pay/pages/user/detail/appearance.dart';
+import 'package:air_pay/pages/user/detail/cache.dart';
+import 'package:air_pay/pages/user/detail/setting.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -39,7 +42,11 @@ class MyApp extends StatelessWidget {
         GetPage(name: "/login", page: () => const Login()),
         GetPage(name: "/signup", page: () => const Signup()),
         GetPage(name: "/enterpin", page: () => const EnterPin()),
-        GetPage(name: "/user/appearance", page: () => const apperancePage())
+        //* User Pages
+        GetPage(name: "/user/account", page: () => const Account()),
+        GetPage(name: "/user/appearance", page: () => const Appearance()),
+        GetPage(name: "/user/setting", page: () => const Setting()),
+        GetPage(name: "/user/cache", page: () => const Cache()),
       ],
     );
   }
