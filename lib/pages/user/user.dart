@@ -10,8 +10,6 @@ class homeUserPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    const padSize = 16.0;
     return Scaffold(
         appBar: const myAppBar(
           title: "Appereance",
@@ -39,12 +37,13 @@ class homeUserPage extends StatelessWidget {
           decoration: BoxDecoration(color: darkcolor['background']),
           child: Column(
             children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Center(
-                    child: ClipOval(
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    ClipOval(
                       child: Image.asset(
                         "assets/images/Frame 93.png",
                         fit: BoxFit.cover,
@@ -52,20 +51,20 @@ class homeUserPage extends StatelessWidget {
                         width: 75,
                       ),
                     ),
-                  ),
-                  Text(
-                    "Altan Assyfa Naura Putra",
-                    style: TextStyle(
-                        color: darkcolor['contrast'],
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    "altantheprodigy@gmail.com",
-                    style: TextStyle(
-                        color: darkcolor['disabled'],
-                        fontWeight: FontWeight.normal),
-                  )
-                ].withSpaceBetween(height: 5),
+                    Text(
+                      "Altan Assyfa Naura Putra",
+                      style: TextStyle(
+                          color: darkcolor['contrast'],
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      "altantheprodigy@gmail.com",
+                      style: TextStyle(
+                          color: darkcolor['disabled'],
+                          fontWeight: FontWeight.normal),
+                    )
+                  ].withSpaceBetween(height: 5),
+                ),
               ),
               myButton(
                 onClick: () {

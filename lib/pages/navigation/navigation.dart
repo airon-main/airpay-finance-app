@@ -39,7 +39,7 @@ class Navigation extends StatelessWidget {
               Home(),
               ShoppingPage(),
               myCardPage(),
-              electricPage(),
+              homeUserPage(),
             ],
           ),
         ),
