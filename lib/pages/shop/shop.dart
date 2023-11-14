@@ -15,40 +15,19 @@ class _ShoppingPageState extends State<ShoppingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        flexibleSpace: Container(
-          height: double.infinity,
-          alignment: Alignment.bottomCenter,
-          color: darkcolor['background'],
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                "Shopping Page",
-                style: TextStyle(
-                  color: darkcolor['contrast'],
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              const Spacer(),
-              Container(
-                width: 34,
-                height: 34,
-                decoration: BoxDecoration(
-                  color: darkcolor['card'],
-                  shape: BoxShape.circle,
-                ),
-                child: Icon(
-                  Icons.notifications_none,
-                  color: darkcolor['contrast'],
-                  size: 22,
-                ),
-              ),
-            ].withSpaceBetween(width: 10),
-          ),
-        ),
+      appBar: const myAppBar(
+        title: "Shopping Page",
+        //* Penggunaan jika ada tombol back
+        // prefixWidget: Container(
+        //   padding: const EdgeInsets.only(right: 10),
+        //   width: 34,
+        //   height: 34,
+        //   child: Icon(
+        //     Icons.arrow_back,
+        //     color: darkcolor['contrast'],
+        //     size: 22,
+        //   ),
+        // ),
       ),
       body: Container(
         color: darkcolor['background'],

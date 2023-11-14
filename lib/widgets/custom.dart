@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:air_pay/extensions.dart';
 import 'package:air_pay/variables/colorpalette.dart';
+import 'package:flutter/services.dart';
 
 class myTextField extends StatefulWidget {
   const myTextField(
@@ -201,4 +202,62 @@ class myImageButton extends StatelessWidget {
       ),
     );
   }
+}
+
+class myAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const myAppBar({
+    super.key,
+    this.title = "",
+    this.prefixWidget = const SizedBox(height: 0, width: 0),
+  });
+  final String title;
+  final Widget prefixWidget;
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      automaticallyImplyLeading: false,
+      systemOverlayStyle: const SystemUiOverlayStyle(
+        statusBarIconBrightness: Brightness.light, // For Android (light icons)
+        statusBarBrightness: Brightness.dark, // For iOS (light icons)
+      ),
+      flexibleSpace: Container(
+        height: double.infinity,
+        alignment: Alignment.bottomCenter,
+        color: darkcolor['background'],
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            prefixWidget,
+            Text(
+              title,
+              style: TextStyle(
+                color: darkcolor['contrast'],
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            const Spacer(),
+            Container(
+              width: 34,
+              height: 34,
+              decoration: BoxDecoration(
+                color: darkcolor['card'],
+                shape: BoxShape.circle,
+              ),
+              child: Icon(
+                Icons.notifications_none,
+                color: darkcolor['contrast'],
+                size: 22,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
