@@ -2,6 +2,7 @@ import 'package:air_pay/variables/colorpalette.dart';
 import 'package:air_pay/widgets/custom.dart';
 import 'package:flutter/material.dart';
 import 'package:air_pay/extensions.dart';
+import 'package:get/get.dart';
 import '../shop/komponen/Component.dart';
 
 class homeUserPage extends StatelessWidget {
@@ -82,7 +83,9 @@ class homeUserPage extends StatelessWidget {
                 ].withSpaceBetween(height: 5),
               ),
               myButton(
-                onClick: () {},
+                onClick: () {
+                  Get.toNamed("/user/accountinfo");
+                },
                 text: "Account Information",
                 backgroundColor: darkcolor['card'],
                 foregroundColor: darkcolor['disabled'],
@@ -90,7 +93,9 @@ class homeUserPage extends StatelessWidget {
                 suffixIcon: Icons.arrow_forward_rounded,
               ),
               myButton(
-                onClick: () {},
+                onClick: () {
+                  Get.toNamed("/user/appearance");
+                },
                 text: "Apperance",
                 backgroundColor: darkcolor['card'],
                 foregroundColor: darkcolor['disabled'],
@@ -98,7 +103,9 @@ class homeUserPage extends StatelessWidget {
                 suffixIcon: Icons.arrow_forward_rounded,
               ),
               myButton(
-                onClick: () {},
+                onClick: () {
+                  Get.toNamed("/user/settings");
+                },
                 text: "Settings",
                 backgroundColor: darkcolor['card'],
                 foregroundColor: darkcolor['disabled'],

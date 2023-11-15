@@ -102,100 +102,86 @@ class promoPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(10),
-      child: Row(children: [
-        Expanded(
-          child: Container(
+    return Padding(
+      padding: const EdgeInsets.all(5.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+              child: Container(
+            height: 60,
+            clipBehavior: Clip.hardEdge,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(6),
-              color: darkcolor['card'],
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(5), bottomLeft: Radius.circular(5))),
+            child: Image.asset(
+              imageAssetPath,
+              fit: BoxFit.cover,
             ),
-            child: Row(
+          )),
+
+          Expanded(
+            flex: 3,
+              child: Container(
+                padding: EdgeInsets.only(left: 2),
+            height: 60,
+            width: 233,
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Flexible(
-                  flex: 1,
-                  child: Container(
-                    height: 60,
-                    clipBehavior: Clip.hardEdge,
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(5),
-                          bottomLeft: Radius.circular(5)),
-                    ),
-                    child: Image.asset(
-                      imageAssetPath,
-                      fit: BoxFit.cover,
-                    ),
+                Text(
+                  text1,
+                  style: TextStyle(
+                    fontSize: 10,
+                    fontWeight: FontWeight.normal,
+                    color: darkcolor['disabled'],
+                    fontFamily: 'Roboto',
                   ),
                 ),
-                Flexible(
-                  flex: 3,
-                  child: Container(
-                      padding: const EdgeInsets.only(left: 5, top: 5),
-                      height: 60,
-                      width: 233,
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(5),
-                            bottomLeft: Radius.circular(5)),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            text1,
-                            style: TextStyle(
-                                fontSize: 10,
-                                fontWeight: FontWeight.normal,
-                                color: darkcolor['disabled'],
-                                fontFamily: 'Roboto'),
-                          ),
-                          Text(
-                            text2,
-                            style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.normal,
-                                color: darkcolor['contrast'],
-                                fontFamily: 'Roboto'),
-                          ),
-                          Text(
-                            text3,
-                            style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.normal,
-                                color: darkcolor['main'],
-                                fontFamily: 'Roboto'),
-                          ),
-                        ],
-                      )),
+                Text(
+                  text2,
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.normal,
+                    color: darkcolor['contrast'],
+                    fontFamily: 'Roboto',
+                  ),
                 ),
-                Flexible(
-                    flex: 1,
-                    child: Container(
-                      height: 60,
-                      decoration: BoxDecoration(
-                          color: darkcolor['green'],
-                          borderRadius: BorderRadius.only(
-                              bottomRight: Radius.circular(5),
-                              topRight: Radius.circular(5))),
-                      child: Center(
-                        child: Text(
-                          text4,
-                          style: const TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'Roboto'),
-                        ),
-                      ),
-                    ))
-              ],
+                Text(
+                  text3,
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.normal,
+                    color: darkcolor['main'],
+                    fontFamily: 'Roboto',
+                  ),
+                ),
+              ].withSpaceBetween(height: 2),
             ),
-          ),
-        ),
-      ]),
+          )),
+          Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(5), bottomRight: Radius.circular(5)),
+              color: darkcolor['green']
+            ),
+            height: 60,
+            width: 53,
+            child: Center(
+              child: Text(
+                text4,
+                style: const TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Roboto',
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
@@ -235,7 +221,6 @@ class RoundedIconButton extends StatelessWidget {
   }
 }
 
-
 class TopUpNominal extends StatelessWidget {
   final String imageAssetPath;
   final String text1;
@@ -252,7 +237,7 @@ class TopUpNominal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(5),
       child: Row(children: [
         Expanded(
           child: Container(
@@ -392,9 +377,7 @@ class myCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(6),
-        color: darkcolor['card']
-      ),
+          borderRadius: BorderRadius.circular(6), color: darkcolor['card']),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -551,9 +534,10 @@ class detailAccInfo extends StatelessWidget {
   }
 }
 
-
 class dropdownChoices extends StatelessWidget {
-  const dropdownChoices({Key? key, required this.text, required this.text1, required this.icon}) : super(key: key);
+  const dropdownChoices(
+      {Key? key, required this.text, required this.text1, required this.icon})
+      : super(key: key);
   final String text;
   final String text1;
   final IconData icon;
@@ -562,25 +546,30 @@ class dropdownChoices extends StatelessWidget {
     return Container(
       child: Row(
         children: [
-          Text(text, style: TextStyle(
-              color: darkcolor['disabled']
-          ),),
+          Text(
+            text,
+            style: TextStyle(color: darkcolor['disabled']),
+          ),
           Expanded(
             child: Container(
               height: 44,
               decoration: BoxDecoration(
                   color: darkcolor['card'],
-                  borderRadius: BorderRadius.all(Radius.circular(5))
-              ),
+                  borderRadius: BorderRadius.all(Radius.circular(5))),
               padding: EdgeInsets.all(10),
               child: Row(
                 children: [
                   Expanded(
-                    child: Text(text1, style: TextStyle(
-                        color: darkcolor['contrast']
-                    ),),
+                    child: Text(
+                      text1,
+                      style: TextStyle(color: darkcolor['contrast']),
+                    ),
                   ),
-                  Icon(icon, size: 30, color: darkcolor['contrast'],),
+                  Icon(
+                    icon,
+                    size: 30,
+                    color: darkcolor['contrast'],
+                  ),
                 ],
               ),
             ),

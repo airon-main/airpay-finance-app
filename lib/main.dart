@@ -4,8 +4,12 @@ import 'package:air_pay/pages/home/scan/scan.dart';
 import 'package:air_pay/pages/pin/pin.dart';
 import 'package:air_pay/pages/signup/signup.dart';
 import 'package:air_pay/pages/splash/splash.dart';
+import 'package:air_pay/pages/user/detail/accountInformation.dart';
+import 'package:air_pay/pages/user/detail/appearance.dart';
+import 'package:air_pay/pages/user/detail/setting.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 void main() {
@@ -25,13 +29,21 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: darkcolor['main']),
         useMaterial3: true,
       ),
-      home: const SplashScreen(),
+      home: const AnnotatedRegion<SystemUiOverlayStyle>(
+        value: SystemUiOverlayStyle(
+          statusBarIconBrightness: Brightness.light,
+        ),
+        child: SplashScreen(),
+      ),
       getPages: [
         GetPage(name: "/home", page: () => Navigation()),
         GetPage(name: "/home/scan", page: () => const Scan()),
         GetPage(name: "/login", page: () => const Login()),
         GetPage(name: "/signup", page: () => const Signup()),
         GetPage(name: "/enterpin", page: () => const EnterPin()),
+        GetPage(name: "/user/appearance", page: () => const apperancePage()),
+        GetPage(name: "/user/accountinfo", page: () => const accountInfoPage()),
+        GetPage(name: "/user/settings", page: () => const settingPage())
       ],
     );
   }
