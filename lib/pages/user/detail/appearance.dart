@@ -48,12 +48,24 @@ class Appearance extends StatelessWidget {
               label: "Custom Color",
               labelWidth: 100,
             ),
-            myButton(
-              onClick: () {},
-              label: "Icon Theme",
+            const myDropdown(
+              label: "Language",
+              hint: "Choose an Icon Theme",
               labelWidth: 100,
-              text: "Baseline",
-              textAlign: TextAlign.center,
+              items: [
+                DropdownMenuItem(
+                  value: 'Baseline',
+                  child: Text("Baseline"),
+                ),
+                DropdownMenuItem(
+                  value: 'Rounded',
+                  child: Text("Rounded"),
+                ),
+                DropdownMenuItem(
+                  value: 'Sharp',
+                  child: Text("Sharp"),
+                ),
+              ],
             ),
             const mySwitch(
               label: "Light Theme",

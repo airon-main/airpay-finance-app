@@ -332,13 +332,13 @@ class mySwitch extends StatelessWidget {
 class myDropdown extends StatelessWidget {
   const myDropdown({
     super.key,
+    required this.items,
     this.hint = "",
-    this.isExpand = true,
     this.label = "",
     this.labelWidth,
   });
+  final List<DropdownMenuItem<String>>? items;
   final String hint;
-  final bool isExpand;
   final String label;
   final double? labelWidth;
 
@@ -363,31 +363,33 @@ class myDropdown extends StatelessWidget {
                 color: darkcolor['card'],
                 borderRadius: BorderRadius.circular(5)),
             child: DropdownButton(
-                isExpanded: true,
-                underline: const SizedBox(),
-                iconEnabledColor: darkcolor['contrast'],
-                hint: Text('Language',
-                    style: TextStyle(
-                        fontWeight: FontWeight.normal,
-                        color: darkcolor['contrast'])),
-                padding: EdgeInsets.zero,
-                dropdownColor: darkcolor['card'],
-                style: TextStyle(color: darkcolor['contrast']),
-                value: ctr.selectedValue,
-                onChanged: (newValue) {
-                  ctr.onSelected(newValue!);
-                },
-                elevation: 10,
-                items: const [
-                  DropdownMenuItem(
-                    value: 'English',
-                    child: Text("English"),
-                  ),
-                  DropdownMenuItem(
-                    value: 'Espanol',
-                    child: Text("ESpanol"),
-                  ),
-                ]),
+              isExpanded: true,
+              underline: const SizedBox(),
+              iconEnabledColor: darkcolor['contrast'],
+              hint: Text(hint,
+                  style: TextStyle(
+                      fontWeight: FontWeight.normal,
+                      color: darkcolor['disabled'])),
+              padding: EdgeInsets.zero,
+              dropdownColor: darkcolor['card'],
+              style: TextStyle(color: darkcolor['contrast']),
+              value: ctr.selectedValue,
+              onChanged: (newValue) {
+                ctr.onSelected(newValue!);
+              },
+              elevation: 10,
+              items: items,
+              // items: const [
+              //   DropdownMenuItem(
+              //     value: 'English',
+              //     child: Text("English"),
+              //   ),
+              //   DropdownMenuItem(
+              //     value: 'Espanol',
+              //     child: Text("ESpanol"),
+              //   ),
+              // ]),
+            ),
           ),
         ),
       ],

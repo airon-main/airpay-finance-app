@@ -10,7 +10,7 @@ class mySwitchController extends GetxController {
 
 class myDropdownController extends GetxController {
   String? selectedValue;
-  var language = ['English', 'Espanol'];
+  var language = ['English', 'Melayu', 'Indonesia'];
   void onSelected(String value) {
     selectedValue = value;
     update();
@@ -22,11 +22,15 @@ class myDropdownController extends GetxController {
     switch (selectedLanguage) {
       case 'English':
         Get.updateLocale(const Locale('en_US'));
-        print('Changed to En');
+        print('Changed to English');
         break;
-      case 'Espanol':
+      case 'Melayu':
         Get.updateLocale(const Locale('en_US'));
-        print('Changed to Es');
+        print('Changed to Melayu');
+        break;
+      case 'Indonesia':
+        Get.updateLocale(const Locale('en_US'));
+        print('Changed to Indonesia');
         break;
       default:
         Get.updateLocale(const Locale('en_US'));

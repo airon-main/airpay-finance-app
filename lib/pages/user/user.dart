@@ -12,7 +12,7 @@ class homeUserPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: const myAppBar(
-          title: "Appereance",
+          title: "My Account",
           // borderColor: Colors.transparent, //* menghilangkan border bottom
           //* Penggunaan jika ada tombol back, masukkan ke gesture detector kalau mau ada logic get.back
           // prefixWidget: GestureDetector(
@@ -72,7 +72,7 @@ class homeUserPage extends StatelessWidget {
                 },
                 text: "Account Information",
                 backgroundColor: darkcolor['card'],
-                foregroundColor: darkcolor['disabled'],
+                foregroundColor: darkcolor['contrast'],
                 prefixIcon: Icons.person,
                 suffixIcon: Icons.arrow_forward_rounded,
               ),
@@ -82,7 +82,7 @@ class homeUserPage extends StatelessWidget {
                 },
                 text: "Apperance",
                 backgroundColor: darkcolor['card'],
-                foregroundColor: darkcolor['disabled'],
+                foregroundColor: darkcolor['contrast'],
                 prefixIcon: Icons.edit_rounded,
                 suffixIcon: Icons.arrow_forward_rounded,
               ),
@@ -92,7 +92,7 @@ class homeUserPage extends StatelessWidget {
                 },
                 text: "Settings",
                 backgroundColor: darkcolor['card'],
-                foregroundColor: darkcolor['disabled'],
+                foregroundColor: darkcolor['contrast'],
                 prefixIcon: Icons.settings_rounded,
                 suffixIcon: Icons.arrow_forward_rounded,
               ),
@@ -102,7 +102,7 @@ class homeUserPage extends StatelessWidget {
                 },
                 text: "Cache",
                 backgroundColor: darkcolor['card'],
-                foregroundColor: darkcolor['disabled'],
+                foregroundColor: darkcolor['contrast'],
                 prefixIcon: Icons.edit_rounded,
                 suffixIcon: Icons.arrow_forward_rounded,
               ),
@@ -110,13 +110,19 @@ class homeUserPage extends StatelessWidget {
                 onClick: () {},
                 text: "About Us",
                 backgroundColor: darkcolor['card'],
-                foregroundColor: darkcolor['disabled'],
+                foregroundColor: darkcolor['contrast'],
                 prefixIcon: Icons.info_outline_rounded,
                 suffixIcon: Icons.arrow_forward_rounded,
               ),
-              const myDropdown(
-                label: "Language",
-                labelWidth: 100,
+              myButton(
+                onClick: () {
+                  Get.offAllNamed("/login");
+                },
+                text: "Logout",
+                backgroundColor: darkcolor['card'],
+                foregroundColor: darkcolor['red'],
+                prefixIcon: Icons.warning_rounded,
+                suffixIcon: Icons.arrow_forward_rounded,
               ),
             ].withSpaceBetween(height: 10),
           ),
