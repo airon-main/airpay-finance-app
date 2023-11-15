@@ -1,19 +1,21 @@
+import 'package:air_pay/widgets/custom.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+
 
 import '../../../variables/colorpalette.dart';
 import '../../../widgets/custom.dart';
 import '../../shop/komponen/Component.dart';
 
-class settingPage extends StatelessWidget {
-  const settingPage({Key? key}) : super(key: key);
+class Setting extends StatelessWidget {
+  const Setting({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: myAppBar(
-        title: "Appereance",
+        title: "Settings",
         // borderColor: Colors.transparent, //* menghilangkan border bottom
         //* Penggunaan jika ada tombol back, masukkan ke gesture detector kalau mau ada logic get.back
         prefixWidget: GestureDetector(
@@ -34,9 +36,9 @@ class settingPage extends StatelessWidget {
       ),
       body: Container(
         width: double.infinity,
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(color: darkcolor['background']),
-        child: Column(
+        child: const Column(
           children: [
             dropdownChoices(
                 text: "Language",
