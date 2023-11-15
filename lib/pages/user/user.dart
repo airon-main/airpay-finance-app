@@ -83,9 +83,7 @@ class homeUserPage extends StatelessWidget {
                 ].withSpaceBetween(height: 5),
               ),
               myButton(
-                onClick: () {
-                  Get.toNamed("/user/accountinfo");
-                },
+                onClick: () {},
                 text: "Account Information",
                 backgroundColor: darkcolor['card'],
                 foregroundColor: darkcolor['disabled'],
@@ -103,9 +101,7 @@ class homeUserPage extends StatelessWidget {
                 suffixIcon: Icons.arrow_forward_rounded,
               ),
               myButton(
-                onClick: () {
-                  Get.toNamed("/user/settings");
-                },
+                onClick: () {},
                 text: "Settings",
                 backgroundColor: darkcolor['card'],
                 foregroundColor: darkcolor['disabled'],
