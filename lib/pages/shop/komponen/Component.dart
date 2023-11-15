@@ -127,6 +127,9 @@ class promoPage extends StatelessWidget {
                 padding: EdgeInsets.only(left: 2),
             height: 60,
             width: 233,
+            decoration: BoxDecoration(
+              color: darkcolor['card']
+            ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
