@@ -1,3 +1,4 @@
+import 'package:air_pay/pages/card/addCardPage.dart';
 import 'package:air_pay/pages/login/login.dart';
 import 'package:air_pay/pages/navigation/navigation.dart';
 import 'package:air_pay/pages/home/scan/scan.dart';
@@ -49,6 +50,8 @@ class MyApp extends StatelessWidget {
         GetPage(name: "/user/setting", page: () => const Setting()),
         GetPage(name: "/user/cache", page: () => const Cache()),
         GetPage(name: "/user/about", page: () => const aboutUsPage()),
+        //* Card Pages
+        GetPage(name: "/card/addcard", page: () => const addCardPage()),
       ],
     );
   }
