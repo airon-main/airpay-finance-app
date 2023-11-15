@@ -328,3 +328,69 @@ class mySwitch extends StatelessWidget {
     );
   }
 }
+
+class myDropdown extends StatelessWidget {
+  const myDropdown({
+    super.key,
+    this.hint = "",
+    this.isExpand = true,
+    this.label = "",
+    this.labelWidth,
+  });
+  final String hint;
+  final bool isExpand;
+  final String label;
+  final double? labelWidth;
+
+  @override
+  Widget build(BuildContext context) {
+    myDropdownController ctr = Get.put(myDropdownController());
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        SizedBox(
+          width: labelWidth,
+          child: Text(
+            label,
+            style: TextStyle(color: darkcolor['disabled']),
+          ),
+        ),
+        Expanded(
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            decoration: BoxDecoration(
+                color: darkcolor['card'],
+                borderRadius: BorderRadius.circular(5)),
+            child: DropdownButton(
+                isExpanded: true,
+                underline: const SizedBox(),
+                iconEnabledColor: darkcolor['contrast'],
+                hint: Text('Language',
+                    style: TextStyle(
+                        fontWeight: FontWeight.normal,
+                        color: darkcolor['contrast'])),
+                padding: EdgeInsets.zero,
+                dropdownColor: darkcolor['card'],
+                style: TextStyle(color: darkcolor['contrast']),
+                value: ctr.selectedValue,
+                onChanged: (newValue) {
+                  ctr.onSelected(newValue!);
+                },
+                elevation: 10,
+                items: const [
+                  DropdownMenuItem(
+                    value: 'English',
+                    child: Text("English"),
+                  ),
+                  DropdownMenuItem(
+                    value: 'Espanol',
+                    child: Text("ESpanol"),
+                  ),
+                ]),
+          ),
+        ),
+      ],
+    );
+  }
+}
