@@ -116,10 +116,7 @@ class homeUserPage extends StatelessWidget {
                 prefixIcon: Icons.info_outline_rounded,
                 suffixIcon: Icons.arrow_forward_rounded,
               ),
-              const myDropdown(
-                label: "Language",
-                labelWidth: 100,
-              ),
+
             ].withSpaceBetween(height: 10),
           ),
         ));

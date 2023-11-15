@@ -43,6 +43,9 @@ class Appearance extends StatelessWidget {
               "Themes",
               style: TextStyle(color: darkcolor['contrast']),
             ),
+            const mySwitch(
+              label: "Light Theme",
+            ),
             const myTextField(
               hintText: "#f2c318",
               label: "Custom Color",
@@ -56,7 +59,7 @@ class Appearance extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const mySwitch(
-              label: "Light Theme",
+              label: "Outline icon",
             ),
           ].withSpaceBetween(height: 10),
         ),
