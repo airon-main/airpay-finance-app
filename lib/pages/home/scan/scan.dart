@@ -1,6 +1,7 @@
 import 'package:air_pay/extensions.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 
 class Scan extends StatelessWidget {
@@ -16,6 +17,12 @@ class Scan extends StatelessWidget {
     nominalFormat.updateValue(500000);
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarIconBrightness:
+              Brightness.light, // For Android (light icons)
+          statusBarBrightness: Brightness.dark, // For iOS (light icons)
+        ),
         flexibleSpace: Container(
           height: double.infinity,
           alignment: Alignment.bottomCenter,

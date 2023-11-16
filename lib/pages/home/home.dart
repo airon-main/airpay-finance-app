@@ -5,6 +5,7 @@ import 'package:air_pay/widgets/custom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
+import 'package:get/get.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -19,6 +20,12 @@ class Home extends StatelessWidget {
     nominalFormat.updateValue(500000);
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarIconBrightness:
+              Brightness.light, // For Android (light icons)
+          statusBarBrightness: Brightness.dark, // For iOS (light icons)
+        ),
         flexibleSpace: Container(
           height: double.infinity,
           alignment: Alignment.bottomCenter,
@@ -122,15 +129,31 @@ class Home extends StatelessWidget {
               ),
               Row(
                 children: [
-                  _actionButton(Icons.add_card, "Top Up"),
-                  const SizedBox(width: 10),
-                  _actionButton(Icons.send, "Transfer"),
-                  const SizedBox(width: 10),
-                  _actionButton(Icons.wallet, "Withdraw"),
-                  const SizedBox(width: 10),
-                  _actionButton(Icons.qr_code_scanner, "Scan",
-                      color: darkcolor['main']),
-                ],
+                  myActionButton(
+                    onPressed: () {},
+                    icon: Icons.add_card,
+                    text: "Top Up",
+                  ),
+                  myActionButton(
+                    onPressed: () {},
+                    icon: Icons.send,
+                    text: "Transfer",
+                  ),
+                  myActionButton(
+                    onPressed: () {},
+                    icon: Icons.wallet,
+                    text: "Withdraw",
+                  ),
+                  myActionButton(
+                    onPressed: () {
+                      Get.toNamed("/home/scan");
+                    },
+                    icon: Icons.qr_code_scanner,
+                    text: "Scan",
+                    backgroundColor: darkcolor['main'],
+                    foregroundColor: darkcolor['contrastmain'],
+                  ),
+                ].withSpaceBetween(width: 10),
               ),
               const SizedBox(height: 5),
               Row(
@@ -162,7 +185,7 @@ class Home extends StatelessWidget {
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index) {
-                    return transaction(index: index);
+                    return myTransaction(index: index);
                   },
                   itemCount: transactionData.length,
                   separatorBuilder: (context, index) {
@@ -177,85 +200,6 @@ class Home extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-
-  _actionButton(IconData iconData, String text, {Color? color}) {
-    return Expanded(
-      child: TextButton(
-        onPressed: () {},
-        style: TextButton.styleFrom(
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-            padding: const EdgeInsets.symmetric(vertical: 10),
-            backgroundColor: color ?? darkcolor['card'],
-            foregroundColor: color == null
-                ? darkcolor['contrast']
-                : darkcolor['contrastmain']),
-        child: SizedBox(
-          width: double.infinity,
-          child: Column(
-            children: [
-              Icon(iconData),
-              const SizedBox(height: 5),
-              Text(
-                text,
-                style: const TextStyle(fontSize: 12),
-              )
-            ].withSpaceBetween(width: 10),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class transaction extends StatelessWidget {
-  const transaction({super.key, required this.index});
-
-  final int index;
-
-  @override
-  Widget build(BuildContext context) {
-    final String type = transactionData[index]['type'];
-    return Row(
-      children: [
-        CircleAvatar(
-          backgroundImage:
-              AssetImage('assets/images/' + transactionData[index]['photo']),
-          radius: 19,
-        ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(transactionData[index]['name'],
-                style: TextStyle(color: darkcolor['contrast'])),
-            Text(
-              transactionData[index]['date'],
-              style: TextStyle(fontSize: 10, color: darkcolor['disabled']),
-            ),
-          ],
-        ),
-        const Spacer(),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            Text(
-                type == 'recieve'
-                    ? '+ ' + transactionData[index]['value']
-                    : '- ' + transactionData[index]['value'],
-                style: type == 'recieve'
-                    ? TextStyle(color: darkcolor['green'])
-                    : TextStyle(color: darkcolor['red'])),
-            Text(
-              transactionData[index]['impact'],
-              style: TextStyle(fontSize: 10, color: darkcolor['disabled']),
-            ),
-          ],
-        ),
-      ].withSpaceBetween(width: 10),
     );
   }
 }
