@@ -18,7 +18,6 @@ class _myCardPageState extends State<myCardPage> {
     return Scaffold(
       appBar: const myAppBar(
         title: "My Cards",
-        borderColor: Colors.transparent,
       ),
       body: Container(
         height: double.infinity,
@@ -47,33 +46,32 @@ class _myCardPageState extends State<myCardPage> {
               text3: "Top Up",
               text4: "•",
               text5: "Transfer"),
-              SizedBox(
-                height: 77,
-                width: double.infinity,
-                child: TextButton(
-                  onPressed: (){
-                    Get.toNamed("/card/addcard");
-                  },
-                  style: TextButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5)),
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      backgroundColor: darkcolor['card'],
-                      foregroundColor: darkcolor['contrast']
+          SizedBox(
+            height: 77,
+            width: double.infinity,
+            child: TextButton(
+              onPressed: () {
+                Get.toNamed("/card/addcard");
+              },
+              style: TextButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5)),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  backgroundColor: darkcolor['card'],
+                  foregroundColor: darkcolor['contrast']),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(
+                    Icons.add,
                   ),
-                  child:Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.add,
-                      ),
-                      Text(
-                        "Add Card",
-                      )
-                    ].withSpaceBetween(width: 5),
-                  ),
-                ),
-              )
+                  const Text(
+                    "Add Card",
+                  )
+                ].withSpaceBetween(width: 5),
+              ),
+            ),
+          )
         ].withSpaceBetween(height: 10)),
       ),
     );

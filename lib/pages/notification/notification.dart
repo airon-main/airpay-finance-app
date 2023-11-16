@@ -28,12 +28,7 @@ class NotificationPage extends StatelessWidget {
         flexibleSpace: Container(
           height: double.infinity,
           alignment: Alignment.bottomCenter,
-          decoration: BoxDecoration(
-            color: darkcolor['background'],
-            border: Border(
-              bottom: BorderSide(width: 1, color: darkcolor['card']),
-            ),
-          ),
+          color: darkcolor['background'],
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -67,18 +62,50 @@ class NotificationPage extends StatelessWidget {
         ),
       ),
       body: Container(
-        color: darkcolor['background'],
-        width: double.infinity,
         height: double.infinity,
-        padding: const EdgeInsets.all(10),
-        child: SingleChildScrollView(
-          physics: const ClampingScrollPhysics(),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(),
-            ].withSpaceBetween(height: 10),
-          ),
+        width: double.infinity,
+        color: darkcolor['background'],
+        child: Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
+              decoration: BoxDecoration(
+                  border: Border(
+                      bottom: BorderSide(color: darkcolor['card'], width: 1))),
+              child: const myTextField(
+                hintText: "Search",
+              ),
+            ),
+            Expanded(
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.all(10),
+                child: Column(
+                  children: [
+                    myNotification(
+                      icon: Icon(Icons.warning, color: darkcolor['red']),
+                      label: "Warning",
+                      date: "1/11/2023",
+                      text:
+                          "Your Account just Logged on another Device.\nIf this is not you, Please change your password immediately",
+                    ),
+                    myNotification(
+                      icon: Icon(Icons.download, color: darkcolor['blue']),
+                      label: "Update",
+                      date: "20/10/2023",
+                      text:
+                          "New Appearance Update\n • Custom Color is now available\n • Light Mode and make your eyes hurt\n • Custom Icons for those who likes to mess around",
+                    ),
+                    myNotification(
+                      icon: Icon(Icons.attach_money, color: darkcolor['green']),
+                      label: "Finance",
+                      date: "1/11/2023",
+                      text: "You just got Rp20,000,000 from Google LLC!",
+                    ),
+                  ].withSpaceBetween(height: 10),
+                ),
+              ),
+            )
+          ],
         ),
       ),
     );
@@ -86,10 +113,52 @@ class NotificationPage extends StatelessWidget {
 }
 
 class myNotification extends StatelessWidget {
-  const myNotification({super.key});
+  const myNotification({
+    super.key,
+    this.icon = const SizedBox(),
+    this.label = "",
+    this.text = "",
+    this.date = "",
+  });
+  final Widget icon;
+  final String label;
+  final String text;
+  final String date;
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: darkcolor['carddark'],
+        borderRadius: BorderRadius.circular(5),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  icon,
+                  Text(label, style: TextStyle(color: darkcolor['contrast'])),
+                ].withSpaceBetween(width: 5),
+              ),
+              const Spacer(),
+              Text(date,
+                  style: TextStyle(color: darkcolor['disabled'], fontSize: 10))
+            ],
+          ),
+          const SizedBox(height: 10),
+          Text(
+            text,
+            style: TextStyle(color: darkcolor['contrast']),
+          ),
+        ],
+      ),
+    );
   }
 }
