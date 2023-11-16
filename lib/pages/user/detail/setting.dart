@@ -1,5 +1,6 @@
 import 'package:air_pay/extensions.dart';
 import 'package:air_pay/widgets/custom.dart';
+import 'package:air_pay/widgets/customController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:air_pay/variables/colorpalette.dart';
@@ -10,6 +11,7 @@ class Setting extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    mySwitchController showUnavailableSwitchController = mySwitchController();
     return Scaffold(
       appBar: myAppBar(
         title: "Settings",
@@ -55,8 +57,9 @@ class Setting extends StatelessWidget {
                 ),
               ],
             ),
-            const mySwitch(
+            mySwitch(
               label: "Show unavailable Features",
+              controller: showUnavailableSwitchController,
             )
           ].withSpaceBetween(height: 10),
         ),

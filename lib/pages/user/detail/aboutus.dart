@@ -42,34 +42,45 @@ class aboutUsPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              padding: EdgeInsets.only(top: 20),
+              padding: const EdgeInsets.only(top: 20),
               alignment: Alignment.center,
               child: Column(
                 children: [
                   Image.asset("assets/images/airpay.png"),
-                  Text("AirPay Finance App ©",style: TextStyle(
-                    color: darkcolor['contrast']
-                  ),),
-                  Text("2023-now", style: TextStyle(
-                    color: darkcolor['disabled'],
-                    fontSize: 10
-                  ),)
+                  Text(
+                    "AirPay Finance App ©",
+                    style: TextStyle(color: darkcolor['contrast']),
+                  ),
+                  Text(
+                    "2023-now",
+                    style:
+                        TextStyle(color: darkcolor['disabled'], fontSize: 10),
+                  )
                 ].withSpaceBetween(height: 5),
               ),
             ),
-            Text("Credits",style: TextStyle(
-                color: darkcolor['disabled']
-            ),),
-            rowAboutUs(text: "Aaron", text1: "Ikhwan Saputra", text2: "Designer & Coder"),
-            rowAboutUs(text: "Altan", text1: "Assyfa Naura Putra", text2: "Coder"),
-            SizedBox(height: 15,),
-            Text("Our Other Apps",style: TextStyle(
-                color: darkcolor['disabled']
-            ),),
+            Text(
+              "People",
+              style: TextStyle(color: darkcolor['disabled']),
+            ),
+            const rowAboutUs(
+                text: "Aaron",
+                text1: "Ikhwan Saputra",
+                text2: "Designer & Coder"),
+            const rowAboutUs(
+                text: "Altan", text1: "Assyfa Naura Putra", text2: "Coder"),
+            const SizedBox(
+              height: 15,
+            ),
+            Text(
+              "Our Other Apps",
+              style: TextStyle(color: darkcolor['disabled']),
+            ),
             Center(
-              child: Text("Not yet, This is Our Apps :)",style: TextStyle(
-                  color: darkcolor['contrast']
-              ),),
+              child: Text(
+                "Not yet, This is our first App :)",
+                style: TextStyle(color: darkcolor['contrast']),
+              ),
             )
           ].withSpaceBetween(height: 10, width: 10),
         ),
