@@ -1,6 +1,9 @@
+import 'package:air_pay/variables/colorpalette.dart';
 import 'package:flutter/material.dart';
 import 'package:air_pay/widgets/custom.dart';
 import 'package:air_pay/pages/shop/komponen/Component.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class electricPage extends StatefulWidget {
   const electricPage({Key? key}) : super(key: key);
@@ -12,41 +15,23 @@ class electricPage extends StatefulWidget {
 class _electricPageState extends State<electricPage> {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    const padSize = 16.0;
-
     return Scaffold(
-        appBar: PreferredSize(
-          preferredSize:
-              Size.fromHeight(size.width * (padSize * 5 / size.width)),
-          child: Container(
-            decoration: const BoxDecoration(
-              border:
-                  Border(bottom: BorderSide(color: AppColors.card, width: 1)),
-              color: AppColors.cardDark,
-            ),
-            padding: EdgeInsets.all(size.width * (padSize / size.width)),
-            child: SafeArea(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    "Shopping Page",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w900,
-                      fontFamily: 'Lato',
-                    ),
-                  ),
-                  SizedBox(
-                    width: size.width * (padSize / size.width),
-                  ),
-                  RoundedIconButton(
-                    icon: Icons.notifications_none,
-                    onTap: () {},
-                  ),
-                ],
+        appBar: myAppBar(
+          title: "Add Cards",
+          // borderColor: Colors.transparent, //* menghilangkan border bottom
+          //* Penggunaan jika ada tombol back, masukkan ke gesture detector kalau mau ada logic get.back
+          prefixWidget: GestureDetector(
+            onTap: () {
+              Get.back();
+            },
+            child: Container(
+              padding: const EdgeInsets.only(right: 10),
+              width: 34,
+              height: 34,
+              child: Icon(
+                Icons.arrow_back,
+                color: darkcolor['contrast'],
+                size: 22,
               ),
             ),
           ),
@@ -54,9 +39,9 @@ class _electricPageState extends State<electricPage> {
         body: SingleChildScrollView(
             child: Container(
           padding: const EdgeInsets.all(10),
-          decoration: const BoxDecoration(
-            border: Border(bottom: BorderSide(color: AppColors.card, width: 1)),
-            color: AppColors.cardDark,
+          decoration: BoxDecoration(
+            border: Border(bottom: BorderSide(color: darkcolor['card'], width: 1)),
+            color: darkcolor['carddark'],
           ),
           child: Column(
             children: [
@@ -96,20 +81,20 @@ class _electricPageState extends State<electricPage> {
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(6),
-                  color: AppColors.card,
+                  color: darkcolor['card'],
                 ),
                 child: Column(
                   children: [
                     Container(
                       padding: const EdgeInsets.all(1),
-                      child: const Row(
+                      child:  Row(
                         children: [
                           Text(
                             "Your Total :",
                             style: TextStyle(
                                 fontSize: 15,
                                 fontWeight: FontWeight.normal,
-                                color: Colors.white,
+                                color: darkcolor['contrast'],
                                 fontFamily: 'Roboto'),
                           ),
                           Text(
@@ -117,7 +102,7 @@ class _electricPageState extends State<electricPage> {
                             style: TextStyle(
                                 fontSize: 15,
                                 fontWeight: FontWeight.normal,
-                                color: AppColors.main,
+                                color: darkcolor['main'],
                                 fontFamily: 'Roboto'),
                           ),
                         ],
@@ -133,14 +118,18 @@ class _electricPageState extends State<electricPage> {
                           children: [
                             customElevatedButton(
                                 text: "Cancel",
-                                onPressed: () {},
-                                backgroundColor: AppColors.cardDark,
-                                textColor: Colors.white),
+                                onPressed: () {
+                                  Get.offNamed("/home");
+                                },
+                                backgroundColor: darkcolor['carddark'],
+                                textColor: darkcolor['contrast']),
                             customElevatedButton(
                                 text: "Confirm",
-                                onPressed: () {},
-                                backgroundColor: AppColors.main,
-                                textColor: Colors.black)
+                                onPressed: () {
+                                  Get.offNamed("/home");
+                                },
+                                backgroundColor: darkcolor['main'],
+                                textColor: darkcolor['contrastmain'])
                           ],
                         ),
                       ),

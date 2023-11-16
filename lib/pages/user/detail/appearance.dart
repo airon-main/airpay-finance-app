@@ -3,18 +3,15 @@ import 'package:air_pay/variables/colorpalette.dart';
 import 'package:air_pay/widgets/custom.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
-import '../shop/komponen/Component.dart';
-
-class addCardPage extends StatelessWidget {
-  const addCardPage({Key? key}) : super(key: key);
+class Appearance extends StatelessWidget {
+  const Appearance({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: myAppBar(
-        title: "Add Cards",
+        title: "Appereance",
         // borderColor: Colors.transparent, //* menghilangkan border bottom
         //* Penggunaan jika ada tombol back, masukkan ke gesture detector kalau mau ada logic get.back
         prefixWidget: GestureDetector(
@@ -34,25 +31,46 @@ class addCardPage extends StatelessWidget {
         ),
       ),
       body: Container(
-        height: double.infinity,
+        width: double.infinity,
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(color: darkcolor['background']),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const judulPage(title: "Enter Card Data"),
-            const myTextField(
-              hintText: "Account Number",
+            Text(
+              "Themes",
+              style: TextStyle(color: darkcolor['contrast']),
             ),
-            myCustomElevatedButton(
-                text: "Add Custom Picture",
-                onPressed: () {},
-                backgroundColor: darkcolor['carddark'],
-                textColor: darkcolor['contrast']),
-            myCustomElevatedButton(
-                text: "Scan",
-                onPressed: () {},
-                backgroundColor: darkcolor['main'],
-                textColor: darkcolor['contrastmain'])
+            const mySwitch(
+              label: "Light Theme",
+            ),
+            const myTextField(
+              hintText: "#f2c318",
+              label: "Custom Color",
+              labelWidth: 100,
+            ),
+            const myDropdown(
+              label: "Language",
+              hint: "Choose an Icon Theme",
+              labelWidth: 100,
+              items: [
+                DropdownMenuItem(
+                  value: 'Baseline',
+                  child: Text("Baseline"),
+                ),
+                DropdownMenuItem(
+                  value: 'Rounded',
+                  child: Text("Rounded"),
+                ),
+                DropdownMenuItem(
+                  value: 'Sharp',
+                  child: Text("Sharp"),
+                ),
+              ],
+            ),
+            const mySwitch(
+              label: "Outline icon",
+            ),
           ].withSpaceBetween(height: 10),
         ),
       ),

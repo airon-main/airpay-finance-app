@@ -28,7 +28,9 @@ class Signup extends StatelessWidget {
                   fontSize: 32),
             ),
             const SizedBox(height: 20),
-            const myTextField(hintText: "Username"),
+            const myTextField(
+              hintText: "Username",
+            ),
             const myTextField(hintText: "Email / Phone Number"),
             const myTextField(hintText: "Password", isObscured: true),
             const myTextField(hintText: "Re-enter Password", isObscured: true),
