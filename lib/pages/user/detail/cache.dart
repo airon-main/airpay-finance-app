@@ -38,7 +38,10 @@ class Cache extends StatelessWidget {
           children: [
             myButton(
               onClick: () {},
-              label: "Clean 125mb",
+              label: "cache",
+              text: "Clean 125mb",
+              labelWidth: 100,
+              textAlign: TextAlign.center,
               backgroundColor: darkcolor['card'],
               foregroundColor: darkcolor['contrast'],
             ),
