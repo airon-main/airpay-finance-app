@@ -101,10 +101,27 @@ class NotificationPage extends StatelessWidget {
                       date: "1/11/2023",
                       text: "You just got Rp20,000,000 from Google LLC!",
                     ),
+                    const SizedBox(height: 5),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Read Notfication",
+                            style: TextStyle(
+                                fontSize: 14, color: darkcolor['contrast'])),
+                      ],
+                    ),
+                    myNotification(
+                      icon: Icon(Icons.attach_money,
+                          color: darkcolor['disabled']),
+                      foregroundColor: darkcolor['disabled'],
+                      label: "Finance",
+                      date: "1/11/2023",
+                      text: "You just got Rp10,000,000 from Steam!",
+                    ),
                   ].withSpaceBetween(height: 10),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -119,20 +136,22 @@ class myNotification extends StatelessWidget {
     this.label = "",
     this.text = "",
     this.date = "",
+    this.foregroundColor,
   });
   final Widget icon;
   final String label;
   final String text;
   final String date;
-
+  final Color? foregroundColor;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        color: darkcolor['carddark'],
-        borderRadius: BorderRadius.circular(5),
+    return TextButton(
+      onPressed: () {},
+      style: TextButton.styleFrom(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+        padding: const EdgeInsets.all(10),
+        backgroundColor: darkcolor['card'],
+        foregroundColor: darkcolor['contrast'],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -144,7 +163,11 @@ class myNotification extends StatelessWidget {
               Row(
                 children: [
                   icon,
-                  Text(label, style: TextStyle(color: darkcolor['contrast'])),
+                  Text(label,
+                      style: TextStyle(
+                        color: foregroundColor ?? darkcolor['contrast'],
+                        fontWeight: FontWeight.normal,
+                      )),
                 ].withSpaceBetween(width: 5),
               ),
               const Spacer(),
@@ -155,7 +178,10 @@ class myNotification extends StatelessWidget {
           const SizedBox(height: 10),
           Text(
             text,
-            style: TextStyle(color: darkcolor['contrast']),
+            style: TextStyle(
+              color: foregroundColor ?? darkcolor['contrast'],
+              fontWeight: FontWeight.normal,
+            ),
           ),
         ],
       ),
