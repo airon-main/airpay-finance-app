@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:get/get.dart';
 
-class ScanPage extends StatelessWidget {
-  const ScanPage({super.key});
+class TopupPage extends StatelessWidget {
+  const TopupPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class ScanPage extends StatelessWidget {
     nominalFormat.updateValue(500000);
     return Scaffold(
       appBar: myAppBar(
-        title: "Scan",
+        title: "Top Up",
         // borderColor: Colors.transparent, //* menghilangkan border bottom
         //* Penggunaan jika ada tombol back, masukkan ke gesture detector kalau mau ada logic get.back
         prefixWidget: GestureDetector(

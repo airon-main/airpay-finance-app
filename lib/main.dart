@@ -1,9 +1,13 @@
 import 'package:air_pay/hive/boxes.dart';
 import 'package:air_pay/hive/transaction.dart';
 import 'package:air_pay/pages/card/addCardPage.dart';
+import 'package:air_pay/pages/home/topup/topup.dart';
+import 'package:air_pay/pages/home/transfer/transfer.dart';
+import 'package:air_pay/pages/home/withdraw/withdraw.dart';
 import 'package:air_pay/pages/login/login.dart';
 import 'package:air_pay/pages/navigation/navigation.dart';
 import 'package:air_pay/pages/home/scan/scan.dart';
+import 'package:air_pay/pages/notification/notification.dart';
 import 'package:air_pay/pages/pin/pin.dart';
 import 'package:air_pay/pages/shop/Payment%20Page/electricPage.dart';
 import 'package:air_pay/pages/shop/Payment%20Page/topupPage.dart';
@@ -48,23 +52,28 @@ class MyApp extends StatelessWidget {
         child: SplashScreen(),
       ),
       getPages: [
-        GetPage(name: "/home", page: () => Navigation()),
-        GetPage(name: "/home/scan", page: () => const Scan()),
         GetPage(name: "/login", page: () => const Login()),
         GetPage(name: "/signup", page: () => const Signup()),
         GetPage(name: "/enterpin", page: () => const EnterPin()),
+        GetPage(name: "/notification", page: () => const NotificationPage()),
+        //* Home Pages
+        GetPage(name: "/home", page: () => Navigation()),
+        GetPage(name: "/home/scan", page: () => const ScanPage()),
+        GetPage(name: "/home/topup", page: () => const TopupPage()),
+        GetPage(name: "/home/transfer", page: () => const TransferPage()),
+        GetPage(name: "/home/withdraw", page: () => const WithdrawPage()),
+        //* Shop Pages
+        GetPage(name: "/shop/homeshop", page: () => const ShoppingPage()),
+        GetPage(name: "/shop/topup", page: () => const buyPage()),
+        GetPage(name: "/shop/token", page: () => const electricPage()),
+        //* Card Pages
+        GetPage(name: "/card/addcard", page: () => const addCardPage()),
         //* User Pages
         GetPage(name: "/user/account", page: () => const Account()),
         GetPage(name: "/user/appearance", page: () => const Appearance()),
         GetPage(name: "/user/setting", page: () => const Setting()),
         GetPage(name: "/user/cache", page: () => const Cache()),
         GetPage(name: "/user/about", page: () => const aboutUsPage()),
-        //* Card Pages
-        GetPage(name: "/card/addcard", page: () => const addCardPage()),
-        //*
-        GetPage(name: "/shop/homeshop", page: () => const ShoppingPage()),
-        GetPage(name: "/shop/topup", page: () => const buyPage()),
-        GetPage(name: "/shop/token", page: () => const electricPage()),
       ],
     );
   }

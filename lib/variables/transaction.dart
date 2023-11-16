@@ -4,7 +4,7 @@ List<Map<String, dynamic>> transactionData = [
     'type': 'recieve',
     'photo': 'Google.png',
     'date': '30 Sep 2023 • 08:29 PM',
-    'value': 'Rp20,000,000',
+    'value': '+ Rp20,000,000',
     'impact': '+20%'
   },
   {
@@ -12,7 +12,7 @@ List<Map<String, dynamic>> transactionData = [
     'type': 'transfer',
     'photo': 'User.png',
     'date': '30 Sep 2023 • 09:30 AM',
-    'value': 'Rp5,000,000',
+    'value': '- Rp5,000,000',
     'impact': '-5%'
   },
   {
@@ -20,7 +20,7 @@ List<Map<String, dynamic>> transactionData = [
     'type': 'recieve',
     'photo': 'Steam.png',
     'date': '29 Sep 2023 • 08:29 PM',
-    'value': 'Rp10,000,000',
+    'value': '+ Rp10,000,000',
     'impact': '+11%'
   },
   {
@@ -28,7 +28,7 @@ List<Map<String, dynamic>> transactionData = [
     'type': 'transfer',
     'photo': 'Shopee.png',
     'date': '28 Sep 2023 • 08:29 PM',
-    'value': 'Rp200,000',
+    'value': '- Rp200,000',
     'impact': '-3%'
   },
 ];

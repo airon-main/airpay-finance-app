@@ -268,17 +268,22 @@ class myAppBar extends StatelessWidget implements PreferredSizeWidget {
               ),
             ),
             const Spacer(),
-            Container(
-              width: 34,
-              height: 34,
-              decoration: BoxDecoration(
-                color: darkcolor['card'],
-                shape: BoxShape.circle,
-              ),
-              child: Icon(
-                Icons.notifications_none,
-                color: darkcolor['contrast'],
-                size: 22,
+            GestureDetector(
+              onTap: () {
+                Get.toNamed("/notification");
+              },
+              child: Container(
+                width: 34,
+                height: 34,
+                decoration: BoxDecoration(
+                  color: darkcolor['card'],
+                  shape: BoxShape.circle,
+                ),
+                child: Icon(
+                  Icons.notifications_none,
+                  color: darkcolor['contrast'],
+                  size: 22,
+                ),
               ),
             ),
           ],
@@ -398,96 +403,3 @@ class myDropdown extends StatelessWidget {
   }
 }
 
-class myTransaction extends StatelessWidget {
-  const myTransaction({super.key, required this.index});
-
-  final int index;
-
-  @override
-  Widget build(BuildContext context) {
-    final String type = transactionData[index]['type'];
-    return Row(
-      children: [
-        CircleAvatar(
-          backgroundImage:
-              AssetImage('assets/images/' + transactionData[index]['photo']),
-          radius: 19,
-        ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(transactionData[index]['name'],
-                style: TextStyle(color: darkcolor['contrast'])),
-            Text(
-              transactionData[index]['date'],
-              style: TextStyle(fontSize: 10, color: darkcolor['disabled']),
-            ),
-          ],
-        ),
-        const Spacer(),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            Text(
-                type == 'recieve'
-                    ? '+ ' + transactionData[index]['value']
-                    : '- ' + transactionData[index]['value'],
-                style: type == 'recieve'
-                    ? TextStyle(color: darkcolor['green'])
-                    : TextStyle(color: darkcolor['red'])),
-            Text(
-              transactionData[index]['impact'],
-              style: TextStyle(fontSize: 10, color: darkcolor['disabled']),
-            ),
-          ],
-        ),
-      ].withSpaceBetween(width: 10),
-    );
-  }
-}
-
-class myActionButton extends StatelessWidget {
-  const myActionButton({
-    super.key,
-    required this.onPressed,
-    this.icon,
-    this.text = "",
-    this.backgroundColor = const Color(0xff292929),
-    this.foregroundColor = const Color(0xffffffff),
-  });
-  final VoidCallback onPressed;
-  final IconData? icon;
-  final String text;
-  final Color? backgroundColor;
-  final Color? foregroundColor;
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: TextButton(
-        onPressed: onPressed,
-        style: TextButton.styleFrom(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-          padding: const EdgeInsets.symmetric(vertical: 10),
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
-        ),
-        child: SizedBox(
-          width: double.infinity,
-          child: Column(
-            children: [
-              Icon(icon),
-              const SizedBox(height: 5),
-              Text(
-                text,
-                style: const TextStyle(fontSize: 12),
-              )
-            ].withSpaceBetween(width: 10),
-          ),
-        ),
-      ),
-    );
-  }
-}
