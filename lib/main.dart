@@ -1,9 +1,14 @@
+import 'package:air_pay/pages/card/addCardPage.dart';
 import 'package:air_pay/pages/login/login.dart';
 import 'package:air_pay/pages/navigation/navigation.dart';
 import 'package:air_pay/pages/home/scan/scan.dart';
 import 'package:air_pay/pages/pin/pin.dart';
+import 'package:air_pay/pages/shop/Payment%20Page/electricPage.dart';
+import 'package:air_pay/pages/shop/Payment%20Page/topupPage.dart';
+import 'package:air_pay/pages/shop/shop.dart';
 import 'package:air_pay/pages/signup/signup.dart';
 import 'package:air_pay/pages/splash/splash.dart';
+import 'package:air_pay/pages/user/detail/aboutus.dart';
 import 'package:air_pay/pages/user/detail/accountInformation.dart';
 import 'package:air_pay/pages/user/detail/appearance.dart';
 import 'package:air_pay/pages/user/detail/cache.dart';
@@ -47,6 +52,13 @@ class MyApp extends StatelessWidget {
         GetPage(name: "/user/appearance", page: () => const Appearance()),
         GetPage(name: "/user/setting", page: () => const Setting()),
         GetPage(name: "/user/cache", page: () => const Cache()),
+        GetPage(name: "/user/about", page: () => const aboutUsPage()),
+        //* Card Pages
+        GetPage(name: "/card/addcard", page: () => const addCardPage()),
+        //*
+        GetPage(name: "/shop/homeshop", page: () => const ShoppingPage()),
+        GetPage(name: "/shop/topup", page: () => const buyPage()),
+        GetPage(name: "/shop/token", page: () => const electricPage()),
       ],
     );
   }

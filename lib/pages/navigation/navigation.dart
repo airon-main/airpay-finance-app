@@ -1,14 +1,7 @@
-import 'package:air_pay/extensions.dart';
-import 'package:air_pay/pages/card/addCardPage.dart';
-import 'package:air_pay/pages/shop/Payment%20Page/electricPage.dart';
-import 'package:air_pay/pages/shop/Payment%20Page/topupPage.dart';
+
 import 'package:air_pay/pages/card/cardPage.dart';
 import 'package:air_pay/pages/shop/shop.dart';
 import 'package:air_pay/pages/home/home.dart';
-import 'package:air_pay/pages/user/detail/accountInformation.dart';
-import 'package:air_pay/pages/user/detail/appearance.dart';
-import 'package:air_pay/pages/user/detail/cache.dart';
-import 'package:air_pay/pages/user/detail/setting.dart';
 import 'package:air_pay/pages/user/user.dart';
 import 'package:air_pay/pages/navigation/navigationController.dart';
 import 'package:air_pay/variables/colorpalette.dart';

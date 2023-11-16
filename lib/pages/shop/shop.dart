@@ -2,6 +2,7 @@ import 'package:air_pay/extensions.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 import 'package:air_pay/widgets/custom.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'komponen/Component.dart';
 
 class ShoppingPage extends StatefulWidget {
@@ -17,18 +18,7 @@ class _ShoppingPageState extends State<ShoppingPage> {
     return Scaffold(
       appBar: const myAppBar(
         title: "Shopping Page",
-        borderColor: Colors.transparent, //* menghilangkan border bottom
-        //* Penggunaan jika ada tombol back, masukkan ke gesture detector kalau mau ada logic get.back
-        // prefixWidget: Container(
-        //   padding: const EdgeInsets.only(right: 10),
-        //   width: 34,
-        //   height: 34,
-        //   child: Icon(
-        //     Icons.arrow_back,
-        //     color: darkcolor['contrast'],
-        //     size: 22,
-        //   ),
-        // ),
+        borderColor: Colors.transparent,
       ),
       body: Container(
         color: darkcolor['background'],
@@ -57,7 +47,11 @@ class _ShoppingPageState extends State<ShoppingPage> {
                         children: [
                           Expanded(
                               child: myImageButton(
-                            onClick: () {},
+                            onClick: () {
+                              Get.toNamed(
+                                "/shop/topup"
+                              );
+                            },
                             icon: Icons.videogame_asset,
                             imagePath: 'assets/images/topup.png',
                                 text: "Top Up",
@@ -67,7 +61,11 @@ class _ShoppingPageState extends State<ShoppingPage> {
                           SizedBox(width: 10,),
                           Expanded(
                               child: myImageButton(
-                                onClick: () {},
+                                onClick: () {
+                                  Get.toNamed(
+                                    "/shop/token"
+                                  );
+                                },
                                 icon: Icons.videogame_asset,
                                 imagePath: 'assets/images/PLN.png',
                                 text: "PLN ",

@@ -4,8 +4,6 @@ import 'package:air_pay/widgets/custom.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../shop/komponen/Component.dart';
-
 class Appearance extends StatelessWidget {
   const Appearance({Key? key}) : super(key: key);
 
@@ -43,6 +41,9 @@ class Appearance extends StatelessWidget {
               "Themes",
               style: TextStyle(color: darkcolor['contrast']),
             ),
+            const mySwitch(
+              label: "Light Theme",
+            ),
             const myTextField(
               hintText: "#f2c318",
               label: "Custom Color",
@@ -68,7 +69,7 @@ class Appearance extends StatelessWidget {
               ],
             ),
             const mySwitch(
-              label: "Light Theme",
+              label: "Outline icon",
             ),
           ].withSpaceBetween(height: 10),
         ),

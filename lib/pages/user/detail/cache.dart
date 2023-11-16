@@ -2,9 +2,7 @@ import 'package:air_pay/extensions.dart';
 import 'package:air_pay/widgets/custom.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../../variables/colorpalette.dart';
-import '../../shop/komponen/Component.dart';
+import 'package:air_pay/variables/colorpalette.dart';
 
 class Cache extends StatelessWidget {
   const Cache({Key? key}) : super(key: key);
@@ -34,23 +32,38 @@ class Cache extends StatelessWidget {
       ),
       body: Container(
         width: double.infinity,
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(color: darkcolor['background']),
         child: Column(
           children: [
-            detailAccInfo(
-                childWidget: myButton(
-                  text: "Clean   120MB",
-                  onClick: () {},
-                  textAlign: TextAlign.center,
-                  backgroundColor: darkcolor['card'],
-                  foregroundColor: darkcolor['contrast'],
+            myButton(
+              onClick: () {},
+              label: "Clean 125mb",
+              backgroundColor: darkcolor['card'],
+              foregroundColor: darkcolor['contrast'],
+            ),
+            const myDropdown(
+              label: "Max Size",
+              labelWidth: 100,
+              items: [
+                DropdownMenuItem(
+                  value: '128mb',
+                  child: Text("128mb"),
                 ),
-                text: "Cache"),
-            dropdownChoices(
-                text: "Max Size",
-                text1: "128MB",
-                icon: Icons.arrow_drop_down_rounded)
+                DropdownMenuItem(
+                  value: '256mb',
+                  child: Text("256mb"),
+                ),
+                DropdownMenuItem(
+                  value: '512mb',
+                  child: Text("512mb"),
+                ),
+                DropdownMenuItem(
+                  value: '1gb',
+                  child: Text("1gb"),
+                ),
+              ],
+            )
           ].withSpaceBetween(height: 10),
         ),
       ),

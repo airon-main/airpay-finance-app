@@ -1,9 +1,9 @@
+import 'package:air_pay/extensions.dart';
 import 'package:air_pay/widgets/custom.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:air_pay/variables/colorpalette.dart';
 
-import '../../../variables/colorpalette.dart';
-import '../../shop/komponen/Component.dart';
 
 class Setting extends StatelessWidget {
   const Setting({Key? key}) : super(key: key);
@@ -35,13 +35,30 @@ class Setting extends StatelessWidget {
         width: double.infinity,
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(color: darkcolor['background']),
-        child: const Column(
+        child:  Column(
           children: [
-            dropdownChoices(
-                text: "Language",
-                text1: "English",
-                icon: Icons.arrow_drop_down_rounded)
-          ],
+            const myDropdown(
+              label: "Language",
+              labelWidth: 100,
+              items: [
+                DropdownMenuItem(
+                  value: 'English',
+                  child: Text("English"),
+                ),
+                DropdownMenuItem(
+                  value: 'Malaysia',
+                  child: Text("Malaysia"),
+                ),
+                DropdownMenuItem(
+                  value: 'Indonesia',
+                  child: Text("Indonesia"),
+                ),
+              ],
+            ),
+            const mySwitch(
+              label: "Show unavailable Features",
+            )
+          ].withSpaceBetween(height: 10),
         ),
       ),
     );

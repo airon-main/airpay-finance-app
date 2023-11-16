@@ -4,8 +4,6 @@ import 'package:air_pay/widgets/custom.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../shop/komponen/Component.dart';
-
 class Account extends StatelessWidget {
   const Account({Key? key}) : super(key: key);
 
