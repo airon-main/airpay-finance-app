@@ -1,5 +1,6 @@
 import 'package:air_pay/variables/transaction.dart';
 import 'package:air_pay/widgets/customController.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:air_pay/extensions.dart';
 import 'package:air_pay/variables/colorpalette.dart';
@@ -11,7 +12,8 @@ class myTextField extends StatefulWidget {
       {super.key,
       this.isObscured = false,
       this.hintText,
-      this.textEditingController,
+      this.controller,
+      this.validator,
       this.backgroundColor = const Color(0xff222222),
       this.foregroundColor = const Color(0xffffffff),
       this.hintColor = const Color(0xffF2CE18),
@@ -19,7 +21,8 @@ class myTextField extends StatefulWidget {
       this.labelWidth});
   final bool isObscured;
   final String? hintText;
-  final TextEditingController? textEditingController;
+  final TextEditingController? controller;
+  final String? Function(String?)? validator;
   final Color backgroundColor;
   final Color foregroundColor;
   final Color hintColor;
@@ -46,10 +49,11 @@ class myTextFieldState extends State<myTextField> {
           ),
         ),
         Expanded(
-          child: TextField(
+          child: TextFormField(
+            validator: widget.validator,
             autofocus: false,
             style: TextStyle(color: darkcolor['contrast']),
-            controller: widget.textEditingController,
+            controller: widget.controller,
             obscureText: widget.isObscured ? isChecked : widget.isObscured,
             decoration: InputDecoration(
               hintText: widget.hintText,
@@ -405,7 +409,10 @@ class myDropdown extends StatelessWidget {
 }
 
 class myPayMetode extends StatelessWidget {
-  const myPayMetode({Key? key, required this.index,}) : super(key: key);
+  const myPayMetode({
+    Key? key,
+    required this.index,
+  }) : super(key: key);
   final int index;
   @override
   Widget build(BuildContext context) {
@@ -446,7 +453,7 @@ class myTransfer extends StatelessWidget {
   final int index;
   @override
   Widget build(BuildContext context) {
-    return  Column(
+    return Column(
       children: [
         TextButton(
           onPressed: () {

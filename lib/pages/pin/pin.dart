@@ -10,7 +10,7 @@ class EnterPin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var data = Get.arguments;
+    var arguments = Get.arguments;
 
     final defaultPinTheme = PinTheme(
       height: 56,
@@ -28,6 +28,8 @@ class EnterPin extends StatelessWidget {
     final focusedPinTheme = defaultPinTheme.copyDecorationWith(
       border: Border.all(color: darkcolor['main']),
     );
+
+    print(arguments);
 
     return Scaffold(
       body: Container(
@@ -52,7 +54,7 @@ class EnterPin extends StatelessWidget {
               defaultPinTheme: defaultPinTheme,
               focusedPinTheme: focusedPinTheme,
               length: 6,
-              validator: data == "login"
+              validator: arguments["type"] == "login"
                   ? (s) {
                       return s == '222222' ? null : 'Pin is incorrect';
                     }
@@ -66,7 +68,9 @@ class EnterPin extends StatelessWidget {
               onClick: () {
                 Get.offAllNamed("/home");
               },
-              text: data == "signup" ? "Looks good" : "I think it's Correct",
+              text: arguments["type"] == "signup"
+                  ? "Looks good"
+                  : "I think it's Correct",
               backgroundColor: darkcolor['main'],
               foregroundColor: darkcolor['contrastmain'],
               textAlign: TextAlign.center,
