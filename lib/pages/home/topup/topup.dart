@@ -83,6 +83,39 @@ class TopupPage extends StatelessWidget {
                   ].withSpaceBetween(width: 10),
                 ),
               ),
+              Container(
+                padding: EdgeInsets.all(10),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: darkcolor['card'],
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        CircleAvatar(
+                          backgroundImage: AssetImage("assets/images/indomaret-topup.png"),
+                          radius: 19,
+                        ),
+                        Expanded(
+                          child: Text("Indomaret", style: TextStyle(
+                            color: darkcolor['contrast']
+                          ),),
+                        ),
+                        Icon(Icons.arrow_forward_rounded, color: darkcolor['contrast'],),
+                      ].withSpaceBetween(width: 10),
+                    ),
+                    Divider(
+                      color: darkcolor['carddark'],
+                      height: 25,
+                    )
+                  ],
+                ),
+
+              )
             ].withSpaceBetween(height: 10),
           ),
         ),
