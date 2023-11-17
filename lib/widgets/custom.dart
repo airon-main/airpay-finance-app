@@ -404,3 +404,95 @@ class myDropdown extends StatelessWidget {
   }
 }
 
+class myPayMetode extends StatelessWidget {
+  const myPayMetode({Key? key, required this.index,}) : super(key: key);
+  final int index;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            CircleAvatar(
+              backgroundImage:  AssetImage('assets/images/' + metodeData[index]['photo']),
+              radius: 19,
+            ),
+            Expanded(
+              child: Text(metodeData[index]["nama"], style: TextStyle(
+                  color: darkcolor['contrast']
+              ),),
+            ),
+            Icon(Icons.arrow_forward_rounded, color: darkcolor['disabled'],),
+          ].withSpaceBetween(width: 10),
+        ),
+      ],
+    );
+  }
+}
+
+class myTransfer extends StatelessWidget {
+  const myTransfer({Key? key, required this.index}) : super(key: key);
+  final int index;
+  @override
+  Widget build(BuildContext context) {
+    return  Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            CircleAvatar(
+              backgroundImage:  AssetImage('assets/images/' + transactionData[index]['photo']),
+              radius: 19,
+            ),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(transactionData[index]["name"], style: TextStyle(
+                      color: darkcolor['contrast']
+                  ),),
+                  Text(transactionData[index]["date"], style: TextStyle(
+                      color: darkcolor['contrast']
+                  ),),
+                ],
+              ),
+            ),
+            Icon(Icons.arrow_forward_rounded, color: darkcolor['disabled'],),
+          ].withSpaceBetween(width: 10),
+        ),
+      ],
+    );
+  }
+}
+
+class myWithdraw extends StatelessWidget {
+  const myWithdraw({Key? key, required this.index}) : super(key: key);
+  final int index;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            CircleAvatar(
+              backgroundImage:  AssetImage('assets/images/' + withdrawdata[index]['photo']),
+              radius: 19,
+            ),
+            Expanded(
+              child: Text(withdrawdata[index]["nama"], style: TextStyle(
+                  color: darkcolor['contrast']
+              ),),
+            ),
+            Icon(Icons.arrow_forward_rounded, color: darkcolor['disabled'],),
+          ].withSpaceBetween(width: 10),
+        ),
+      ],
+    );
+  }
+}

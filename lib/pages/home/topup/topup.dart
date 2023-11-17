@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:get/get.dart';
 
+import '../../../variables/transaction.dart';
+import '../../shop/komponen/Component.dart';
+
 class TopupPage extends StatelessWidget {
   const TopupPage({super.key});
 
@@ -83,39 +86,34 @@ class TopupPage extends StatelessWidget {
                   ].withSpaceBetween(width: 10),
                 ),
               ),
+              judulPage(
+                title: 'Top Up Methods',
+                title1: "View more",
+              ),
               Container(
-                padding: EdgeInsets.all(10),
-                width: double.infinity,
                 decoration: BoxDecoration(
+                  color: darkcolor['carddark'],
                   borderRadius: BorderRadius.circular(5),
-                  color: darkcolor['card'],
                 ),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        CircleAvatar(
-                          backgroundImage: AssetImage("assets/images/indomaret-topup.png"),
-                          radius: 19,
-                        ),
-                        Expanded(
-                          child: Text("Indomaret", style: TextStyle(
-                            color: darkcolor['contrast']
-                          ),),
-                        ),
-                        Icon(Icons.arrow_forward_rounded, color: darkcolor['contrast'],),
-                      ].withSpaceBetween(width: 10),
-                    ),
-                    Divider(
-                      color: darkcolor['carddark'],
+                padding: const EdgeInsets.symmetric(
+                  vertical: 12,
+                  horizontal: 10,
+                ),
+                child: ListView.separated(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    return myPayMetode(index: index);
+                  },
+                  itemCount: metodeData.length,
+                  separatorBuilder: (context, index) {
+                    return Divider(
+                      color: darkcolor['card'],
                       height: 25,
-                    )
-                  ],
+                    );
+                  },
                 ),
-
-              )
+              ),
             ].withSpaceBetween(height: 10),
           ),
         ),
