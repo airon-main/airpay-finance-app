@@ -20,7 +20,7 @@ class UserAdapter extends TypeAdapter<User> {
       username: fields[0] as String,
       email: fields[1] as String,
       password: fields[2] as String,
-      pin: fields[3] as String,
+      pin: fields[3] as String?,
       airpayId: fields[4] as String,
     );
   }

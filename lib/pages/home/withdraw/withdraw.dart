@@ -1,9 +1,12 @@
 import 'package:air_pay/extensions.dart';
+import 'package:air_pay/pages/shop/komponen/Component.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 import 'package:air_pay/widgets/custom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:get/get.dart';
+
+import '../../../variables/transaction.dart';
 
 class WithdrawPage extends StatelessWidget {
   const WithdrawPage({super.key});
@@ -81,6 +84,31 @@ class WithdrawPage extends StatelessWidget {
                     const Expanded(child: Text("My Card")),
                     const Icon(Icons.arrow_forward_rounded),
                   ].withSpaceBetween(width: 10),
+                ),
+              ),
+              judulPage(title: "Withdraw Methods", title1: "View more",),
+              Container(
+                decoration: BoxDecoration(
+                  color: darkcolor['carddark'],
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 12,
+                  horizontal: 10,
+                ),
+                child: ListView.separated(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    return myWithdraw(index: index);
+                  },
+                  itemCount: 3,
+                  separatorBuilder: (context, index) {
+                    return Divider(
+                      color: darkcolor['card'],
+                      height: 25,
+                    );
+                  },
                 ),
               ),
             ].withSpaceBetween(height: 10),

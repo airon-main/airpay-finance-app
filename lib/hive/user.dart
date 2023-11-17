@@ -8,7 +8,7 @@ class User {
     required this.username,
     required this.email,
     required this.password,
-    required this.pin,
+    this.pin,
     required this.airpayId,
   });
   @HiveField(0)
@@ -21,7 +21,7 @@ class User {
   String password;
 
   @HiveField(3)
-  String pin;
+  String? pin;
 
   @HiveField(4)
   String airpayId;

@@ -14,7 +14,15 @@ class SignupController extends GetxController {
     required String pin,
   }) async {
     error = "";
-    boxUser.put('key_$username', User(username: username, email: email, password: password, pin: pin, airpayId: 'id_$username'));
+    boxUser.put(
+        'key_$username',
+        User(
+          username: username,
+          email: email,
+          password: password,
+          pin: pin,
+          airpayId: 'id_$username',
+        ));
     return error;
   }
 }
