@@ -44,7 +44,7 @@ class homeUserPage extends StatelessWidget {
                 children: [
                   ClipOval(
                     child: Image.asset(
-                      "assets/images/Frame 93.png",
+                      "assets/images/User.png",
                       fit: BoxFit.cover,
                       height: 75,
                       width: 75,

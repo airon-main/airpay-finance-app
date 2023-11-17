@@ -300,12 +300,13 @@ class mySwitch extends StatelessWidget {
   const mySwitch({
     super.key,
     this.label = "",
+    required this.controller,
   });
   final String label;
+  final mySwitchController controller;
 
   @override
   Widget build(BuildContext context) {
-    mySwitchController ctr = Get.put(mySwitchController());
     return Row(
       mainAxisSize: MainAxisSize.max,
       children: [
@@ -326,8 +327,8 @@ class mySwitch extends StatelessWidget {
                 activeColor: darkcolor['contrast'],
                 trackOutlineColor:
                     const MaterialStatePropertyAll<Color>(Colors.transparent),
-                value: ctr.on.value,
-                onChanged: (val) => ctr.toggle(),
+                value: controller.on.value,
+                onChanged: (val) => controller.toggle(),
               )),
         )
       ],

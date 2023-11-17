@@ -1,15 +1,16 @@
 import 'package:air_pay/extensions.dart';
 import 'package:air_pay/widgets/custom.dart';
+import 'package:air_pay/widgets/customController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:air_pay/variables/colorpalette.dart';
-
 
 class Setting extends StatelessWidget {
   const Setting({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    mySwitchController showUnavailableController = mySwitchController();
     return Scaffold(
       appBar: myAppBar(
         title: "Settings",
@@ -35,7 +36,7 @@ class Setting extends StatelessWidget {
         width: double.infinity,
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(color: darkcolor['background']),
-        child:  Column(
+        child: Column(
           children: [
             const myDropdown(
               label: "Language",
@@ -55,7 +56,8 @@ class Setting extends StatelessWidget {
                 ),
               ],
             ),
-            const mySwitch(
+            mySwitch(
+              controller: showUnavailableController,
               label: "Show unavailable Features",
             )
           ].withSpaceBetween(height: 10),

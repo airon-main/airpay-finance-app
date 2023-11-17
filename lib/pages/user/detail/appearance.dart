@@ -1,6 +1,7 @@
 import 'package:air_pay/extensions.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 import 'package:air_pay/widgets/custom.dart';
+import 'package:air_pay/widgets/customController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -9,6 +10,8 @@ class Appearance extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    mySwitchController lightThemeController = Get.put(mySwitchController());
+    mySwitchController outlineIconController = Get.put(mySwitchController());
     return Scaffold(
       appBar: myAppBar(
         title: "Appereance",
@@ -41,7 +44,8 @@ class Appearance extends StatelessWidget {
               "Themes",
               style: TextStyle(color: darkcolor['contrast']),
             ),
-            const mySwitch(
+            mySwitch(
+              controller: lightThemeController,
               label: "Light Theme",
             ),
             const myTextField(
@@ -68,7 +72,8 @@ class Appearance extends StatelessWidget {
                 ),
               ],
             ),
-            const mySwitch(
+            mySwitch(
+              controller: outlineIconController,
               label: "Outline icon",
             ),
           ].withSpaceBetween(height: 10),

@@ -1,17 +1,17 @@
 import 'package:air_pay/extensions.dart';
+import 'package:air_pay/variables/colorpalette.dart';
 import 'package:air_pay/widgets/custom.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:air_pay/variables/colorpalette.dart';
 
-class Cache extends StatelessWidget {
-  const Cache({Key? key}) : super(key: key);
+class ChangePassPage extends StatelessWidget {
+  const ChangePassPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: myAppBar(
-        title: "Cache",
+        title: "Change Password",
         // borderColor: Colors.transparent, //* menghilangkan border bottom
         //* Penggunaan jika ada tombol back, masukkan ke gesture detector kalau mau ada logic get.back
         prefixWidget: GestureDetector(
@@ -31,42 +31,27 @@ class Cache extends StatelessWidget {
         ),
       ),
       body: Container(
-        width: double.infinity,
+        height: double.infinity,
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(color: darkcolor['background']),
         child: Column(
           children: [
+            const myTextField(
+              hintText: "Old Password",
+            ),
+            const myTextField(
+              hintText: "New Password",
+            ),
+            const myTextField(
+              hintText: "Re-enter New Password",
+            ),
             myButton(
               onClick: () {},
-              label: "Clean Cache",
-              labelWidth: 100,
-              text: "Clean 125mb",
+              text: "Change Password",
               textAlign: TextAlign.center,
-              backgroundColor: darkcolor['card'],
-              foregroundColor: darkcolor['contrast'],
+              backgroundColor: darkcolor['main'],
+              foregroundColor: darkcolor['contrastmain'],
             ),
-            const myDropdown(
-              label: "Max Size",
-              labelWidth: 100,
-              items: [
-                DropdownMenuItem(
-                  value: '128mb',
-                  child: Text("128mb"),
-                ),
-                DropdownMenuItem(
-                  value: '256mb',
-                  child: Text("256mb"),
-                ),
-                DropdownMenuItem(
-                  value: '512mb',
-                  child: Text("512mb"),
-                ),
-                DropdownMenuItem(
-                  value: '1gb',
-                  child: Text("1gb"),
-                ),
-              ],
-            )
           ].withSpaceBetween(height: 10),
         ),
       ),

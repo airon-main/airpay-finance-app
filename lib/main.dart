@@ -18,6 +18,7 @@ import 'package:air_pay/pages/user/detail/aboutus.dart';
 import 'package:air_pay/pages/user/detail/accountInformation.dart';
 import 'package:air_pay/pages/user/detail/appearance.dart';
 import 'package:air_pay/pages/user/detail/cache.dart';
+import 'package:air_pay/pages/user/detail/changepass.dart';
 import 'package:air_pay/pages/user/detail/setting.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 import 'package:flutter/material.dart';
@@ -70,6 +71,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: "/card/addcard", page: () => const addCardPage()),
         //* User Pages
         GetPage(name: "/user/account", page: () => const Account()),
+        GetPage(name: "/user/changepass", page: () => const ChangePassPage()),
         GetPage(name: "/user/appearance", page: () => const Appearance()),
         GetPage(name: "/user/setting", page: () => const Setting()),
         GetPage(name: "/user/cache", page: () => const Cache()),
