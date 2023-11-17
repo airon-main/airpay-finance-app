@@ -1,8 +1,11 @@
 import 'package:air_pay/hive/boxes.dart';
 import 'package:air_pay/hive/transaction.dart';
 import 'package:air_pay/pages/card/addCardPage.dart';
+import 'package:air_pay/pages/home/topup/selectNominalTopup.dart';
 import 'package:air_pay/pages/home/topup/topup.dart';
 import 'package:air_pay/pages/home/transfer/transfer.dart';
+import 'package:air_pay/pages/home/transfer/selectNominalTransfer.dart';
+import 'package:air_pay/pages/home/withdraw/selectNominalWithdraw.dart';
 import 'package:air_pay/pages/home/withdraw/withdraw.dart';
 import 'package:air_pay/pages/login/login.dart';
 import 'package:air_pay/pages/navigation/navigation.dart';
@@ -63,6 +66,9 @@ class MyApp extends StatelessWidget {
         GetPage(name: "/home/topup", page: () => const TopupPage()),
         GetPage(name: "/home/transfer", page: () => const TransferPage()),
         GetPage(name: "/home/withdraw", page: () => const WithdrawPage()),
+        GetPage(name: "/home/selectNominalTopup", page: () => const selectNominalTopup()),
+        GetPage(name: "/home/selectNominalTransfer", page: () => const selectNominalTransfer()),
+        GetPage(name: "/home/selectNominalWithdraw", page: () => const selectNominalWithdraw()),
         //* Shop Pages
         GetPage(name: "/shop/homeshop", page: () => const ShoppingPage()),
         GetPage(name: "/shop/topup", page: () => const buyPage()),

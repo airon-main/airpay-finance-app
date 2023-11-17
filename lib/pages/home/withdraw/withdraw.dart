@@ -102,7 +102,7 @@ class WithdrawPage extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return myWithdraw(index: index);
                   },
-                  itemCount: 3,
+                  itemCount: withdrawdata.length,
                   separatorBuilder: (context, index) {
                     return Divider(
                       color: darkcolor['card'],
