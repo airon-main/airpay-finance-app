@@ -6,7 +6,7 @@ class SignupController extends GetxController {
   var loginProcess = false.obs;
   var error = "";
 
-  Future<String> login({
+  Future<String> signup({
     required String username,
     required String email,
     required String password,

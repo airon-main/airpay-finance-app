@@ -418,26 +418,30 @@ class myPayMetode extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            CircleAvatar(
-              backgroundImage:
-                  AssetImage('assets/images/' + metodeData[index]['photo']),
-              radius: 19,
-            ),
-            Expanded(
-              child: Text(
-                metodeData[index]["nama"],
-                style: TextStyle(color: darkcolor['contrast']),
+        TextButton(
+          onPressed: () {
+            Get.toNamed("/home/selectNominalTopup");
+          },
+          style: TextButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5)),
+              padding: const EdgeInsets.symmetric(horizontal: 10),),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                backgroundImage:  AssetImage('assets/images/' + metodeData[index]['photo']),
+                radius: 19,
               ),
-            ),
-            Icon(
-              Icons.arrow_forward_rounded,
-              color: darkcolor['disabled'],
-            ),
-          ].withSpaceBetween(width: 10),
+              Expanded(
+                child: Text(metodeData[index]["nama"], style: TextStyle(
+                    color: darkcolor['contrast']
+                ),),
+              ),
+              Icon(Icons.arrow_forward_rounded, color: darkcolor['disabled'],),
+            ].withSpaceBetween(width: 10),
+          ),
         ),
       ],
     );
@@ -451,36 +455,39 @@ class myTransfer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            CircleAvatar(
-              backgroundImage: AssetImage(
-                  'assets/images/' + transactionData[index]['photo']),
-              radius: 19,
-            ),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    transactionData[index]["name"],
-                    style: TextStyle(color: darkcolor['contrast']),
-                  ),
-                  Text(
-                    transactionData[index]["date"],
-                    style: TextStyle(color: darkcolor['contrast']),
-                  ),
-                ],
+        TextButton(
+          onPressed: () {
+            Get.toNamed("/home/selectNominalTransfer");
+          },
+          style: TextButton.styleFrom(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5)),
+            padding: const EdgeInsets.symmetric(horizontal: 10),),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                backgroundImage:  AssetImage('assets/images/' + transactionData[index]['photo']),
+                radius: 19,
               ),
-            ),
-            Icon(
-              Icons.arrow_forward_rounded,
-              color: darkcolor['disabled'],
-            ),
-          ].withSpaceBetween(width: 10),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(transactionData[index]["name"], style: TextStyle(
+                        color: darkcolor['contrast']
+                    ),),
+                    Text(transactionData[index]["date"], style: TextStyle(
+                        color: darkcolor['contrast']
+                    ),),
+                  ],
+                ),
+              ),
+              Icon(Icons.arrow_forward_rounded, color: darkcolor['disabled'],),
+            ].withSpaceBetween(width: 10),
+          ),
         ),
       ],
     );
@@ -494,26 +501,30 @@ class myWithdraw extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            CircleAvatar(
-              backgroundImage:
-                  AssetImage('assets/images/' + withdrawdata[index]['photo']),
-              radius: 19,
-            ),
-            Expanded(
-              child: Text(
-                withdrawdata[index]["nama"],
-                style: TextStyle(color: darkcolor['contrast']),
+        TextButton(
+          onPressed: () {
+            Get.toNamed("/home/selectNominalWithdraw");
+          },
+          style: TextButton.styleFrom(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5)),
+            padding: const EdgeInsets.symmetric(horizontal: 10),),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                backgroundImage:  AssetImage('assets/images/' + withdrawdata[index]['photo']),
+                radius: 19,
               ),
-            ),
-            Icon(
-              Icons.arrow_forward_rounded,
-              color: darkcolor['disabled'],
-            ),
-          ].withSpaceBetween(width: 10),
+              Expanded(
+                child: Text(withdrawdata[index]["nama"], style: TextStyle(
+                    color: darkcolor['contrast']
+                ),),
+              ),
+              Icon(Icons.arrow_forward_rounded, color: darkcolor['disabled'],),
+            ].withSpaceBetween(width: 10),
+          ),
         ),
       ],
     );
