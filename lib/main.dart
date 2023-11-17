@@ -1,6 +1,7 @@
 import 'package:air_pay/hive/boxes.dart';
 import 'package:air_pay/hive/transaction.dart';
 import 'package:air_pay/pages/card/addCardPage.dart';
+import 'package:air_pay/pages/home/scan/selectNominalScan.dart';
 import 'package:air_pay/pages/home/topup/selectNominalTopup.dart';
 import 'package:air_pay/pages/home/topup/topup.dart';
 import 'package:air_pay/pages/home/transfer/transfer.dart';
@@ -69,6 +70,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: "/home/selectNominalTopup", page: () => const selectNominalTopup()),
         GetPage(name: "/home/selectNominalTransfer", page: () => const selectNominalTransfer()),
         GetPage(name: "/home/selectNominalWithdraw", page: () => const selectNominalWithdraw()),
+        GetPage(name: "/home/selectNominalScan", page: () => const selectNominalScan()),
         //* Shop Pages
         GetPage(name: "/shop/homeshop", page: () => const ShoppingPage()),
         GetPage(name: "/shop/topup", page: () => const buyPage()),
