@@ -1,3 +1,5 @@
+import 'package:air_pay/pages/signup/signupController.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 import 'package:air_pay/extensions.dart';
@@ -9,6 +11,13 @@ class Signup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var usernameTextController = TextEditingController(text: "");
+    var emailTextController = TextEditingController(text: "");
+    var passwordTextController = TextEditingController(text: "");
+    var reenterPasswordTextController = TextEditingController(text: "");
+    final formKey = GlobalKey<FormState>();
+    SignupController controller = SignupController();
+
     return Scaffold(
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -28,12 +37,48 @@ class Signup extends StatelessWidget {
                   fontSize: 32),
             ),
             const SizedBox(height: 20),
-            const myTextField(
+            myTextField(
               hintText: "Username",
+              controller: usernameTextController,
+              validator: (String? value) {
+                String nonNullValue = value ?? "";
+                nonNullValue.trim().isEmpty ? "a Username is Required" : null;
+                return null;
+              },
             ),
-            const myTextField(hintText: "Email / Phone Number"),
-            const myTextField(hintText: "Password", isObscured: true),
-            const myTextField(hintText: "Re-enter Password", isObscured: true),
+            myTextField(
+              hintText: "Email",
+              controller: emailTextController,
+              validator: (String? value) {
+                String nonNullValue = value ?? "";
+                EmailValidator.validate(nonNullValue)
+                    ? null
+                    : "Please enter a valid email";
+                return null;
+              },
+            ),
+            myTextField(
+              hintText: "Password",
+              isObscured: true,
+              controller: passwordTextController,
+              validator: (String? value) {
+                String nonNullValue = value ?? "";
+                nonNullValue.trim().isEmpty ? "a Password is Required" : null;
+                return null;
+              },
+            ),
+            myTextField(
+              hintText: "Re-enter Password",
+              isObscured: true,
+              controller: reenterPasswordTextController,
+              validator: (String? value) {
+                String nonNullValue = value ?? "";
+                nonNullValue.trim().isEmpty
+                    ? "please Re-enter your Password"
+                    : null;
+                return null;
+              },
+            ),
             Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.end,
@@ -47,7 +92,13 @@ class Signup extends StatelessWidget {
             const SizedBox(height: 20, width: double.infinity),
             myButton(
               onClick: () {
-                Get.toNamed("/enterpin", arguments: "signup");
+                Get.toNamed("/enterpin", arguments: {
+                  "type": "signup",
+                  "username": usernameTextController.text,
+                  "email": emailTextController.text,
+                  "password": passwordTextController.text,
+                  "reenterpassword": reenterPasswordTextController.text,
+                });
               },
               text: "Signup",
               backgroundColor: darkcolor['main'],

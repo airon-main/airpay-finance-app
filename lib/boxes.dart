@@ -1,3 +1,3 @@
 import 'package:hive/hive.dart';
 
-late Box boxTransaction;
+late Box boxUser;

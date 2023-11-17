@@ -1,5 +1,5 @@
-import 'package:air_pay/hive/boxes.dart';
-import 'package:air_pay/hive/transaction.dart';
+import 'package:air_pay/boxes.dart';
+import 'package:air_pay/hive/user.dart';
 import 'package:air_pay/pages/card/addCardPage.dart';
 import 'package:air_pay/pages/home/topup/topup.dart';
 import 'package:air_pay/pages/home/transfer/transfer.dart';
@@ -28,8 +28,8 @@ import 'package:hive_flutter/adapters.dart';
 
 void main() async {
   await Hive.initFlutter();
-  Hive.registerAdapter(TransactionAdapter());
-  boxTransaction = await Hive.openBox<Transaction>('transactionBox');
+  Hive.registerAdapter(UserAdapter());
+  boxUser = await Hive.openBox<User>('userBox');
   runApp(const MyApp());
 }
 
