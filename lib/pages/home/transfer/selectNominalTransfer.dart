@@ -57,7 +57,7 @@ class selectNominalTransfer extends StatelessWidget {
                 Text(
                   nominalFormat.text,
                   style:
-                  TextStyle(fontSize: 32, color: darkcolor['contrastmain']),
+                      TextStyle(fontSize: 32, color: darkcolor['contrastmain']),
                 ),
                 Text(
                   "Total Balance",
@@ -67,18 +67,17 @@ class selectNominalTransfer extends StatelessWidget {
             ),
           ),
           Container(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             width: double.infinity,
             decoration: BoxDecoration(
-              color: darkcolor['carddark'],
-              borderRadius: BorderRadius.circular(5)
-            ),
+                color: darkcolor['carddark'],
+                borderRadius: BorderRadius.circular(5)),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                CircleAvatar(
-                  backgroundImage:  AssetImage('assets/images/User.png' ),
+                const CircleAvatar(
+                  backgroundImage: AssetImage('assets/images/User.png'),
                   radius: 19,
                 ),
                 Expanded(
@@ -86,29 +85,47 @@ class selectNominalTransfer extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("BNI (Ayah)", style: TextStyle(
-                          color: darkcolor['contrast']
-                      ),),
-                      Text("123 456 789", style: TextStyle(
-                          color: darkcolor['disabled']
-                      ),),
+                      Text(
+                        "BNI (Ayah)",
+                        style: TextStyle(color: darkcolor['contrast']),
+                      ),
+                      Text(
+                        "123 456 789",
+                        style: TextStyle(color: darkcolor['disabled']),
+                      ),
                     ],
                   ),
                 ),
-               TextButton(onPressed: (){
-                 Get.back();
-               }, child: Text("Change", style: TextStyle(
-                 color: darkcolor['main']
-               ),))
+                TextButton(
+                    onPressed: () {
+                      Get.back();
+                    },
+                    child: Text(
+                      "Change",
+                      style: TextStyle(color: darkcolor['main']),
+                    ))
               ].withSpaceBetween(width: 10),
             ),
           ),
-          judulPage(title: "Enter Transfer Nominal"),
+          const SizedBox(height: 5),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("Enter Transfer Nominal",
+                  style: TextStyle(fontSize: 14, color: darkcolor['contrast'])),
+              GestureDetector(
+                onTap: () {},
+                child: Text(
+                  "",
+                  style: TextStyle(fontSize: 10, color: darkcolor['disabled']),
+                ),
+              ),
+            ],
+          ),
           myTextField(
             hintText: "Rp.100.000",
             hintColor: darkcolor['main'],
           ),
-          SizedBox(height: 10,),
           myButton(
             onClick: () {},
             text: "Transfer",
@@ -116,7 +133,7 @@ class selectNominalTransfer extends StatelessWidget {
             foregroundColor: darkcolor['contrastmain'],
             backgroundColor: darkcolor['main'],
           )
-        ]),
+        ].withSpaceBetween(height: 10)),
       ),
     );
   }

@@ -26,26 +26,24 @@ class _myCardPageState extends State<myCardPage> {
         child: Column(
             children: [
           const myCard(
-              imagePath: "assets/images/Frame 83.png",
-              text1: "Airpay E-Money",
-              text2: "Rp.120,000",
-              text3: "Top Up",
-              text4: "•",
-              text5: "Transfer"),
-          const myCard(
-              imagePath: "assets/images/Ovo.png",
-              text1: "OVO E-Money",
-              text2: "Rp.120,000",
-              text3: "Top Up",
-              text4: "•",
-              text5: "Transfer"),
-          const myCard(
-              imagePath: "assets/images/BNI.png",
-              text1: "1234 5678 0987",
-              text2: "Rp.120,000",
-              text3: "Top Up",
-              text4: "•",
-              text5: "Transfer"),
+            imagePath: "assets/images/AirPayCard.png",
+            text1: "Airpay E-Money",
+            text2: "Rp.120,000",
+          ),
+          // const myCard(
+          //     imagePath: "assets/images/Ovo.png",
+          //     text1: "OVO E-Money",
+          //     text2: "Rp.120,000",
+          //     text3: "Top Up",
+          //     text4: "•",
+          //     text5: "Transfer"),
+          // const myCard(
+          //     imagePath: "assets/images/BNI.png",
+          //     text1: "1234 5678 0987",
+          //     text2: "Rp.120,000",
+          //     text3: "Top Up",
+          //     text4: "•",
+          //     text5: "Transfer"),
           SizedBox(
             height: 77,
             width: double.infinity,

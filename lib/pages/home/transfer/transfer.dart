@@ -86,7 +86,23 @@ class TransferPage extends StatelessWidget {
                   ].withSpaceBetween(width: 10),
                 ),
               ),
-              judulPage(title: "Latest Transfers", title1: "View More",),
+              const SizedBox(height: 5),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Latest Transfer",
+                      style: TextStyle(
+                          fontSize: 14, color: darkcolor['contrast'])),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Text(
+                      "View More",
+                      style:
+                          TextStyle(fontSize: 10, color: darkcolor['disabled']),
+                    ),
+                  ),
+                ],
+              ),
               Container(
                 decoration: BoxDecoration(
                   color: darkcolor['carddark'],

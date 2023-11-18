@@ -23,13 +23,14 @@ class UserAdapter extends TypeAdapter<User> {
       pin: fields[3] as String,
       image: fields[4] as String,
       airpayId: fields[5] as String,
+      selectedCard: fields[6] as int,
     );
   }
 
   @override
   void write(BinaryWriter writer, User obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(7)
       ..writeByte(0)
       ..write(obj.username)
       ..writeByte(1)
@@ -41,7 +42,9 @@ class UserAdapter extends TypeAdapter<User> {
       ..writeByte(4)
       ..write(obj.image)
       ..writeByte(5)
-      ..write(obj.airpayId);
+      ..write(obj.airpayId)
+      ..writeByte(6)
+      ..write(obj.selectedCard);
   }
 
   @override

@@ -11,6 +11,7 @@ class User {
     required this.pin,
     required this.image,
     required this.airpayId,
+    required this.selectedCard,
   });
   @HiveField(0)
   String username;
@@ -29,4 +30,7 @@ class User {
 
   @HiveField(5)
   String airpayId;
+
+  @HiveField(6)
+  int selectedCard;
 }

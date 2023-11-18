@@ -86,7 +86,23 @@ class WithdrawPage extends StatelessWidget {
                   ].withSpaceBetween(width: 10),
                 ),
               ),
-              judulPage(title: "Withdraw Methods", title1: "View more",),
+              const SizedBox(height: 5),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Withdraw Methods",
+                      style: TextStyle(
+                          fontSize: 14, color: darkcolor['contrast'])),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Text(
+                      "View More",
+                      style:
+                          TextStyle(fontSize: 10, color: darkcolor['disabled']),
+                    ),
+                  ),
+                ],
+              ),
               Container(
                 decoration: BoxDecoration(
                   color: darkcolor['carddark'],

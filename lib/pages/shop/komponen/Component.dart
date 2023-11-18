@@ -28,7 +28,11 @@ class shopCon extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(icon, size: 25, color: darkcolor['contrast'],),
+                Icon(
+                  icon,
+                  size: 25,
+                  color: darkcolor['contrast'],
+                ),
                 const SizedBox(
                   height: 5,
                 ),
@@ -112,64 +116,62 @@ class promoPage extends StatelessWidget {
               child: Container(
             height: 60,
             clipBehavior: Clip.hardEdge,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(5), bottomLeft: Radius.circular(5))),
+                    topLeft: Radius.circular(5),
+                    bottomLeft: Radius.circular(5))),
             child: Image.asset(
               imageAssetPath,
               fit: BoxFit.cover,
             ),
           )),
-
           Expanded(
-            flex: 3,
+              flex: 3,
               child: Container(
-                padding: EdgeInsets.only(left: 2),
-            height: 60,
-            width: 233,
-            decoration: BoxDecoration(
-              color: darkcolor['card']
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  text1,
-                  style: TextStyle(
-                    fontSize: 10,
-                    fontWeight: FontWeight.normal,
-                    color: darkcolor['disabled'],
-                    fontFamily: 'Roboto',
-                  ),
+                padding: const EdgeInsets.only(left: 2),
+                height: 60,
+                width: 233,
+                decoration: BoxDecoration(color: darkcolor['card']),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      text1,
+                      style: TextStyle(
+                        fontSize: 10,
+                        fontWeight: FontWeight.normal,
+                        color: darkcolor['disabled'],
+                        fontFamily: 'Roboto',
+                      ),
+                    ),
+                    Text(
+                      text2,
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.normal,
+                        color: darkcolor['contrast'],
+                        fontFamily: 'Roboto',
+                      ),
+                    ),
+                    Text(
+                      text3,
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.normal,
+                        color: darkcolor['main'],
+                        fontFamily: 'Roboto',
+                      ),
+                    ),
+                  ].withSpaceBetween(height: 2),
                 ),
-                Text(
-                  text2,
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.normal,
-                    color: darkcolor['contrast'],
-                    fontFamily: 'Roboto',
-                  ),
-                ),
-                Text(
-                  text3,
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.normal,
-                    color: darkcolor['main'],
-                    fontFamily: 'Roboto',
-                  ),
-                ),
-              ].withSpaceBetween(height: 2),
-            ),
-          )),
+              )),
           Container(
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(5), bottomRight: Radius.circular(5)),
-              color: darkcolor['green']
-            ),
+                borderRadius: const BorderRadius.only(
+                    topRight: Radius.circular(5),
+                    bottomRight: Radius.circular(5)),
+                color: darkcolor['green']),
             height: 60,
             width: 53,
             child: Center(
@@ -365,17 +367,11 @@ class myCard extends StatelessWidget {
       {Key? key,
       required this.imagePath,
       required this.text1,
-      required this.text2,
-      required this.text3,
-      required this.text4,
-      required this.text5})
+      required this.text2,})
       : super(key: key);
   final String imagePath;
   final String text1;
   final String text2;
-  final String text3;
-  final String text4;
-  final String text5;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -435,15 +431,15 @@ class myCard extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Text(
-                            text3,
+                            "Edit",
                             style: TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.normal,
-                                color: darkcolor['contrast'],
+                                color: darkcolor['main'],
                                 fontFamily: 'Roboto'),
                           ),
                           Text(
-                            text4,
+                            "•",
                             style: TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.normal,
@@ -451,11 +447,11 @@ class myCard extends StatelessWidget {
                                 fontFamily: 'Roboto'),
                           ),
                           Text(
-                            text5,
+                            "Delete",
                             style: TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.normal,
-                                color: darkcolor['contrast'],
+                                color: darkcolor['red'],
                                 fontFamily: 'Roboto'),
                           ),
                         ].withSpaceBetween(width: 2),
@@ -558,8 +554,8 @@ class dropdownChoices extends StatelessWidget {
               height: 44,
               decoration: BoxDecoration(
                   color: darkcolor['card'],
-                  borderRadius: BorderRadius.all(Radius.circular(5))),
-              padding: EdgeInsets.all(10),
+                  borderRadius: const BorderRadius.all(Radius.circular(5))),
+              padding: const EdgeInsets.all(10),
               child: Row(
                 children: [
                   Expanded(

@@ -10,6 +10,7 @@ class AccountController extends GetxController {
 
   Future<void> logout() async {
     boxUser.delete("myUser");
+    boxCard.delete("myCards");
     Get.offAllNamed("/signup");
   }
 
@@ -27,6 +28,7 @@ class AccountController extends GetxController {
         pin: pin,
         image: "assets/images/User.png",
         airpayId: 'id_$username',
+        selectedCard: 0,
       );
       boxUser.put('myUser', user);
       Get.offAllNamed("/home");
@@ -92,6 +94,7 @@ class AccountController extends GetxController {
       pin: user.pin,
       image: "assets/images/User.png",
       airpayId: 'id_$username',
+      selectedCard: user.selectedCard,
     );
     boxUser.put('myUser', newUser);
     Get.offAllNamed("/home");

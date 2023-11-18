@@ -1,5 +1,6 @@
 import 'package:air_pay/boxes.dart';
 import 'package:air_pay/extensions.dart';
+import 'package:air_pay/hive/cards.dart';
 import 'package:air_pay/hive/user.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 import 'package:air_pay/variables/transaction.dart';
@@ -13,6 +14,7 @@ class Home extends StatelessWidget {
   Home({super.key});
 
   final user = boxUser.get("myUser") as User;
+  final cards = boxCard.get("myCards") as List?;
 
   @override
   Widget build(BuildContext context) {

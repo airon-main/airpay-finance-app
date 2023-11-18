@@ -45,41 +45,58 @@ class selectNominalTopup extends StatelessWidget {
         width: double.infinity,
         height: double.infinity,
         padding: const EdgeInsets.all(10),
-        child: Column(mainAxisSize: MainAxisSize.min, children: [
-          Container(
-            width: double.infinity,
-            decoration: BoxDecoration(
-                color: darkcolor['main'],
-                borderRadius: BorderRadius.circular(5)),
-            padding: const EdgeInsets.symmetric(vertical: 25),
-            child: Column(
-              children: [
-                Text(
-                  nominalFormat.text,
-                  style:
-                      TextStyle(fontSize: 32, color: darkcolor['contrastmain']),
+        child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    color: darkcolor['main'],
+                    borderRadius: BorderRadius.circular(5)),
+                padding: const EdgeInsets.symmetric(vertical: 25),
+                child: Column(
+                  children: [
+                    Text(
+                      nominalFormat.text,
+                      style: TextStyle(
+                          fontSize: 32, color: darkcolor['contrastmain']),
+                    ),
+                    Text(
+                      "Total Balance",
+                      style: TextStyle(color: darkcolor['contrastmain']),
+                    )
+                  ].withSpaceBetween(height: 5),
                 ),
-                Text(
-                  "Total Balance",
-                  style: TextStyle(color: darkcolor['contrastmain']),
-                )
-              ].withSpaceBetween(height: 5),
-            ),
-          ),
-          judulPage(title: "Enter TopUp Nominal"),
-          myTextField(
-            hintText: "Rp.100.000",
-            hintColor: darkcolor['main'],
-          ),
-          SizedBox(height: 10,),
-          myButton(
-            onClick: () {},
-            text: "Top Up",
-            textAlign: TextAlign.center,
-            foregroundColor: darkcolor['contrastmain'],
-            backgroundColor: darkcolor['main'],
-          )
-        ]),
+              ),
+              const SizedBox(height: 5),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Enter Top Up Nominal",
+                      style: TextStyle(
+                          fontSize: 14, color: darkcolor['contrast'])),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Text(
+                      "",
+                      style:
+                          TextStyle(fontSize: 10, color: darkcolor['disabled']),
+                    ),
+                  ),
+                ],
+              ),
+              myTextField(
+                hintText: "Rp.100.000",
+                hintColor: darkcolor['main'],
+              ),
+              myButton(
+                onClick: () {},
+                text: "Top Up",
+                textAlign: TextAlign.center,
+                foregroundColor: darkcolor['contrastmain'],
+                backgroundColor: darkcolor['main'],
+              )
+            ].withSpaceBetween(height: 10)),
       ),
     );
   }
