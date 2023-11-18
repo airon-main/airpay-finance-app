@@ -1,4 +1,6 @@
+import 'package:air_pay/boxes.dart';
 import 'package:air_pay/extensions.dart';
+import 'package:air_pay/hive/user.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 import 'package:air_pay/variables/transaction.dart';
 import 'package:air_pay/widgets/custom.dart';
@@ -8,7 +10,9 @@ import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:get/get.dart';
 
 class Home extends StatelessWidget {
-  const Home({super.key});
+  Home({super.key});
+
+  final user = boxUser.get("myUser") as User;
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +60,7 @@ class Home extends StatelessWidget {
                         fontWeight: FontWeight.w500),
                   ),
                   Text(
-                    "User Name",
+                    user.username,
                     style: TextStyle(
                         color: darkcolor['contrast'],
                         fontWeight: FontWeight.w500),
@@ -214,7 +218,6 @@ class Home extends StatelessWidget {
     );
   }
 }
-
 
 class myTransaction extends StatelessWidget {
   const myTransaction({super.key, required this.index});

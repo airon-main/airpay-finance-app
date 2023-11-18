@@ -1,4 +1,4 @@
-import 'package:air_pay/pages/signup/signupController.dart';
+import 'package:air_pay/hive/controllers/AccountController.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:air_pay/variables/colorpalette.dart';
@@ -11,12 +11,12 @@ class Signup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AccountController accountController = Get.put(AccountController());
     var usernameTextController = TextEditingController(text: "");
     var emailTextController = TextEditingController(text: "");
     var passwordTextController = TextEditingController(text: "");
     var reenterPasswordTextController = TextEditingController(text: "");
     final formKey = GlobalKey<FormState>();
-    SignupController controller = SignupController();
     return Scaffold(
       body: Container(
         alignment: Alignment.center,
@@ -93,30 +93,12 @@ class Signup extends StatelessWidget {
               const SizedBox(height: 20, width: double.infinity),
               myButton(
                 onClick: () {
-                  if ([
-                    usernameTextController.text,
-                    emailTextController.text,
-                    passwordTextController.text,
-                    reenterPasswordTextController.text,
-                  ].contains("")) {
-                    Get.defaultDialog(
-                        title: "Whoa slow down there",
-                        middleText:
-                            "You sure you filled every field?\nCheck 'em again",
-                        backgroundColor: darkcolor['main'],
-                        titleStyle: TextStyle(color: darkcolor['contrastmain']),
-                        middleTextStyle:
-                            TextStyle(color: darkcolor['contrastmain']),
-                        radius: 5);
-                  } else {
-                    Get.toNamed("/enterpin", arguments: {
-                      "type": "signup",
-                      "username": usernameTextController.text,
-                      "email": emailTextController.text,
-                      "password": passwordTextController.text,
-                      "reenterpassword": reenterPasswordTextController.text,
-                    });
-                  }
+                  accountController.signupChecker(
+                    username: usernameTextController.text,
+                    email: emailTextController.text,
+                    password: passwordTextController.text,
+                    reenterPassword: reenterPasswordTextController.text,
+                  );
                 },
                 text: "Signup",
                 backgroundColor: darkcolor['main'],
