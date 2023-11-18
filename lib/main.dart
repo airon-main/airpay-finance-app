@@ -8,7 +8,6 @@ import 'package:air_pay/pages/home/transfer/transfer.dart';
 import 'package:air_pay/pages/home/transfer/selectNominalTransfer.dart';
 import 'package:air_pay/pages/home/withdraw/selectNominalWithdraw.dart';
 import 'package:air_pay/pages/home/withdraw/withdraw.dart';
-import 'package:air_pay/pages/login/login.dart';
 import 'package:air_pay/pages/navigation/navigation.dart';
 import 'package:air_pay/pages/home/scan/scan.dart';
 import 'package:air_pay/pages/notification/notification.dart';
@@ -59,7 +58,6 @@ class MyApp extends StatelessWidget {
         child: SplashScreen(),
       ),
       getPages: [
-        GetPage(name: "/login", page: () => const Login()),
         GetPage(name: "/signup", page: () => const Signup()),
         GetPage(name: "/enterpin", page: () => const EnterPin()),
         GetPage(name: "/notification", page: () => const NotificationPage()),

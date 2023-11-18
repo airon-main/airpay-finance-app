@@ -79,4 +79,21 @@ class AccountController extends GetxController {
           radius: 5);
     }
   }
+
+  Future<void> edit({
+    required String username,
+    required String email,
+  }) async {
+    final user = boxUser.get("myUser") as User;
+    User newUser = User(
+      username: username,
+      email: email,
+      password: user.password,
+      pin: user.pin,
+      image: "assets/images/User.png",
+      airpayId: 'id_$username',
+    );
+    boxUser.put('myUser', newUser);
+    Get.offAllNamed("/home");
+  }
 }

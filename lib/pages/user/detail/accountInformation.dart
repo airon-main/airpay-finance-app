@@ -1,4 +1,7 @@
+import 'package:air_pay/boxes.dart';
 import 'package:air_pay/extensions.dart';
+import 'package:air_pay/hive/controllers/AccountController.dart';
+import 'package:air_pay/hive/user.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 import 'package:air_pay/widgets/custom.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +12,14 @@ class Account extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AccountController accountController = AccountController();
+    final user = boxUser.get("myUser") as User;
+    TextEditingController usernameController =
+        TextEditingController(text: user.username);
+    TextEditingController imagePathController =
+        TextEditingController(text: user.image);
+    TextEditingController emailController =
+        TextEditingController(text: user.email);
     return Scaffold(
       appBar: myAppBar(
         title: "Account Information",
@@ -36,6 +47,7 @@ class Account extends StatelessWidget {
         decoration: BoxDecoration(color: darkcolor['background']),
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
                 padding: const EdgeInsets.symmetric(vertical: 10),
@@ -60,20 +72,23 @@ class Account extends StatelessWidget {
                   ),
                 ),
               ),
-              const myTextField(
+              myTextField(
+                label: "Avatar Path",
+                labelWidth: 90,
+                hintText: user.image,
+                controller: imagePathController,
+              ),
+              myTextField(
                 label: "Username",
                 labelWidth: 90,
-                hintText: "User Name",
+                hintText: user.username,
+                controller: usernameController,
               ),
-              const myTextField(
-                label: "Full Name",
-                labelWidth: 90,
-                hintText: "Altan Assyfa Naura Putra",
-              ),
-              const myTextField(
+              myTextField(
                 label: "Email",
                 labelWidth: 90,
-                hintText: "altantheprodigy@gmail.com",
+                hintText: user.email,
+                controller: emailController,
               ),
               myButton(
                 onClick: () {
@@ -86,11 +101,17 @@ class Account extends StatelessWidget {
                 backgroundColor: darkcolor['card'],
                 foregroundColor: darkcolor['contrast'],
               ),
-              const myTextField(
-                label: "AirPay ID",
-                labelWidth: 90,
-                hintText: "1a2B3c4D5e6F7g8",
+              myButton(
+                onClick: () {},
+                text: "Change",
+                textAlign: TextAlign.center,
+                backgroundColor: darkcolor['main'],
+                foregroundColor: darkcolor['contrastmain'],
               ),
+              Text(
+                'AirPay Id : ${user.airpayId}',
+                style: TextStyle(color: darkcolor['disabled']),
+              )
             ].withSpaceBetween(height: 10),
           ),
         ),

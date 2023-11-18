@@ -105,15 +105,6 @@ class Signup extends StatelessWidget {
                 foregroundColor: darkcolor['contrastmain'],
                 textAlign: TextAlign.center,
               ),
-              myButton(
-                onClick: () {
-                  Get.offNamed("/login");
-                },
-                text: "Login",
-                backgroundColor: darkcolor['card'],
-                foregroundColor: darkcolor['contrast'],
-                textAlign: TextAlign.center,
-              )
             ].withSpaceBetween(height: 10),
           ),
         ),

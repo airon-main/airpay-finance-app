@@ -18,7 +18,7 @@ class CardAdapter extends TypeAdapter<Card> {
     };
     return Card(
       name: fields[0] as String,
-      nominal: fields[1] as String,
+      nominal: fields[1] as int,
       image: fields[2] as String,
     );
   }

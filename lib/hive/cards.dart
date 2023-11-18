@@ -13,7 +13,7 @@ class Card {
   String name;
 
   @HiveField(1)
-  String nominal;
+  int nominal;
 
   @HiveField(2)
   String image;
