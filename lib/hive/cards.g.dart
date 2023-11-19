@@ -8,7 +8,7 @@ part of 'cards.dart';
 
 class MyCardAdapter extends TypeAdapter<MyCard> {
   @override
-  final int typeId = 1;
+  final int typeId = 2;
 
   @override
   MyCard read(BinaryReader reader) {

@@ -1,5 +1,5 @@
 import 'package:air_pay/extensions.dart';
-import 'package:air_pay/hive/controllers/CardsController.dart';
+import 'package:air_pay/formatter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';

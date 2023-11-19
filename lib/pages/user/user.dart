@@ -107,6 +107,7 @@ class homeUserPage extends StatelessWidget {
             myButton(
               onClick: () {
                 accountController.logout();
+                boxCard.delete("boxCards");
               },
               text: "Logout",
               backgroundColor: darkcolor['card'],

@@ -363,34 +363,71 @@ class customElevatedButton extends StatelessWidget {
 }
 
 class myCard extends StatelessWidget {
-  const myCard(
-      {Key? key,
-      required this.imagePath,
-      required this.text1,
-      required this.text2,})
-      : super(key: key);
+  const myCard({
+    Key? key,
+    required this.imagePath,
+    required this.label,
+    required this.nominal,
+    this.onTap,
+    this.onEdit,
+    this.onDelete,
+    required this.isSelectedString,
+  }) : super(key: key);
   final String imagePath;
-  final String text1;
-  final String text2;
+  final String label;
+  final String nominal;
+  final VoidCallback? onTap;
+  final VoidCallback? onEdit;
+  final VoidCallback? onDelete;
+  final String isSelectedString;
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(6), color: darkcolor['card']),
+          borderRadius: BorderRadius.circular(6), color: darkcolor['carddark']),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Container(
-            height: 77,
-            width: 133,
-            clipBehavior: Clip.hardEdge,
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(5), bottomLeft: Radius.circular(5)),
-            ),
-            child: Image.asset(
-              imagePath,
-              fit: BoxFit.cover,
+          GestureDetector(
+            onTap: onTap,
+            child: Container(
+              height: 77,
+              width: 133,
+              clipBehavior: Clip.hardEdge,
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(5),
+                    bottomLeft: Radius.circular(5)),
+              ),
+              child: Image.asset(
+                imagePath,
+                fit: BoxFit.cover,
+                errorBuilder: (BuildContext context, Object exception,
+                    StackTrace? stackTrace) {
+                  // Appropriate logging or analytics, e.g.
+                  // myAnalytics.recordError(
+                  //   'An error occurred loading "https://example.does.not.exist/image.jpg"',
+                  //   exception,
+                  //   stackTrace,
+                  // );
+                  return Container(
+                    width: double.infinity,
+                    height: double.infinity,
+                    color: darkcolor['card'],
+                    alignment: Alignment.center,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(Icons.broken_image, color: darkcolor['disabled']),
+                        Text("Image Not Found",
+                            style: TextStyle(
+                                color: darkcolor['disabled'], fontSize: 10))
+                      ],
+                    ),
+                  );
+                },
+              ),
             ),
           ),
           Expanded(
@@ -409,7 +446,7 @@ class myCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
-                      text1,
+                      "$label $isSelectedString",
                       style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.normal,
@@ -417,7 +454,7 @@ class myCard extends StatelessWidget {
                           fontFamily: 'Roboto'),
                     ),
                     Text(
-                      text2,
+                      nominal,
                       style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.normal,
@@ -430,13 +467,16 @@ class myCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.end,
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Text(
-                            "Edit",
-                            style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.normal,
-                                color: darkcolor['main'],
-                                fontFamily: 'Roboto'),
+                          GestureDetector(
+                            onTap: onEdit,
+                            child: Text(
+                              "Edit",
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.normal,
+                                  color: darkcolor['contrast'],
+                                  fontFamily: 'Roboto'),
+                            ),
                           ),
                           Text(
                             "•",
@@ -446,13 +486,16 @@ class myCard extends StatelessWidget {
                                 color: darkcolor['disabled'],
                                 fontFamily: 'Roboto'),
                           ),
-                          Text(
-                            "Delete",
-                            style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.normal,
-                                color: darkcolor['red'],
-                                fontFamily: 'Roboto'),
+                          GestureDetector(
+                            onTap: onDelete,
+                            child: Text(
+                              "Delete",
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.normal,
+                                  color: darkcolor['red'],
+                                  fontFamily: 'Roboto'),
+                            ),
                           ),
                         ].withSpaceBetween(width: 2),
                       ),

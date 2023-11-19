@@ -2,7 +2,7 @@ import 'package:hive/hive.dart';
 
 part 'cards.g.dart';
 
-@HiveType(typeId: 1)
+@HiveType(typeId: 2)
 class MyCard {
   MyCard({
     required this.name,
