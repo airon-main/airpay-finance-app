@@ -1,4 +1,5 @@
 import 'package:air_pay/boxes.dart';
+import 'package:air_pay/extensions.dart';
 import 'package:air_pay/formatter.dart';
 import 'package:air_pay/hive/cards.dart';
 import 'package:air_pay/hive/user.dart';
@@ -18,8 +19,14 @@ class CardPageController extends GetxController {
     }
   }
 
+  MyCard selectedCard() {
+    List<dynamic> cards = boxCard.get("myCards");
+    MyCard selectedCard = cards[user.selectedCard];
+    return selectedCard;
+  }
+
   Future<void> addAirPayCard() async {
-    List<MyCard> newCard = [
+    List<MyCard> newCards = [
       MyCard(
         name: "AirPay E-Money",
         nominal: 0,
@@ -28,7 +35,7 @@ class CardPageController extends GetxController {
         contrastMainColor: "#FFFFFF",
       )
     ];
-    boxCard.put("myCards", newCard);
+    boxCard.put("myCards", newCards);
   }
 
   Future<void> addCard({
@@ -55,15 +62,31 @@ class CardPageController extends GetxController {
     }
   }
 
-
-
   Future<void> deleteCard({
     required int index,
   }) async {
-    List<dynamic> card = boxCard.get("myCards");
-    card.removeAt(index);
-    boxCard.put("myCards", card);
-    update();
+    Get.defaultDialog(
+      title: "Careful",
+      middleText:
+          "Are you sure you want to delete this card?, tap outside to cancel",
+      backgroundColor: darkcolor['main'],
+      titleStyle: TextStyle(color: darkcolor['contrastmain']),
+      middleTextStyle: TextStyle(color: darkcolor['contrastmain']),
+      radius: 5,
+      actions: [
+        GestureDetector(
+            onTap: () {
+              List<dynamic> card = boxCard.get("myCards");
+              card.removeAt(index);
+              boxCard.put("myCards", card);
+              update();
+            },
+            child: Text(
+              "Delete it",
+              style: TextStyle(color: darkcolor['red']),
+            )),
+      ],
+    );
   }
 }
 
@@ -97,7 +120,6 @@ class MyCardList extends StatelessWidget {
                           },
                         );
                       },
-
                     );
                   },
                   separatorBuilder: (BuildContext context, int index) =>
@@ -110,5 +132,32 @@ class MyCardList extends StatelessWidget {
             child: Text("No Cards?",
                 style: TextStyle(color: darkcolor['contrast'])),
           );
+  }
+}
+
+class MySelectedCard extends StatelessWidget {
+  const MySelectedCard({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    CardPageController cardPageController = CardPageController();
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+          color: darkcolor['main'], borderRadius: BorderRadius.circular(5)),
+      padding: const EdgeInsets.symmetric(vertical: 25),
+      child: Column(
+        children: [
+          Text(
+            formatNominal(nominal: cardPageController.selectedCard().nominal),
+            style: TextStyle(fontSize: 32, color: darkcolor['contrastmain']),
+          ),
+          Text(
+            "Total Balance",
+            style: TextStyle(color: darkcolor['contrastmain']),
+          ),
+        ].withSpaceBetween(height: 5),
+      ),
+    );
   }
 }
