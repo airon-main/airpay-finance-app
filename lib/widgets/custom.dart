@@ -52,7 +52,7 @@ class myTextFieldState extends State<myTextField> {
           child: TextFormField(
             validator: widget.validator,
             autofocus: false,
-            style: TextStyle(color: darkcolor['contrast']),
+            style: TextStyle(color: darkcolor['contrast'], fontSize: 14),
             controller: widget.controller,
             obscureText: widget.isObscured ? isChecked : widget.isObscured,
             decoration: InputDecoration(

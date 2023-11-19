@@ -2,7 +2,7 @@ import 'package:hive/hive.dart';
 
 part 'transaction.g.dart';
 
-@HiveType(typeId: 1)
+@HiveType(typeId: 3)
 class Transaction {
   Transaction({
     required this.transactionName,

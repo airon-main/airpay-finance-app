@@ -1,5 +1,8 @@
 import 'package:air_pay/extensions.dart';
-import 'package:air_pay/hive/controllers/CardsController.dart';
+import 'package:air_pay/pages/card/cardPageController.dart';
+import 'package:hive_flutter/adapters.dart';
+import 'package:air_pay/boxes.dart';
+import 'package:air_pay/formatter.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,7 +17,6 @@ class myCardPage extends StatefulWidget {
 }
 
 class _myCardPageState extends State<myCardPage> {
-  CardsController cardsController = CardsController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,11 +29,7 @@ class _myCardPageState extends State<myCardPage> {
         decoration: BoxDecoration(color: darkcolor['background']),
         child: Column(
           children: [
-            myCard(
-              imagePath: "assets/images/AirPayCard.png",
-              text1: "Airpay E-Money",
-              text2: formatNominal(nominal: 100000),
-            ),
+            const MyCardList(),
             // const myCard(
             //     imagePath: "assets/images/Ovo.png",
             //     text1: "OVO E-Money",

@@ -31,7 +31,7 @@ class AccountController extends GetxController {
         selectedCard: 0,
       );
       boxUser.put('myUser', user);
-      Get.offAllNamed("/home", arguments: "initialize card");
+      Get.offAllNamed("/home", arguments: "signup");
     } else {
       Get.defaultDialog(
         title: "Careful",

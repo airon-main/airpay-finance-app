@@ -1,5 +1,7 @@
 import 'package:air_pay/extensions.dart';
-import 'package:air_pay/hive/controllers/CardsController.dart';
+import 'package:air_pay/formatter.dart';
+import 'package:air_pay/hive/cards.dart';
+import 'package:air_pay/pages/card/cardPageController.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 import 'package:air_pay/widgets/custom.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +13,30 @@ class addCardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CardsController cardsController = CardsController();
+    TextEditingController cardNameTxtEditCtr = TextEditingController();
+    TextEditingController photoPathTxtEditCtr = TextEditingController();
+    TextEditingController mainColorTxtEditCtr =
+        TextEditingController(text: "#F2CE18");
+    TextEditingController contrastMainTxtEditCtr =
+        TextEditingController(text: "#FFFFFF");
+    CardPageController cardPageController = Get.find<CardPageController>();
+
+    final args = Get.arguments;
+    int? index;
+    MyCard? existingCard;
+
+
+    if (args != null && args is Map<String, dynamic>) {
+      index = args['index'];
+      existingCard = args['cardDetails'];
+
+      if (existingCard != null) {
+        cardNameTxtEditCtr.text = existingCard.name;
+        photoPathTxtEditCtr.text = existingCard.image;
+        mainColorTxtEditCtr.text = existingCard.mainColor;
+        contrastMainTxtEditCtr.text = existingCard.contrastMainColor;
+      }
+    }
     return Scaffold(
       appBar: myAppBar(
         title: "Add Cards",
@@ -44,32 +69,63 @@ class addCardPage extends StatelessWidget {
               "Enter Card Data",
               style: TextStyle(color: darkcolor['contrast']),
             ),
-            const myTextField(
-              hintText: "Account Number / Card Name",
+            myTextField(
+              controller: cardNameTxtEditCtr,
+              label: "Card Name",
+              labelWidth: 90,
             ),
-            const myTextField(
-              hintText: "Photo Path",
+            myTextField(
+              controller: photoPathTxtEditCtr,
+              label: "Photo Path",
+              labelWidth: 90,
             ),
-            const myTextField(
-              hintText: "Main Color Hex",
+            myTextField(
+              controller: mainColorTxtEditCtr,
+              label: "Main Color",
+              labelWidth: 90,
             ),
-            const myTextField(
-              hintText: "Contrast Main Color Hex",
+            myTextField(
+              controller: contrastMainTxtEditCtr,
+              label: "Contrast Main",
+              labelWidth: 90,
             ),
             myButton(
-                text: "Add",
-                onClick: () {},
+                text: (index != null) ? "Edit" : "Add", // Change button text based on condition
+                onClick: () {
+                  if (index != null) {
+                    cardPageController.editCard(
+                      index: index,
+                      updatedCard: MyCard(
+                        name: cardNameTxtEditCtr.text,
+                        nominal: 0,
+                        image: photoPathTxtEditCtr.text,
+                        mainColor: mainColorTxtEditCtr.text,
+                        contrastMainColor: contrastMainTxtEditCtr.text,
+                      ),
+                    );
+                  } else {
+                    cardPageController.addCard(
+                      newCard: MyCard(
+                        name: cardNameTxtEditCtr.text,
+                        nominal: 0,
+                        image: photoPathTxtEditCtr.text,
+                        mainColor: mainColorTxtEditCtr.text,
+                        contrastMainColor: contrastMainTxtEditCtr.text,
+                      ),
+                    );
+                  }
+                },
                 textAlign: TextAlign.center,
                 backgroundColor: darkcolor['main'],
                 foregroundColor: darkcolor['contrastmain']),
             myButton(
-                text: "Add AirPay Card",
+                text: "Reset",
                 onClick: () {
-                  cardsController.addAirPayCard();
+                  cardPageController.addAirPayCard();
                 },
                 textAlign: TextAlign.center,
                 backgroundColor: darkcolor['card'],
-                foregroundColor: darkcolor['contrast']),
+                foregroundColor: darkcolor['red']),
           ].withSpaceBetween(height: 10),
         ),
       ),

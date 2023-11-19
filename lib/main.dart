@@ -1,9 +1,9 @@
 import 'package:air_pay/boxes.dart';
 import 'package:air_pay/hive/cards.dart';
-import 'package:air_pay/hive/transaction.dart';
 import 'package:air_pay/hive/user.dart';
 import 'package:air_pay/pages/card/addCardPage.dart';
 import 'package:air_pay/pages/home/scan/selectNominalScan.dart';
+import 'package:air_pay/pages/card/cardPageController.dart';
 import 'package:air_pay/pages/home/topup/selectNominalTopup.dart';
 import 'package:air_pay/pages/home/topup/topup.dart';
 import 'package:air_pay/pages/home/transfer/transfer.dart';
@@ -12,6 +12,7 @@ import 'package:air_pay/pages/home/withdraw/selectNominalWithdraw.dart';
 import 'package:air_pay/pages/home/withdraw/withdraw.dart';
 import 'package:air_pay/pages/navigation/navigation.dart';
 import 'package:air_pay/pages/home/scan/scan.dart';
+import 'package:air_pay/pages/navigation/navigationController.dart';
 import 'package:air_pay/pages/notification/notification.dart';
 import 'package:air_pay/pages/pin/pin.dart';
 import 'package:air_pay/pages/shop/Payment%20Page/electricPage.dart';
@@ -34,10 +35,11 @@ import 'package:hive_flutter/adapters.dart';
 void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(UserAdapter());
+  Hive.registerAdapter(MyCardAdapter());
   boxUser = await Hive.openBox<User>('userBox');
   boxCard = await Hive.openBox<List>('cardBox');
-  boxTranscation = await Hive.openBox<Transaction>('transactionBox');
-  
+  // boxTranscation = await Hive.openBox<Transaction>('transactionBox');
+
   runApp(const MyApp());
 }
 
@@ -65,7 +67,16 @@ class MyApp extends StatelessWidget {
         GetPage(name: "/enterpin", page: () => const EnterPin()),
         GetPage(name: "/notification", page: () => const NotificationPage()),
         //* Home Pages
-        GetPage(name: "/home", page: () => Navigation()),
+        GetPage(
+          name: "/home",
+          page: () => Navigation(),
+          binding: BindingsBuilder(
+            () {
+              Get.put(CardPageController());
+              Get.put(NavigationController());
+            },
+          ),
+        ),
         GetPage(name: "/home/scan", page: () => const ScanPage()),
         GetPage(name: "/home/topup", page: () => const TopupPage()),
         GetPage(name: "/home/transfer", page: () => const TransferPage()),
