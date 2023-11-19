@@ -10,6 +10,7 @@ class AccountController extends GetxController {
 
   Future<void> logout() async {
     boxUser.delete("myUser");
+    boxCard.delete("myCards");
     Get.offAllNamed("/signup");
   }
 
@@ -27,9 +28,10 @@ class AccountController extends GetxController {
         pin: pin,
         image: "assets/images/User.png",
         airpayId: 'id_$username',
+        selectedCard: 0,
       );
       boxUser.put('myUser', user);
-      Get.offAllNamed("/home");
+      Get.offAllNamed("/home", arguments: "initialize card");
     } else {
       Get.defaultDialog(
         title: "Careful",
@@ -78,5 +80,23 @@ class AccountController extends GetxController {
           middleTextStyle: TextStyle(color: darkcolor['contrastmain']),
           radius: 5);
     }
+  }
+
+  Future<void> edit({
+    required String username,
+    required String email,
+  }) async {
+    final user = boxUser.get("myUser") as User;
+    User newUser = User(
+      username: username,
+      email: email,
+      password: user.password,
+      pin: user.pin,
+      image: "assets/images/User.png",
+      airpayId: 'id_$username',
+      selectedCard: user.selectedCard,
+    );
+    boxUser.put('myUser', newUser);
+    Get.offAllNamed("/home");
   }
 }

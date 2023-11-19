@@ -1,17 +1,17 @@
 import 'package:air_pay/extensions.dart';
+import 'package:air_pay/hive/controllers/CardsController.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 import 'package:air_pay/widgets/custom.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-import '../shop/komponen/Component.dart';
-
 class addCardPage extends StatelessWidget {
   const addCardPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    CardsController cardsController = CardsController();
     return Scaffold(
       appBar: myAppBar(
         title: "Add Cards",
@@ -38,21 +38,38 @@ class addCardPage extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(color: darkcolor['background']),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const judulPage(title: "Enter Card Data"),
-            const myTextField(
-              hintText: "Account Number",
+            Text(
+              "Enter Card Data",
+              style: TextStyle(color: darkcolor['contrast']),
             ),
-            myCustomElevatedButton(
-                text: "Add Custom Picture",
-                onPressed: () {},
-                backgroundColor: darkcolor['carddark'],
-                textColor: darkcolor['contrast']),
-            myCustomElevatedButton(
-                text: "Scan",
-                onPressed: () {},
+            const myTextField(
+              hintText: "Account Number / Card Name",
+            ),
+            const myTextField(
+              hintText: "Photo Path",
+            ),
+            const myTextField(
+              hintText: "Main Color Hex",
+            ),
+            const myTextField(
+              hintText: "Contrast Main Color Hex",
+            ),
+            myButton(
+                text: "Add",
+                onClick: () {},
+                textAlign: TextAlign.center,
                 backgroundColor: darkcolor['main'],
-                textColor: darkcolor['contrastmain'])
+                foregroundColor: darkcolor['contrastmain']),
+            myButton(
+                text: "Add AirPay Card",
+                onClick: () {
+                  cardsController.addAirPayCard();
+                },
+                textAlign: TextAlign.center,
+                backgroundColor: darkcolor['card'],
+                foregroundColor: darkcolor['contrast']),
           ].withSpaceBetween(height: 10),
         ),
       ),

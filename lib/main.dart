@@ -1,4 +1,5 @@
 import 'package:air_pay/boxes.dart';
+import 'package:air_pay/hive/cards.dart';
 import 'package:air_pay/hive/transaction.dart';
 import 'package:air_pay/hive/user.dart';
 import 'package:air_pay/pages/card/addCardPage.dart';
@@ -9,7 +10,6 @@ import 'package:air_pay/pages/home/transfer/transfer.dart';
 import 'package:air_pay/pages/home/transfer/selectNominalTransfer.dart';
 import 'package:air_pay/pages/home/withdraw/selectNominalWithdraw.dart';
 import 'package:air_pay/pages/home/withdraw/withdraw.dart';
-import 'package:air_pay/pages/login/login.dart';
 import 'package:air_pay/pages/navigation/navigation.dart';
 import 'package:air_pay/pages/home/scan/scan.dart';
 import 'package:air_pay/pages/notification/notification.dart';
@@ -35,8 +35,9 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(UserAdapter());
   boxUser = await Hive.openBox<User>('userBox');
-  boxCard = await Hive.openBox<Card>('cardBox');
+  boxCard = await Hive.openBox<List>('cardBox');
   boxTranscation = await Hive.openBox<Transaction>('transactionBox');
+  
   runApp(const MyApp());
 }
 
@@ -60,7 +61,6 @@ class MyApp extends StatelessWidget {
         child: SplashScreen(),
       ),
       getPages: [
-        GetPage(name: "/login", page: () => const Login()),
         GetPage(name: "/signup", page: () => const Signup()),
         GetPage(name: "/enterpin", page: () => const EnterPin()),
         GetPage(name: "/notification", page: () => const NotificationPage()),

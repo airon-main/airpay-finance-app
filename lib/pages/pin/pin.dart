@@ -2,6 +2,7 @@ import 'package:air_pay/hive/controllers/AccountController.dart';
 import 'package:air_pay/boxes.dart';
 import 'package:air_pay/extensions.dart';
 import 'package:air_pay/hive/user.dart';
+import 'package:air_pay/pages/pin/pinController.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 import 'package:air_pay/widgets/custom.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class EnterPin extends StatelessWidget {
     var arguments = Get.arguments;
 
     var pinInputController = TextEditingController();
-    AccountController accountController = AccountController();
+    PinController pinController = PinController();
 
     final defaultPinTheme = PinTheme(
       height: 56,
@@ -61,11 +62,6 @@ class EnterPin extends StatelessWidget {
               focusedPinTheme: focusedPinTheme,
               controller: pinInputController,
               length: 6,
-              validator: arguments["type"] == "login"
-                  ? (s) {
-                      return s == '222222' ? null : 'Pin is incorrect';
-                    }
-                  : null,
               pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
               showCursor: true,
               onCompleted: (pin) => print(pin),
@@ -73,11 +69,12 @@ class EnterPin extends StatelessWidget {
             const SizedBox(height: 20, width: double.infinity),
             myButton(
               onClick: () {
-                accountController.signup(
+                pinController.checkIsTrue(
+                  type: arguments['type'],
+                  pin: pinInputController.text,
                   username: arguments['username'],
                   email: arguments['email'],
                   password: arguments['password'],
-                  pin: pinInputController.text,
                 );
               },
               text: arguments["type"] == "signup"
