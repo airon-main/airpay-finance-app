@@ -6,8 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-import '../shop/komponen/Component.dart';
-
 class addCardPage extends StatelessWidget {
   const addCardPage({Key? key}) : super(key: key);
 

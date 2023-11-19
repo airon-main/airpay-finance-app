@@ -1,4 +1,5 @@
 import 'package:air_pay/extensions.dart';
+import 'package:air_pay/hive/controllers/CardsController.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 import 'package:air_pay/widgets/custom.dart';
 import 'package:flutter/material.dart';
@@ -56,7 +57,7 @@ class ScanPage extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      nominalFormat.text,
+                      formatNominal(nominal: 500000),
                       style: TextStyle(
                           fontSize: 32, color: darkcolor['contrastmain']),
                     ),

@@ -1,6 +1,6 @@
 import 'package:air_pay/extensions.dart';
+import 'package:air_pay/hive/controllers/CardsController.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
@@ -12,12 +12,6 @@ class selectNominalScan extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var nominalFormat = MoneyMaskedTextController(
-        thousandSeparator: ",",
-        leftSymbol: "Rp",
-        precision: 0,
-        decimalSeparator: "");
-    nominalFormat.updateValue(500000);
     return Scaffold(
       appBar: myAppBar(
         title: "Top Up",
@@ -54,7 +48,7 @@ class selectNominalScan extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  nominalFormat.text,
+                  formatNominal(nominal: 500000),
                   style:
                   TextStyle(fontSize: 32, color: darkcolor['contrastmain']),
                 ),

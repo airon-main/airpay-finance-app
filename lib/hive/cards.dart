@@ -15,7 +15,7 @@ class MyCard {
   String name;
 
   @HiveField(1)
-  int nominal;
+  double nominal;
 
   @HiveField(2)
   String image;

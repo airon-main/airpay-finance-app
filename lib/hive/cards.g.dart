@@ -18,7 +18,7 @@ class MyCardAdapter extends TypeAdapter<MyCard> {
     };
     return MyCard(
       name: fields[0] as String,
-      nominal: fields[1] as int,
+      nominal: fields[1] as double,
       image: fields[2] as String,
       mainColor: fields[3] as String,
       contrastMainColor: fields[4] as String,

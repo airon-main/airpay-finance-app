@@ -1,24 +1,17 @@
 import 'package:air_pay/extensions.dart';
+import 'package:air_pay/hive/controllers/CardsController.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 import 'package:air_pay/widgets/custom.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:get/get.dart';
 
 import '../../../variables/transaction.dart';
-import '../../shop/komponen/Component.dart';
 
 class TopupPage extends StatelessWidget {
   const TopupPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var nominalFormat = MoneyMaskedTextController(
-        thousandSeparator: ",",
-        leftSymbol: "Rp",
-        precision: 0,
-        decimalSeparator: "");
-    nominalFormat.updateValue(500000);
     return Scaffold(
       appBar: myAppBar(
         title: "Top Up",
@@ -59,7 +52,7 @@ class TopupPage extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      nominalFormat.text,
+                      formatNominal(nominal: 500000),
                       style: TextStyle(
                           fontSize: 32, color: darkcolor['contrastmain']),
                     ),
