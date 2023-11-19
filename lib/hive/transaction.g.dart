@@ -1,47 +1,44 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'user.dart';
+part of 'transaction.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class UserAdapter extends TypeAdapter<User> {
+class TransactionAdapter extends TypeAdapter<Transaction> {
   @override
   final int typeId = 1;
 
   @override
-  User read(BinaryReader reader) {
+  Transaction read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return User(
-      username: fields[0] as String,
-      email: fields[1] as String,
-      password: fields[2] as String,
-      pin: fields[3] as String,
-      image: fields[4] as String,
-      airpayId: fields[5] as String,
+    return Transaction(
+      transactionName: fields[0] as String,
+      nominal: fields[1] as int,
+      paymentType: fields[2] as String,
+      isRecieved: fields[3] as bool,
+      date: fields[4] as String,
     );
   }
 
   @override
-  void write(BinaryWriter writer, User obj) {
+  void write(BinaryWriter writer, Transaction obj) {
     writer
-      ..writeByte(6)
-      ..writeByte(0)
-      ..write(obj.username)
-      ..writeByte(1)
-      ..write(obj.email)
-      ..writeByte(2)
-      ..write(obj.password)
-      ..writeByte(3)
-      ..write(obj.pin)
-      ..writeByte(4)
-      ..write(obj.image)
       ..writeByte(5)
-      ..write(obj.airpayId);
+      ..writeByte(0)
+      ..write(obj.transactionName)
+      ..writeByte(1)
+      ..write(obj.nominal)
+      ..writeByte(2)
+      ..write(obj.paymentType)
+      ..writeByte(3)
+      ..write(obj.isRecieved)
+      ..writeByte(4)
+      ..write(obj.date);
   }
 
   @override
@@ -50,7 +47,7 @@ class UserAdapter extends TypeAdapter<User> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is UserAdapter &&
+      other is TransactionAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

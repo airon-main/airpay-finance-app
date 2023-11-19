@@ -1,4 +1,5 @@
 import 'package:air_pay/boxes.dart';
+import 'package:air_pay/hive/transaction.dart';
 import 'package:air_pay/hive/user.dart';
 import 'package:air_pay/pages/card/addCardPage.dart';
 import 'package:air_pay/pages/home/scan/selectNominalScan.dart';
@@ -34,6 +35,8 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(UserAdapter());
   boxUser = await Hive.openBox<User>('userBox');
+  boxCard = await Hive.openBox<Card>('cardBox');
+  boxTranscation = await Hive.openBox<Transaction>('transactionBox');
   runApp(const MyApp());
 }
 
@@ -67,10 +70,21 @@ class MyApp extends StatelessWidget {
         GetPage(name: "/home/topup", page: () => const TopupPage()),
         GetPage(name: "/home/transfer", page: () => const TransferPage()),
         GetPage(name: "/home/withdraw", page: () => const WithdrawPage()),
+
         GetPage(name: "/home/selectNominalTopup", page: () => const selectNominalTopup()),
         GetPage(name: "/home/selectNominalTransfer", page: () => const selectNominalTransfer()),
         GetPage(name: "/home/selectNominalWithdraw", page: () => const selectNominalWithdraw()),
         GetPage(name: "/home/selectNominalScan", page: () => const selectNominalScan()),
+
+        GetPage(
+            name: "/home/selectNominalTopup",
+            page: () => const selectNominalTopup()),
+        GetPage(
+            name: "/home/selectNominalTransfer",
+            page: () => const selectNominalTransfer()),
+        GetPage(
+            name: "/home/selectNominalWithdraw",
+            page: () => const selectNominalWithdraw()),
         //* Shop Pages
         GetPage(name: "/shop/homeshop", page: () => const ShoppingPage()),
         GetPage(name: "/shop/topup", page: () => const buyPage()),

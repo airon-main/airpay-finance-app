@@ -28,7 +28,7 @@ class Navigation extends StatelessWidget {
         body: Obx(
           () => IndexedStack(
             index: navigationController.tabIndex.value,
-            children: const [
+            children: [
               Home(),
               ShoppingPage(),
               myCardPage(),
