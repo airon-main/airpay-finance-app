@@ -27,6 +27,12 @@ class CardPageController extends GetxController {
 
   late RxDouble updatingNominalFormatted = selectedCard().nominal.obs;
 
+  Future<void> updateNominal() async {
+    List<dynamic> cards = boxCard.get("myCards");
+    MyCard selectedCard = cards[user.selectedCard];
+    updatingNominalFormatted.value = selectedCard.nominal;
+  }
+
   Future<void> increaseNominalSelected({required double nominal}) async {
     List<dynamic> cards = boxCard.get("myCards");
     MyCard selectedCard = cards[user.selectedCard];
@@ -34,7 +40,6 @@ class CardPageController extends GetxController {
     cards[user.selectedCard] = selectedCard;
     boxCard.put("myCards", cards);
     updatingNominalFormatted.value = selectedCard.nominal;
-    print(updatingNominalFormatted);
     update();
   }
 
@@ -190,9 +195,21 @@ class MySelectedCard extends StatelessWidget {
                 style:
                     TextStyle(fontSize: 32, color: darkcolor['contrastmain']),
               ),
-              Text(
-                "Total Balance",
-                style: TextStyle(color: darkcolor['contrastmain']),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    "Total Balance",
+                    style: TextStyle(color: darkcolor['contrastmain']),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      cardPageController.updateNominal();
+                    },
+                    child: const Icon(Icons.refresh, size: 18),
+                  ),
+                ].withSpaceBetween(width: 5),
               ),
             ].withSpaceBetween(height: 5),
           ),
