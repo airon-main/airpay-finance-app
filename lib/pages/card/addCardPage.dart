@@ -25,7 +25,6 @@ class addCardPage extends StatelessWidget {
     int? index;
     MyCard? existingCard;
 
-
     if (args != null && args is Map<String, dynamic>) {
       index = args['index'];
       existingCard = args['cardDetails'];
@@ -39,7 +38,7 @@ class addCardPage extends StatelessWidget {
     }
     return Scaffold(
       appBar: myAppBar(
-        title: "Add Cards",
+        title: "Add / Edit Card",
         // borderColor: Colors.transparent, //* menghilangkan border bottom
         //* Penggunaan jika ada tombol back, masukkan ke gesture detector kalau mau ada logic get.back
         prefixWidget: GestureDetector(
@@ -90,7 +89,9 @@ class addCardPage extends StatelessWidget {
               labelWidth: 90,
             ),
             myButton(
-                text: (index != null) ? "Edit" : "Add", // Change button text based on condition
+                text: (index != null)
+                    ? "Edit"
+                    : "Add", // Change button text based on condition
                 onClick: () {
                   if (index != null) {
                     cardPageController.editCard(

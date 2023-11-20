@@ -1,6 +1,5 @@
 import 'package:air_pay/boxes.dart';
 import 'package:air_pay/extensions.dart';
-import 'package:air_pay/formatter.dart';
 import 'package:air_pay/hive/user.dart';
 import 'package:air_pay/pages/card/cardPageController.dart';
 import 'package:air_pay/variables/colorpalette.dart';
@@ -95,26 +94,7 @@ class Home extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    color: darkcolor['main'],
-                    borderRadius: BorderRadius.circular(5)),
-                padding: const EdgeInsets.symmetric(vertical: 25),
-                child: Column(
-                  children: [
-                    Text(
-                      formatNominal(nominal: 500000),
-                      style: TextStyle(
-                          fontSize: 32, color: darkcolor['contrastmain']),
-                    ),
-                    Text(
-                      "Total Balance",
-                      style: TextStyle(color: darkcolor['contrastmain']),
-                    ),
-                  ].withSpaceBetween(height: 5),
-                ),
-              ),
+              const MySelectedCard(),
               TextButton(
                 onPressed: () {},
                 style: TextButton.styleFrom(

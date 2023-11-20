@@ -1,5 +1,6 @@
 import 'package:air_pay/extensions.dart';
 import 'package:air_pay/formatter.dart';
+import 'package:air_pay/pages/card/cardPageController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -38,95 +39,80 @@ class selectNominalTransfer extends StatelessWidget {
         width: double.infinity,
         height: double.infinity,
         padding: const EdgeInsets.all(10),
-        child: Column(mainAxisSize: MainAxisSize.min, children: [
-          Container(
-            width: double.infinity,
-            decoration: BoxDecoration(
-                color: darkcolor['main'],
-                borderRadius: BorderRadius.circular(5)),
-            padding: const EdgeInsets.symmetric(vertical: 25),
-            child: Column(
-              children: [
-                Text(
-                  formatNominal(nominal: 500000),
-                  style:
-                      TextStyle(fontSize: 32, color: darkcolor['contrastmain']),
-                ),
-                Text(
-                  "Total Balance",
-                  style: TextStyle(color: darkcolor['contrastmain']),
-                )
-              ].withSpaceBetween(height: 5),
-            ),
-          ),
-          Container(
-            padding: const EdgeInsets.all(10),
-            width: double.infinity,
-            decoration: BoxDecoration(
-                color: darkcolor['carddark'],
-                borderRadius: BorderRadius.circular(5)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const CircleAvatar(
-                  backgroundImage: AssetImage('assets/images/User.png'),
-                  radius: 19,
-                ),
-                Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "BNI (Ayah)",
-                        style: TextStyle(color: darkcolor['contrast']),
-                      ),
-                      Text(
-                        "123 456 789",
-                        style: TextStyle(color: darkcolor['disabled']),
-                      ),
-                    ],
-                  ),
-                ),
-                TextButton(
-                    onPressed: () {
-                      Get.back();
-                    },
-                    child: Text(
-                      "Change",
-                      style: TextStyle(color: darkcolor['main']),
-                    ))
-              ].withSpaceBetween(width: 10),
-            ),
-          ),
-          const SizedBox(height: 5),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
-              Text("Enter Transfer Nominal",
-                  style: TextStyle(fontSize: 14, color: darkcolor['contrast'])),
-              GestureDetector(
-                onTap: () {},
-                child: Text(
-                  "",
-                  style: TextStyle(fontSize: 10, color: darkcolor['disabled']),
+              const MySelectedCard(),
+              Container(
+                padding: const EdgeInsets.all(10),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    color: darkcolor['carddark'],
+                    borderRadius: BorderRadius.circular(5)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const CircleAvatar(
+                      backgroundImage: AssetImage('assets/images/User.png'),
+                      radius: 19,
+                    ),
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "BNI (Ayah)",
+                            style: TextStyle(color: darkcolor['contrast']),
+                          ),
+                          Text(
+                            "123 456 789",
+                            style: TextStyle(color: darkcolor['disabled']),
+                          ),
+                        ],
+                      ),
+                    ),
+                    TextButton(
+                        onPressed: () {
+                          Get.back();
+                        },
+                        child: Text(
+                          "Change",
+                          style: TextStyle(color: darkcolor['main']),
+                        ))
+                  ].withSpaceBetween(width: 10),
                 ),
               ),
-            ],
-          ),
-          myTextField(
-            hintText: "Rp.100.000",
-            hintColor: darkcolor['main'],
-          ),
-          myButton(
-            onClick: () {},
-            text: "Transfer",
-            textAlign: TextAlign.center,
-            foregroundColor: darkcolor['contrastmain'],
-            backgroundColor: darkcolor['main'],
-          )
-        ].withSpaceBetween(height: 10)),
+              const SizedBox(height: 5),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Enter Transfer Nominal",
+                      style: TextStyle(
+                          fontSize: 14, color: darkcolor['contrast'])),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Text(
+                      "",
+                      style:
+                          TextStyle(fontSize: 10, color: darkcolor['disabled']),
+                    ),
+                  ),
+                ],
+              ),
+              myTextField(
+                hintText: "Rp.100.000",
+                hintColor: darkcolor['main'],
+              ),
+              myButton(
+                onClick: () {},
+                text: "Transfer",
+                textAlign: TextAlign.center,
+                foregroundColor: darkcolor['contrastmain'],
+                backgroundColor: darkcolor['main'],
+              )
+            ].withSpaceBetween(height: 10)),
       ),
     );
   }
