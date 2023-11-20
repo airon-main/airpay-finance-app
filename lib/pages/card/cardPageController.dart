@@ -25,6 +25,41 @@ class CardPageController extends GetxController {
     return selectedCard;
   }
 
+  late RxDouble updatingNominalFormatted = selectedCard().nominal.obs;
+
+  Future<void> increaseNominalSelected({required double nominal}) async {
+    List<dynamic> cards = boxCard.get("myCards");
+    MyCard selectedCard = cards[user.selectedCard];
+    selectedCard.nominal += nominal;
+    cards[user.selectedCard] = selectedCard;
+    boxCard.put("myCards", cards);
+    updatingNominalFormatted.value = selectedCard.nominal;
+    print(updatingNominalFormatted);
+    update();
+  }
+
+  Future<void> decreaseNominalSelected({required double nominal}) async {
+    List<dynamic> cards = boxCard.get("myCards");
+    MyCard selectedCard = cards[user.selectedCard];
+    if ((selectedCard.nominal -= nominal) > 0) {
+      selectedCard.nominal -= nominal;
+      cards[user.selectedCard] = selectedCard;
+      updatingNominalFormatted.value = selectedCard.nominal;
+      boxCard.put("myCards", cards);
+    } else {
+      Get.defaultDialog(
+        title: "Whoa",
+        middleText:
+            "Looks like you're trying to transfer more than what you have",
+        backgroundColor: darkcolor['main'],
+        titleStyle: TextStyle(color: darkcolor['contrastmain']),
+        middleTextStyle: TextStyle(color: darkcolor['contrastmain']),
+        radius: 5,
+      );
+    }
+    update();
+  }
+
   Future<void> addAirPayCard() async {
     List<MyCard> newCards = [
       MyCard(
@@ -141,23 +176,26 @@ class MySelectedCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     CardPageController cardPageController = CardPageController();
-    return Container(
-      width: double.infinity,
-      decoration: BoxDecoration(
-          color: darkcolor['main'], borderRadius: BorderRadius.circular(5)),
-      padding: const EdgeInsets.symmetric(vertical: 25),
-      child: Column(
-        children: [
-          Text(
-            formatNominal(nominal: cardPageController.selectedCard().nominal),
-            style: TextStyle(fontSize: 32, color: darkcolor['contrastmain']),
+    cardPageController.updatingNominalFormatted();
+    return Obx(() => Container(
+          width: double.infinity,
+          decoration: BoxDecoration(
+              color: darkcolor['main'], borderRadius: BorderRadius.circular(5)),
+          padding: const EdgeInsets.symmetric(vertical: 25),
+          child: Column(
+            children: [
+              Text(
+                formatNominal(
+                    nominal: cardPageController.updatingNominalFormatted.value),
+                style:
+                    TextStyle(fontSize: 32, color: darkcolor['contrastmain']),
+              ),
+              Text(
+                "Total Balance",
+                style: TextStyle(color: darkcolor['contrastmain']),
+              ),
+            ].withSpaceBetween(height: 5),
           ),
-          Text(
-            "Total Balance",
-            style: TextStyle(color: darkcolor['contrastmain']),
-          ),
-        ].withSpaceBetween(height: 5),
-      ),
-    );
+        ));
   }
 }

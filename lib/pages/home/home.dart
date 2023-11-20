@@ -1,6 +1,5 @@
 import 'package:air_pay/boxes.dart';
 import 'package:air_pay/extensions.dart';
-import 'package:air_pay/formatter.dart';
 import 'package:air_pay/hive/user.dart';
 import 'package:air_pay/pages/card/cardPageController.dart';
 import 'package:air_pay/variables/colorpalette.dart';

@@ -14,6 +14,7 @@ class myTextField extends StatefulWidget {
       this.hintText,
       this.controller,
       this.validator,
+      this.keyboardType,
       this.backgroundColor = const Color(0xff222222),
       this.foregroundColor = const Color(0xffffffff),
       this.hintColor = const Color(0xffF2CE18),
@@ -23,6 +24,7 @@ class myTextField extends StatefulWidget {
   final String? hintText;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
+  final TextInputType? keyboardType;
   final Color backgroundColor;
   final Color foregroundColor;
   final Color hintColor;
@@ -51,6 +53,7 @@ class myTextFieldState extends State<myTextField> {
         Expanded(
           child: TextFormField(
             validator: widget.validator,
+            keyboardType: widget.keyboardType,
             autofocus: false,
             style: TextStyle(color: darkcolor['contrast'], fontSize: 14),
             controller: widget.controller,

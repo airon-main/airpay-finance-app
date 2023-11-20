@@ -1,5 +1,5 @@
 import 'package:air_pay/extensions.dart';
-import 'package:air_pay/formatter.dart';
+import 'package:air_pay/pages/card/cardPageController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -11,6 +11,9 @@ class selectNominalTopup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController topUpNominalCtr = TextEditingController();
+    CardPageController cardPageController = CardPageController();
+
     return Scaffold(
       appBar: myAppBar(
         title: "Top Up",
@@ -40,26 +43,7 @@ class selectNominalTopup extends StatelessWidget {
         child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    color: darkcolor['main'],
-                    borderRadius: BorderRadius.circular(5)),
-                padding: const EdgeInsets.symmetric(vertical: 25),
-                child: Column(
-                  children: [
-                    Text(
-                      formatNominal(nominal: 500000),
-                      style: TextStyle(
-                          fontSize: 32, color: darkcolor['contrastmain']),
-                    ),
-                    Text(
-                      "Total Balance",
-                      style: TextStyle(color: darkcolor['contrastmain']),
-                    )
-                  ].withSpaceBetween(height: 5),
-                ),
-              ),
+              const MySelectedCard(),
               const SizedBox(height: 5),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -67,22 +51,19 @@ class selectNominalTopup extends StatelessWidget {
                   Text("Enter Top Up Nominal",
                       style: TextStyle(
                           fontSize: 14, color: darkcolor['contrast'])),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Text(
-                      "",
-                      style:
-                          TextStyle(fontSize: 10, color: darkcolor['disabled']),
-                    ),
-                  ),
                 ],
               ),
               myTextField(
-                hintText: "Rp100.000",
+                controller: topUpNominalCtr,
+                keyboardType: TextInputType.number,
+                hintText: "100000",
                 hintColor: darkcolor['main'],
               ),
               myButton(
-                onClick: () {},
+                onClick: () {
+                  cardPageController.increaseNominalSelected(
+                      nominal: double.parse(topUpNominalCtr.text));
+                },
                 text: "Top Up",
                 textAlign: TextAlign.center,
                 foregroundColor: darkcolor['contrastmain'],
@@ -90,6 +71,7 @@ class selectNominalTopup extends StatelessWidget {
               )
             ].withSpaceBetween(height: 10)),
       ),
+
     );
   }
 }

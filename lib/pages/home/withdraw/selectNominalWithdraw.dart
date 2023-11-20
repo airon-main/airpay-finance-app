@@ -1,6 +1,8 @@
 import 'package:air_pay/extensions.dart';
 import 'package:air_pay/formatter.dart';
+import 'package:air_pay/pages/card/cardPageController.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
@@ -12,6 +14,8 @@ class selectNominalWithdraw extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    CardPageController cardPageController = CardPageController();
+    TextEditingController textEditingController = TextEditingController();
     return Scaffold(
       appBar: myAppBar(
         title: "Withdraw",
@@ -41,26 +45,7 @@ class selectNominalWithdraw extends StatelessWidget {
         child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    color: darkcolor['main'],
-                    borderRadius: BorderRadius.circular(5)),
-                padding: const EdgeInsets.symmetric(vertical: 25),
-                child: Column(
-                  children: [
-                    Text(
-                      formatNominal(nominal: 500000),
-                      style: TextStyle(
-                          fontSize: 32, color: darkcolor['contrastmain']),
-                    ),
-                    Text(
-                      "Total Balance",
-                      style: TextStyle(color: darkcolor['contrastmain']),
-                    )
-                  ].withSpaceBetween(height: 5),
-                ),
-              ),
+              const MySelectedCard(),
               const SizedBox(height: 5),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -79,11 +64,16 @@ class selectNominalWithdraw extends StatelessWidget {
                 ],
               ),
               myTextField(
-                hintText: "Rp.100.000",
+                controller: textEditingController,
+                keyboardType: TextInputType.number,
+                hintText: "100000",
                 hintColor: darkcolor['main'],
               ),
               myButton(
-                onClick: () {},
+                onClick: () {
+                  cardPageController.decreaseNominalSelected(
+                      nominal: double.parse(textEditingController.text));
+                },
                 text: "Withdraw",
                 textAlign: TextAlign.center,
                 foregroundColor: darkcolor['contrastmain'],
