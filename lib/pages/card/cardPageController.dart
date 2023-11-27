@@ -46,7 +46,8 @@ class CardPageController extends GetxController {
   Future<void> decreaseNominalSelected({required double nominal}) async {
     List<dynamic> cards = boxCard.get("myCards");
     MyCard selectedCard = cards[user.selectedCard];
-    if ((selectedCard.nominal -= nominal) > 0) {
+    double currentNominal = selectedCard.nominal;
+    if ((currentNominal -= nominal) >= 0) {
       selectedCard.nominal -= nominal;
       cards[user.selectedCard] = selectedCard;
       updatingNominalFormatted.value = selectedCard.nominal;
