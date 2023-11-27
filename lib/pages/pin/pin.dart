@@ -1,4 +1,8 @@
+import 'package:air_pay/hive/controllers/AccountController.dart';
+import 'package:air_pay/boxes.dart';
 import 'package:air_pay/extensions.dart';
+import 'package:air_pay/hive/user.dart';
+import 'package:air_pay/pages/pin/pinController.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 import 'package:air_pay/widgets/custom.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +14,10 @@ class EnterPin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var data = Get.arguments;
+    var arguments = Get.arguments;
+
+    var pinInputController = TextEditingController();
+    PinController pinController = PinController();
 
     final defaultPinTheme = PinTheme(
       height: 56,
@@ -28,6 +35,8 @@ class EnterPin extends StatelessWidget {
     final focusedPinTheme = defaultPinTheme.copyDecorationWith(
       border: Border.all(color: darkcolor['main']),
     );
+
+    print(arguments);
 
     return Scaffold(
       body: Container(
@@ -51,12 +60,8 @@ class EnterPin extends StatelessWidget {
             Pinput(
               defaultPinTheme: defaultPinTheme,
               focusedPinTheme: focusedPinTheme,
+              controller: pinInputController,
               length: 6,
-              validator: data == "login"
-                  ? (s) {
-                      return s == '222222' ? null : 'Pin is incorrect';
-                    }
-                  : null,
               pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
               showCursor: true,
               onCompleted: (pin) => print(pin),
@@ -64,9 +69,17 @@ class EnterPin extends StatelessWidget {
             const SizedBox(height: 20, width: double.infinity),
             myButton(
               onClick: () {
-                Get.offAllNamed("/home");
+                pinController.checkIsTrue(
+                  type: arguments['type'],
+                  pin: pinInputController.text,
+                  username: arguments['username'],
+                  email: arguments['email'],
+                  password: arguments['password'],
+                );
               },
-              text: data == "signup" ? "Looks good" : "I think it's Correct",
+              text: arguments["type"] == "signup"
+                  ? "Looks good"
+                  : "I think it's Correct",
               backgroundColor: darkcolor['main'],
               foregroundColor: darkcolor['contrastmain'],
               textAlign: TextAlign.center,

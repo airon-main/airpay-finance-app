@@ -11,7 +11,9 @@ class myTextField extends StatefulWidget {
       {super.key,
       this.isObscured = false,
       this.hintText,
-      this.textEditingController,
+      this.controller,
+      this.validator,
+      this.keyboardType,
       this.backgroundColor = const Color(0xff222222),
       this.foregroundColor = const Color(0xffffffff),
       this.hintColor = const Color(0xffF2CE18),
@@ -19,7 +21,9 @@ class myTextField extends StatefulWidget {
       this.labelWidth});
   final bool isObscured;
   final String? hintText;
-  final TextEditingController? textEditingController;
+  final TextEditingController? controller;
+  final String? Function(String?)? validator;
+  final TextInputType? keyboardType;
   final Color backgroundColor;
   final Color foregroundColor;
   final Color hintColor;
@@ -46,10 +50,12 @@ class myTextFieldState extends State<myTextField> {
           ),
         ),
         Expanded(
-          child: TextField(
+          child: TextFormField(
+            validator: widget.validator,
+            keyboardType: widget.keyboardType,
             autofocus: false,
-            style: TextStyle(color: darkcolor['contrast']),
-            controller: widget.textEditingController,
+            style: TextStyle(color: darkcolor['contrast'], fontSize: 14),
+            controller: widget.controller,
             obscureText: widget.isObscured ? isChecked : widget.isObscured,
             decoration: InputDecoration(
               hintText: widget.hintText,
@@ -397,6 +403,145 @@ class myDropdown extends StatelessWidget {
               //   ),
               // ]),
             ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class myPayMetode extends StatelessWidget {
+  const myPayMetode({
+    Key? key,
+    required this.index,
+  }) : super(key: key);
+  final int index;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        TextButton(
+          onPressed: () {
+            Get.toNamed("/home/selectNominalTopup");
+          },
+          style: TextButton.styleFrom(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                backgroundImage:
+                    AssetImage('assets/images/' + metodeData[index]['photo']),
+                radius: 19,
+              ),
+              Expanded(
+                child: Text(
+                  metodeData[index]["nama"],
+                  style: TextStyle(color: darkcolor['contrast']),
+                ),
+              ),
+              Icon(
+                Icons.arrow_forward_rounded,
+                color: darkcolor['disabled'],
+              ),
+            ].withSpaceBetween(width: 10),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class myTransfer extends StatelessWidget {
+  const myTransfer({Key? key, required this.index}) : super(key: key);
+  final int index;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        TextButton(
+          onPressed: () {
+            Get.toNamed("/home/selectNominalTransfer");
+          },
+          style: TextButton.styleFrom(padding: const EdgeInsets.only(right: 5)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                backgroundImage: AssetImage(
+                    'assets/images/' + transactionData[index]['photo']),
+                radius: 19,
+              ),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      transactionData[index]["name"],
+                      style: TextStyle(color: darkcolor['contrast']),
+                    ),
+                    Text(
+                      transactionData[index]["date"],
+                      style:
+                          TextStyle(color: darkcolor['disabled'], fontSize: 10),
+                    ),
+                  ],
+                ),
+              ),
+              Icon(
+                Icons.arrow_forward_rounded,
+                color: darkcolor['disabled'],
+              ),
+            ].withSpaceBetween(width: 10),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class myWithdraw extends StatelessWidget {
+  const myWithdraw({Key? key, required this.index}) : super(key: key);
+  final int index;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        TextButton(
+          onPressed: () {
+            Get.toNamed("/home/selectNominalWithdraw");
+          },
+          style: TextButton.styleFrom(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                backgroundImage:
+                    AssetImage('assets/images/' + withdrawdata[index]['photo']),
+                radius: 19,
+              ),
+              Expanded(
+                child: Text(
+                  withdrawdata[index]["nama"],
+                  style: TextStyle(color: darkcolor['contrast']),
+                ),
+              ),
+              Icon(
+                Icons.arrow_forward_rounded,
+                color: darkcolor['disabled'],
+              ),
+            ].withSpaceBetween(width: 10),
           ),
         ),
       ],

@@ -1,3 +1,4 @@
+import 'package:air_pay/pages/splash/splashController.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -5,15 +6,11 @@ import 'package:get/get.dart';
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 
-  void intialDelayed(BuildContext context) async {
-    Get.offNamed("/signup");
-  }
-
   @override
-  Widget build(BuildContext context) {  
-    Future.delayed(const Duration(seconds: 3), () {
-      intialDelayed(context);
-    });
+  Widget build(BuildContext context) {
+    SplashController splashController = SplashController();
+    splashController.checkIsLoggedIn();
+
     return Container(
       height: double.infinity,
       width: double.infinity,

@@ -32,3 +32,16 @@ List<Map<String, dynamic>> transactionData = [
     'impact': '-3%'
   },
 ];
+
+List<Map<String, dynamic>> metodeData = [
+  {"nama": "Indomaret", "photo": "indomaret-topup.png"},
+  {"nama": "Alfamart", "photo": "alfamart-topup.png"},
+  {"nama": "AirPay Voucher", "photo": "AirPayCard.png"},
+  {"nama": "Bank", "photo": "bank-topup.png"}
+];
+
+List<Map<String, dynamic>> withdrawdata = [
+  {"nama": "Indomaret", "photo": "indomaret-topup.png"},
+  {"nama": "Alfamart", "photo": "alfamart-topup.png"},
+  {"nama": "Closest Agent", "photo": "withdraw-agent.png"},
+];

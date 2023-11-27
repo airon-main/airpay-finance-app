@@ -1,44 +1,50 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'transaction.dart';
+part of 'user.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class TransactionAdapter extends TypeAdapter<Transaction> {
+class UserAdapter extends TypeAdapter<User> {
   @override
-  final int typeId = 3;
+  final int typeId = 1;
 
   @override
-  Transaction read(BinaryReader reader) {
+  User read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Transaction(
-      transactionName: fields[0] as String,
-      nominal: fields[1] as int,
-      paymentType: fields[2] as String,
-      isRecieved: fields[3] as bool,
-      date: fields[4] as String,
+    return User(
+      username: fields[0] as String,
+      email: fields[1] as String,
+      password: fields[2] as String,
+      pin: fields[3] as String,
+      image: fields[4] as String,
+      airpayId: fields[5] as String,
+      selectedCard: fields[6] as int,
     );
   }
 
   @override
-  void write(BinaryWriter writer, Transaction obj) {
+  void write(BinaryWriter writer, User obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(7)
       ..writeByte(0)
-      ..write(obj.transactionName)
+      ..write(obj.username)
       ..writeByte(1)
-      ..write(obj.nominal)
+      ..write(obj.email)
       ..writeByte(2)
-      ..write(obj.paymentType)
+      ..write(obj.password)
       ..writeByte(3)
-      ..write(obj.isRecieved)
+      ..write(obj.pin)
       ..writeByte(4)
-      ..write(obj.date);
+      ..write(obj.image)
+      ..writeByte(5)
+      ..write(obj.airpayId)
+      ..writeByte(6)
+      ..write(obj.selectedCard);
   }
 
   @override
@@ -47,7 +53,7 @@ class TransactionAdapter extends TypeAdapter<Transaction> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is TransactionAdapter &&
+      other is UserAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

@@ -1,4 +1,7 @@
+import 'package:air_pay/boxes.dart';
 import 'package:air_pay/extensions.dart';
+import 'package:air_pay/hive/controllers/AccountController.dart';
+import 'package:air_pay/hive/user.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 import 'package:air_pay/widgets/custom.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +12,14 @@ class Account extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AccountController accountController = AccountController();
+    final user = boxUser.get("myUser") as User;
+    TextEditingController usernameController =
+        TextEditingController(text: user.username);
+    TextEditingController imagePathController =
+        TextEditingController(text: user.image);
+    TextEditingController emailController =
+        TextEditingController(text: user.email);
     return Scaffold(
       appBar: myAppBar(
         title: "Account Information",
@@ -34,55 +45,75 @@ class Account extends StatelessWidget {
         height: double.infinity,
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(color: darkcolor['background']),
-        child: Column(
-          children: [
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              alignment: Alignment.center,
-              child: Container(
-                height: 75,
-                width: 75,
-                decoration: const BoxDecoration(
-                    image: DecorationImage(
-                  image: AssetImage("assets/images/Frame 93.png"),
-                  fit: BoxFit.cover,
-                )),
-                child: const Icon(
-                  Icons.camera_alt_rounded,
-                  color: Colors.white,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                alignment: Alignment.center,
+                child: Container(
+                  height: 75,
+                  width: 75,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    image: const DecorationImage(
+                      colorFilter: ColorFilter.mode(
+                        Colors.black38,
+                        BlendMode.darken,
+                      ),
+                      image: AssetImage("assets/images/User.png"),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  child: const Icon(
+                    Icons.camera_alt_rounded,
+                    color: Colors.white,
+                  ),
                 ),
               ),
-            ),
-            const myTextField(
-              label: "Username",
-              labelWidth: 90,
-              hintText: "altantheprodigy",
-            ),
-            const myTextField(
-              label: "Full Name",
-              labelWidth: 90,
-              hintText: "Altan Assyfa Naura Putra",
-            ),
-            const myTextField(
-              label: "Email",
-              labelWidth: 90,
-              hintText: "altantheprodigy@gmail.com",
-            ),
-            myButton(
-              label: "Password",
-              labelWidth: 90,
-              text: "Change Password",
-              onClick: () {},
-              textAlign: TextAlign.center,
-              backgroundColor: darkcolor['card'],
-              foregroundColor: darkcolor['contrast'],
-            ),
-            const myTextField(
-              label: "AirPay ID",
-              labelWidth: 90,
-              hintText: "1a2B3c4D5e6F7g8",
-            ),
-          ].withSpaceBetween(height: 10),
+              myTextField(
+                label: "Avatar Path",
+                labelWidth: 90,
+                hintText: user.image,
+                controller: imagePathController,
+              ),
+              myTextField(
+                label: "Username",
+                labelWidth: 90,
+                hintText: user.username,
+                controller: usernameController,
+              ),
+              myTextField(
+                label: "Email",
+                labelWidth: 90,
+                hintText: user.email,
+                controller: emailController,
+              ),
+              myButton(
+                onClick: () {
+                  Get.toNamed("/user/changepass");
+                },
+                label: "Password",
+                labelWidth: 90,
+                text: "Change Password",
+                textAlign: TextAlign.center,
+                backgroundColor: darkcolor['card'],
+                foregroundColor: darkcolor['contrast'],
+              ),
+              myButton(
+                onClick: () {},
+                text: "Change",
+                textAlign: TextAlign.center,
+                backgroundColor: darkcolor['main'],
+                foregroundColor: darkcolor['contrastmain'],
+              ),
+              Text(
+                'AirPay Id : ${user.airpayId}',
+                style: TextStyle(color: darkcolor['disabled']),
+              )
+            ].withSpaceBetween(height: 10),
+          ),
         ),
       ),
     );

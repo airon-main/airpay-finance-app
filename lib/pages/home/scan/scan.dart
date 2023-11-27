@@ -1,8 +1,8 @@
 import 'package:air_pay/extensions.dart';
+import 'package:air_pay/pages/card/cardPageController.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 import 'package:air_pay/widgets/custom.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:get/get.dart';
 
 class ScanPage extends StatelessWidget {
@@ -10,12 +10,6 @@ class ScanPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var nominalFormat = MoneyMaskedTextController(
-        thousandSeparator: ",",
-        leftSymbol: "Rp",
-        precision: 0,
-        decimalSeparator: "");
-    nominalFormat.updateValue(500000);
     return Scaffold(
       appBar: myAppBar(
         title: "Scan",
@@ -47,26 +41,7 @@ class ScanPage extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    color: darkcolor['main'],
-                    borderRadius: BorderRadius.circular(5)),
-                padding: const EdgeInsets.symmetric(vertical: 25),
-                child: Column(
-                  children: [
-                    Text(
-                      nominalFormat.text,
-                      style: TextStyle(
-                          fontSize: 32, color: darkcolor['contrastmain']),
-                    ),
-                    Text(
-                      "Total Balance",
-                      style: TextStyle(color: darkcolor['contrastmain']),
-                    ),
-                  ].withSpaceBetween(height: 5),
-                ),
-              ),
+              const MySelectedCard(),
               TextButton(
                 onPressed: () {},
                 style: TextButton.styleFrom(

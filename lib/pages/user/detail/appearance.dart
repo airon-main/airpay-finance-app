@@ -10,7 +10,8 @@ class Appearance extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    mySwitchController lightThemeSwitchController = mySwitchController();
+    mySwitchController lightThemeController = Get.put(mySwitchController());
+    mySwitchController outlineIconController = Get.put(mySwitchController());
     return Scaffold(
       appBar: myAppBar(
         title: "Appereance",
@@ -45,7 +46,7 @@ class Appearance extends StatelessWidget {
             ),
             mySwitch(
               label: "Light Theme",
-              controller: lightThemeSwitchController,
+              controller: lightThemeController,
             ),
             const myTextField(
               hintText: "#f2c318",
@@ -70,6 +71,10 @@ class Appearance extends StatelessWidget {
                   child: Text("Sharp"),
                 ),
               ],
+            ),
+            mySwitch(
+              controller: outlineIconController,
+              label: "Outline icon",
             ),
           ].withSpaceBetween(height: 10),
         ),

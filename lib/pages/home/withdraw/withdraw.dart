@@ -1,21 +1,18 @@
 import 'package:air_pay/extensions.dart';
+import 'package:air_pay/formatter.dart';
+import 'package:air_pay/pages/card/cardPageController.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 import 'package:air_pay/widgets/custom.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:get/get.dart';
+
+import '../../../variables/transaction.dart';
 
 class WithdrawPage extends StatelessWidget {
   const WithdrawPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var nominalFormat = MoneyMaskedTextController(
-        thousandSeparator: ",",
-        leftSymbol: "Rp",
-        precision: 0,
-        decimalSeparator: "");
-    nominalFormat.updateValue(500000);
     return Scaffold(
       appBar: myAppBar(
         title: "Withdraw",
@@ -47,26 +44,7 @@ class WithdrawPage extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    color: darkcolor['main'],
-                    borderRadius: BorderRadius.circular(5)),
-                padding: const EdgeInsets.symmetric(vertical: 25),
-                child: Column(
-                  children: [
-                    Text(
-                      nominalFormat.text,
-                      style: TextStyle(
-                          fontSize: 32, color: darkcolor['contrastmain']),
-                    ),
-                    Text(
-                      "Total Balance",
-                      style: TextStyle(color: darkcolor['contrastmain']),
-                    ),
-                  ].withSpaceBetween(height: 5),
-                ),
-              ),
+              const MySelectedCard(),
               TextButton(
                 onPressed: () {},
                 style: TextButton.styleFrom(
@@ -81,6 +59,47 @@ class WithdrawPage extends StatelessWidget {
                     const Expanded(child: Text("My Card")),
                     const Icon(Icons.arrow_forward_rounded),
                   ].withSpaceBetween(width: 10),
+                ),
+              ),
+              const SizedBox(height: 5),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Withdraw Methods",
+                      style: TextStyle(
+                          fontSize: 14, color: darkcolor['contrast'])),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Text(
+                      "View More",
+                      style:
+                          TextStyle(fontSize: 10, color: darkcolor['disabled']),
+                    ),
+                  ),
+                ],
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  color: darkcolor['carddark'],
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 12,
+                  horizontal: 10,
+                ),
+                child: ListView.separated(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    return myWithdraw(index: index);
+                  },
+                  itemCount: withdrawdata.length,
+                  separatorBuilder: (context, index) {
+                    return Divider(
+                      color: darkcolor['card'],
+                      height: 25,
+                    );
+                  },
                 ),
               ),
             ].withSpaceBetween(height: 10),

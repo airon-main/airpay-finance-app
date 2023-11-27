@@ -1,44 +1,44 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'transaction.dart';
+part of 'cards.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class TransactionAdapter extends TypeAdapter<Transaction> {
+class MyCardAdapter extends TypeAdapter<MyCard> {
   @override
-  final int typeId = 3;
+  final int typeId = 2;
 
   @override
-  Transaction read(BinaryReader reader) {
+  MyCard read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Transaction(
-      transactionName: fields[0] as String,
-      nominal: fields[1] as int,
-      paymentType: fields[2] as String,
-      isRecieved: fields[3] as bool,
-      date: fields[4] as String,
+    return MyCard(
+      name: fields[0] as String,
+      nominal: fields[1] as double,
+      image: fields[2] as String,
+      mainColor: fields[3] as String,
+      contrastMainColor: fields[4] as String,
     );
   }
 
   @override
-  void write(BinaryWriter writer, Transaction obj) {
+  void write(BinaryWriter writer, MyCard obj) {
     writer
       ..writeByte(5)
       ..writeByte(0)
-      ..write(obj.transactionName)
+      ..write(obj.name)
       ..writeByte(1)
       ..write(obj.nominal)
       ..writeByte(2)
-      ..write(obj.paymentType)
+      ..write(obj.image)
       ..writeByte(3)
-      ..write(obj.isRecieved)
+      ..write(obj.mainColor)
       ..writeByte(4)
-      ..write(obj.date);
+      ..write(obj.contrastMainColor);
   }
 
   @override
@@ -47,7 +47,7 @@ class TransactionAdapter extends TypeAdapter<Transaction> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is TransactionAdapter &&
+      other is MyCardAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

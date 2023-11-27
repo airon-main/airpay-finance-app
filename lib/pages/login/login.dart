@@ -1,3 +1,4 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 import 'package:air_pay/extensions.dart';
@@ -9,6 +10,9 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var usernameTextController = TextEditingController(text: "");
+    var emailTextController = TextEditingController(text: "");
+    var passwordTextController = TextEditingController(text: "");
     return Scaffold(
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -28,9 +32,36 @@ class Login extends StatelessWidget {
                   fontSize: 32),
             ),
             const SizedBox(height: 20),
-            const myTextField(hintText: "Username"),
-            const myTextField(hintText: "Email / Phone Number"),
-            const myTextField(hintText: "Password", isObscured: true),
+            myTextField(
+              hintText: "Username",
+              controller: usernameTextController,
+              validator: (String? value) {
+                String nonNullValue = value ?? "";
+                nonNullValue.trim().isEmpty ? "a Username is Required" : null;
+                return null;
+              },
+            ),
+            myTextField(
+              hintText: "Email",
+              controller: emailTextController,
+              validator: (String? value) {
+                String nonNullValue = value ?? "";
+                EmailValidator.validate(nonNullValue)
+                    ? null
+                    : "Please enter a valid email";
+                return null;
+              },
+            ),
+            myTextField(
+              hintText: "Password",
+              isObscured: true,
+              controller: passwordTextController,
+              validator: (String? value) {
+                String nonNullValue = value ?? "";
+                nonNullValue.trim().isEmpty ? "a Password is Required" : null;
+                return null;
+              },
+            ),
             Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -46,7 +77,28 @@ class Login extends StatelessWidget {
             const SizedBox(height: 20, width: double.infinity),
             myButton(
               onClick: () {
-                Get.toNamed("/enterpin", arguments: "login");
+                if ([
+                  usernameTextController.text,
+                  emailTextController.text,
+                  passwordTextController.text,
+                ].contains("")) {
+                  Get.defaultDialog(
+                      title: "Whoa slow down there",
+                      middleText:
+                          "You sure you filled every field?\nCheck 'em again",
+                      backgroundColor: darkcolor['main'],
+                      titleStyle: TextStyle(color: darkcolor['contrastmain']),
+                      middleTextStyle:
+                          TextStyle(color: darkcolor['contrastmain']),
+                      radius: 5);
+                } else {
+                  Get.toNamed("/enterpin", arguments: {
+                    "type": "login".toString(),
+                    "username": usernameTextController.text,
+                    "email": emailTextController.text,
+                    "password": passwordTextController.text,
+                  });
+                }
               },
               text: "Login",
               backgroundColor: darkcolor['main'],

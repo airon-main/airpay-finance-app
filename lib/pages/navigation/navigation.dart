@@ -1,5 +1,5 @@
-
 import 'package:air_pay/pages/card/cardPage.dart';
+import 'package:air_pay/pages/card/cardPageController.dart';
 import 'package:air_pay/pages/shop/shop.dart';
 import 'package:air_pay/pages/home/home.dart';
 import 'package:air_pay/pages/user/user.dart';
@@ -17,6 +17,11 @@ class Navigation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var argument = Get.arguments;
+    CardPageController cardPageController = Get.find<CardPageController>();
+    if (argument == "signup") {
+      cardPageController.addAirPayCard();
+    }
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
         statusBarIconBrightness: Brightness.light,
@@ -28,10 +33,10 @@ class Navigation extends StatelessWidget {
         body: Obx(
           () => IndexedStack(
             index: navigationController.tabIndex.value,
-            children: const [
+            children: [
               Home(),
-              ShoppingPage(),
-              myCardPage(),
+              const ShoppingPage(),
+              const myCardPage(),
               homeUserPage(),
             ],
           ),
