@@ -27,7 +27,6 @@ class Signup extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Text(
                 "Signup",
@@ -105,6 +104,7 @@ class Signup extends StatelessWidget {
                 foregroundColor: darkcolor['contrastmain'],
                 textAlign: TextAlign.center,
               ),
+
             ].withSpaceBetween(height: 10),
           ),
         ),

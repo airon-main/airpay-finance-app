@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "448873726430",
+    "project_id": "signin-acfe3",
+    "storage_bucket": "signin-acfe3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:448873726430:android:56593aa08f00552c87dd4f",
+        "android_client_info": {
+          "package_name": "com.airpay.airon.air_pay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "448873726430-uhp0djdnmnn78s64om1uc6je3sisj7el.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjsAVPibIe1CaG-lL1klMTfqLAd96CZ-Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "448873726430-uhp0djdnmnn78s64om1uc6je3sisj7el.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

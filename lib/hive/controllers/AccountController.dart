@@ -4,6 +4,7 @@ import 'package:air_pay/variables/colorpalette.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class AccountController extends GetxController {
   var error = "";
@@ -100,3 +101,35 @@ class AccountController extends GetxController {
     Get.offAllNamed("/home");
   }
 }
+
+
+// class SignInController extends GetxController {
+//   GoogleSignInAccount? _currentUser;
+//
+//   GoogleSignIn _googleSignIn = GoogleSignIn(
+//     scopes: [
+//       'email',
+//       'https://www.googleapis.com/auth/contacts.readonly',
+//     ],
+//   );
+//
+//   Future<void> handleSignIn() async {
+//     try {
+//       _currentUser = await _googleSignIn.signIn(); // Update _currentUser
+//       if (_currentUser != null) {
+//         print('Signed in user: ${_currentUser!.displayName}');
+//         Get.toNamed("/home", parameters: {
+//           "userName": _currentUser!.displayName ?? "User",
+//         });
+//       }
+//     } catch (error) {
+//       print('Error signing in: $error');
+//     }
+//   }
+//
+//   GoogleSignInAccount? get currentUser => _currentUser;
+// }
+
+//
+
+

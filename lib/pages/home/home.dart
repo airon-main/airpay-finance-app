@@ -9,7 +9,8 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 class Home extends StatelessWidget {
-  Home({super.key});
+  Home({super.key, });
+
 
   final user = boxUser.get("myUser") as User;
   final cards = boxCard.get("myCards") as List?;
