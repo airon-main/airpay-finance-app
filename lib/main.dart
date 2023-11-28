@@ -46,7 +46,6 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
@@ -82,10 +81,18 @@ class MyApp extends StatelessWidget {
         GetPage(name: "/home/transfer", page: () => const TransferPage()),
         GetPage(name: "/home/withdraw", page: () => const WithdrawPage()),
 
-        GetPage(name: "/home/selectNominalTopup", page: () => const selectNominalTopup()),
-        GetPage(name: "/home/selectNominalTransfer", page: () => const selectNominalTransfer()),
-        GetPage(name: "/home/selectNominalWithdraw", page: () => const selectNominalWithdraw()),
-        GetPage(name: "/home/selectNominalScan", page: () => const selectNominalScan()),
+        GetPage(
+            name: "/home/selectNominalTopup",
+            page: () => const selectNominalTopup()),
+        GetPage(
+            name: "/home/selectNominalTransfer",
+            page: () => const selectNominalTransfer()),
+        GetPage(
+            name: "/home/selectNominalWithdraw",
+            page: () => const selectNominalWithdraw()),
+        GetPage(
+            name: "/home/selectNominalScan",
+            page: () => const selectNominalScan()),
 
         GetPage(
             name: "/home/selectNominalTopup",
