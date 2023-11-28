@@ -34,7 +34,7 @@ class Navigation extends StatelessWidget {
           () => IndexedStack(
             index: navigationController.tabIndex.value,
             children: [
-              Home(),
+              Home(userName: '',),
               const ShoppingPage(),
               const myCardPage(),
               homeUserPage(),

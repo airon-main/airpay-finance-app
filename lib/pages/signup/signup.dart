@@ -104,7 +104,20 @@ class Signup extends StatelessWidget {
                 foregroundColor: darkcolor['contrastmain'],
                 textAlign: TextAlign.center,
               ),
-
+              myButton(
+                onClick: () {
+                  // accountController.signupChecker(
+                  //   username: usernameTextController.text,
+                  //   email: emailTextController.text,
+                  //   password: passwordTextController.text,
+                  //   reenterPassword: reenterPasswordTextController.text,
+                  // );
+                },
+                text: "Google Signin",
+                backgroundColor: darkcolor['card'],
+                foregroundColor: darkcolor['contrast'],
+                textAlign: TextAlign.center,
+              ),
             ].withSpaceBetween(height: 10),
           ),
         ),

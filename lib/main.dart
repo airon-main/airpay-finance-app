@@ -18,6 +18,7 @@ import 'package:air_pay/pages/pin/pin.dart';
 import 'package:air_pay/pages/shop/Payment%20Page/electricPage.dart';
 import 'package:air_pay/pages/shop/Payment%20Page/topupPage.dart';
 import 'package:air_pay/pages/shop/shop.dart';
+import 'package:air_pay/pages/signup/signIn.dart';
 import 'package:air_pay/pages/signup/signup.dart';
 import 'package:air_pay/pages/splash/splash.dart';
 import 'package:air_pay/pages/user/detail/aboutus.dart';
@@ -64,6 +65,7 @@ class MyApp extends StatelessWidget {
       ),
       getPages: [
         GetPage(name: "/signup", page: () => const Signup()),
+        GetPage(name: "/signin", page: () => const SignInPage()),
         GetPage(name: "/enterpin", page: () => const EnterPin()),
         GetPage(name: "/notification", page: () => const NotificationPage()),
         //* Home Pages

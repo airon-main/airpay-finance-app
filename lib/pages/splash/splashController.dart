@@ -9,7 +9,7 @@ class SplashController extends GetxController {
       if (user != null) {
         Get.offNamed("/enterpin", arguments: {"type": "login"});
       } else {
-        Get.offNamed("/signup");
+        Get.offNamed("/signin");
       }
     });
   }
