@@ -1,5 +1,7 @@
 
+import 'package:air_pay/boxes.dart';
 import 'package:air_pay/extensions.dart';
+import 'package:air_pay/hive/user.dart';
 import 'package:air_pay/pages/card/cardPageController.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 import 'package:air_pay/variables/transaction.dart';
@@ -8,10 +10,9 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 class Home extends StatelessWidget {
-  final String userName;
-  Home({super.key, required this.userName, });
+  Home({super.key,});
 
-
+  final user = boxUser.get("myUser") as User;
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +54,7 @@ class Home extends StatelessWidget {
                         fontWeight: FontWeight.w500),
                   ),
                   Text(
-                    userName,
+                    user.username,
                     style: TextStyle(
                         color: darkcolor['contrast'],
                         fontWeight: FontWeight.w500),

@@ -7,7 +7,6 @@ import 'package:get/state_manager.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class AccountController extends GetxController {
-  var error = "";
 
   Future<void> logout() async {
     Get.defaultDialog(
@@ -62,13 +61,12 @@ class AccountController extends GetxController {
     }
   }
 
-  Future<void> signupChecker({
+  Future<void> goToPin({
     required String username,
     required String email,
     required String password,
     required String reenterPassword,
   }) async {
-    error = "";
     if (![username, email, password, reenterPassword].contains("")) {
       if (password == reenterPassword) {
         Get.toNamed("/enterpin", arguments: {

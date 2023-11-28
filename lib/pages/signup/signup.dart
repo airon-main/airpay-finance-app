@@ -1,4 +1,5 @@
 import 'package:air_pay/hive/controllers/AccountController.dart';
+import 'package:air_pay/pages/signup/googleSigninController.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:air_pay/variables/colorpalette.dart';
@@ -12,6 +13,8 @@ class Signup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AccountController accountController = Get.put(AccountController());
+    GoogleSigninController googleSignInController =
+        Get.put(GoogleSigninController());
     var usernameTextController = TextEditingController(text: "");
     var emailTextController = TextEditingController(text: "");
     var passwordTextController = TextEditingController(text: "");
@@ -92,7 +95,7 @@ class Signup extends StatelessWidget {
               const SizedBox(height: 20, width: double.infinity),
               myButton(
                 onClick: () {
-                  accountController.signupChecker(
+                  accountController.goToPin(
                     username: usernameTextController.text,
                     email: emailTextController.text,
                     password: passwordTextController.text,
@@ -106,14 +109,9 @@ class Signup extends StatelessWidget {
               ),
               myButton(
                 onClick: () {
-                  // accountController.signupChecker(
-                  //   username: usernameTextController.text,
-                  //   email: emailTextController.text,
-                  //   password: passwordTextController.text,
-                  //   reenterPassword: reenterPasswordTextController.text,
-                  // );
+                  googleSignInController.handleSignIn();
                 },
-                text: "Google Signin",
+                text: "Google SignIn",
                 backgroundColor: darkcolor['card'],
                 foregroundColor: darkcolor['contrast'],
                 textAlign: TextAlign.center,
