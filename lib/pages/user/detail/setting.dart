@@ -10,7 +10,7 @@ class Setting extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    mySwitchController showUnavailableController = mySwitchController();
+    mySwitchController showUnavailableSwitchController = mySwitchController();
     return Scaffold(
       appBar: myAppBar(
         title: "Settings",
@@ -57,8 +57,8 @@ class Setting extends StatelessWidget {
               ],
             ),
             mySwitch(
-              controller: showUnavailableController,
               label: "Show unavailable Features",
+              controller: showUnavailableSwitchController,
             )
           ].withSpaceBetween(height: 10),
         ),

@@ -1,6 +1,5 @@
 import 'package:air_pay/variables/transaction.dart';
 import 'package:air_pay/widgets/customController.dart';
-import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:air_pay/extensions.dart';
 import 'package:air_pay/variables/colorpalette.dart';
@@ -11,25 +10,21 @@ class myTextField extends StatefulWidget {
   const myTextField(
       {super.key,
       this.isObscured = false,
-      this.hintText,
       this.controller,
       this.validator,
       this.keyboardType,
       this.backgroundColor = const Color(0xff222222),
       this.foregroundColor = const Color(0xffffffff),
       this.hintColor = const Color(0xffF2CE18),
-      this.label = "",
-      this.labelWidth});
+      this.labelText = "",});
   final bool isObscured;
-  final String? hintText;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
   final TextInputType? keyboardType;
   final Color backgroundColor;
   final Color foregroundColor;
   final Color hintColor;
-  final String label;
-  final double? labelWidth;
+  final String labelText;
 
   @override
   myTextFieldState createState() => myTextFieldState();
@@ -39,60 +34,48 @@ class myTextFieldState extends State<myTextField> {
   bool isChecked = true;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisSize: MainAxisSize.max,
-      children: [
-        SizedBox(
-          width: widget.labelWidth,
-          child: Text(
-            widget.label,
-            style: TextStyle(color: darkcolor['disabled']),
-          ),
-        ),
-        Expanded(
-          child: TextFormField(
-            validator: widget.validator,
-            keyboardType: widget.keyboardType,
-            autofocus: false,
-            style: TextStyle(color: darkcolor['contrast'], fontSize: 14),
-            controller: widget.controller,
-            obscureText: widget.isObscured ? isChecked : widget.isObscured,
-            decoration: InputDecoration(
-              hintText: widget.hintText,
-              fillColor: darkcolor["carddark"],
-              filled: true,
-              hintStyle: TextStyle(
+    return TextFormField(
+      validator: widget.validator,
+      keyboardType: widget.keyboardType,
+      autofocus: false,
+      style: TextStyle(color: darkcolor['contrast'], fontSize: 14),
+      controller: widget.controller,
+      obscureText: widget.isObscured ? isChecked : widget.isObscured,
+      decoration: InputDecoration(
+        labelText: widget.labelText,
+        labelStyle: TextStyle(color: darkcolor['disabled'], fontSize: 14),
+        fillColor: darkcolor["carddark"],
+        filled: true,
+        hintStyle: TextStyle(
+            color: darkcolor['disabled'],
+            fontWeight: FontWeight.normal,
+            fontSize: 14),
+        suffixIcon: widget.isObscured
+            ? IconButton(
+                icon: Icon(
+                  // Based on passwordVisible state choose the icon
+                  isChecked ? Icons.visibility : Icons.visibility_off,
                   color: darkcolor['disabled'],
-                  fontWeight: FontWeight.normal,
-                  fontSize: 14),
-              suffixIcon: widget.isObscured
-                  ? IconButton(
-                      icon: Icon(
-                        // Based on passwordVisible state choose the icon
-                        isChecked ? Icons.visibility : Icons.visibility_off,
-                        color: darkcolor['disabled'],
-                      ),
-                      onPressed: () {
-                        // Update the state i.e. toogle the state of passwordVisible variable
-                        setState(() {
-                          isChecked = !isChecked;
-                        });
-                      },
-                    )
-                  : null,
-              contentPadding: const EdgeInsets.all(10),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(5),
-                borderSide: BorderSide.none,
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: darkcolor['main'], width: 0.5),
-              ),
-            ),
-          ),
+                ),
+                onPressed: () {
+                  // Update the state i.e. toogle the state of passwordVisible variable
+                  setState(() {
+                    isChecked = !isChecked;
+                  });
+                },
+              )
+            : null,
+        contentPadding: const EdgeInsets.all(10),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5),
         ),
-      ],
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: darkcolor['card']),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: darkcolor['main']),
+        ),
+      ),
     );
   }
 }

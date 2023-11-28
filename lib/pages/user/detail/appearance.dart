@@ -45,18 +45,15 @@ class Appearance extends StatelessWidget {
               style: TextStyle(color: darkcolor['contrast']),
             ),
             mySwitch(
-              controller: lightThemeController,
               label: "Light Theme",
+              controller: lightThemeController,
             ),
             const myTextField(
-              hintText: "#f2c318",
-              label: "Custom Color",
-              labelWidth: 100,
+              // hintText: "#f2c318",
+              labelText: "Custom Color",
             ),
             const myDropdown(
-              label: "Language",
               hint: "Choose an Icon Theme",
-              labelWidth: 100,
               items: [
                 DropdownMenuItem(
                   value: 'Baseline',

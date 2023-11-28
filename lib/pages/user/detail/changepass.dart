@@ -37,13 +37,13 @@ class ChangePassPage extends StatelessWidget {
         child: Column(
           children: [
             const myTextField(
-              hintText: "Old Password",
+              labelText: "Old Password",
             ),
             const myTextField(
-              hintText: "New Password",
+              labelText: "New Password",
             ),
             const myTextField(
-              hintText: "Re-enter New Password",
+              labelText: "Re-enter New Password",
             ),
             myButton(
               onClick: () {},

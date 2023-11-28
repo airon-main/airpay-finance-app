@@ -58,7 +58,7 @@ class aboutUsPage extends StatelessWidget {
               ),
             ),
             Text(
-              "Credits",
+              "People",
               style: TextStyle(color: darkcolor['disabled']),
             ),
             const rowAboutUs(
@@ -76,7 +76,7 @@ class aboutUsPage extends StatelessWidget {
             ),
             Center(
               child: Text(
-                "Not yet, This is Our Apps :)",
+                "Not yet, This is our first App :)",
                 style: TextStyle(color: darkcolor['contrast']),
               ),
             )

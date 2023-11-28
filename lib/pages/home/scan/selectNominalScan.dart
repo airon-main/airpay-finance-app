@@ -42,7 +42,7 @@ class selectNominalScan extends StatelessWidget {
           const MySelectedCard(),
           judulPage(title: "Enter TopUp Nominal"),
           myTextField(
-            hintText: "Rp.100.000",
+            labelText: "Nominal",
             hintColor: darkcolor['main'],
           ),
           SizedBox(

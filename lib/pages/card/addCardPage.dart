@@ -70,23 +70,19 @@ class addCardPage extends StatelessWidget {
             ),
             myTextField(
               controller: cardNameTxtEditCtr,
-              label: "Card Name",
-              labelWidth: 90,
+              labelText: "Card Name",
             ),
             myTextField(
               controller: photoPathTxtEditCtr,
-              label: "Photo Path",
-              labelWidth: 90,
+              labelText: "Photo Path",
             ),
             myTextField(
               controller: mainColorTxtEditCtr,
-              label: "Main Color",
-              labelWidth: 90,
+              labelText: "Main Color",
             ),
             myTextField(
               controller: contrastMainTxtEditCtr,
-              label: "Contrast Main",
-              labelWidth: 90,
+              labelText: "Contrast Main",
             ),
             myButton(
                 text: (index != null)

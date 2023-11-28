@@ -33,7 +33,7 @@ class Login extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             myTextField(
-              hintText: "Username",
+              labelText: "Username",
               controller: usernameTextController,
               validator: (String? value) {
                 String nonNullValue = value ?? "";
@@ -42,7 +42,7 @@ class Login extends StatelessWidget {
               },
             ),
             myTextField(
-              hintText: "Email",
+              labelText: "Email",
               controller: emailTextController,
               validator: (String? value) {
                 String nonNullValue = value ?? "";
@@ -53,7 +53,7 @@ class Login extends StatelessWidget {
               },
             ),
             myTextField(
-              hintText: "Password",
+              labelText: "Password",
               isObscured: true,
               controller: passwordTextController,
               validator: (String? value) {
