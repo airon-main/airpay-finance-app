@@ -120,6 +120,7 @@ class CardPageController extends GetxController {
               List<dynamic> card = boxCard.get("myCards");
               card.removeAt(index);
               boxCard.put("myCards", card);
+              Get.back();
               update();
             },
             child: Text(

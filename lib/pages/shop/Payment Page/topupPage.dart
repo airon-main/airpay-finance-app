@@ -43,11 +43,11 @@ class _buyPageState extends State<buyPage> {
             child: Column(
               children: [
                 const judulPage(title: "Enter User ID*", title1: null),
-                const myTextField(hintText: "Username"),
+                const myTextField(labelText: "Username"),
                 const SizedBox(
                   height: 10,
                 ),
-                const myTextField(hintText: "Zone ID"),
+                const myTextField(labelText: "Zone ID"),
                 const judulPage(title: "Select TopUp Nominal*", title1: null),
                 const promoPage(
                     imageAssetPath: "assets/images/Rectangle 55.png",
@@ -77,7 +77,7 @@ class _buyPageState extends State<buyPage> {
                     text3: "Rp.500.000"),
                 const judulPage(
                     title: "Email Receipt (Optional)", title1: null),
-                const myTextField(hintText: "Email"),
+                const myTextField(labelText: "Email"),
                 const judulPage(title: "Confirm Payment", title1: null),
                 Container(
                   padding: const EdgeInsets.all(10),

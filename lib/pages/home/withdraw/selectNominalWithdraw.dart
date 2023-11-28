@@ -65,7 +65,7 @@ class selectNominalWithdraw extends StatelessWidget {
               myTextField(
                 controller: textEditingController,
                 keyboardType: TextInputType.number,
-                hintText: "100000",
+                labelText: "Nominal",
                 hintColor: darkcolor['main'],
               ),
               myButton(

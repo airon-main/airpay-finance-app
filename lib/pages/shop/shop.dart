@@ -34,7 +34,7 @@ class _ShoppingPageState extends State<ShoppingPage> {
                         bottom:
                             BorderSide(color: darkcolor['card'], width: 1))),
                 child: const myTextField(
-                  hintText: "Search",
+                  labelText: "Search",
                 )),
             Expanded(
               child: SingleChildScrollView(

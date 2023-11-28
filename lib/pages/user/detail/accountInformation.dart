@@ -73,29 +73,21 @@ class Account extends StatelessWidget {
                 ),
               ),
               myTextField(
-                label: "Avatar Path",
-                labelWidth: 90,
-                hintText: user.image,
+                labelText: "Avatar Path",
                 controller: imagePathController,
               ),
               myTextField(
-                label: "Username",
-                labelWidth: 90,
-                hintText: user.username,
+                labelText: "Username",
                 controller: usernameController,
               ),
               myTextField(
-                label: "Email",
-                labelWidth: 90,
-                hintText: user.email,
+                labelText: "Email",
                 controller: emailController,
               ),
               myButton(
                 onClick: () {
                   Get.toNamed("/user/changepass");
                 },
-                label: "Password",
-                labelWidth: 90,
                 text: "Change Password",
                 textAlign: TextAlign.center,
                 backgroundColor: darkcolor['card'],
