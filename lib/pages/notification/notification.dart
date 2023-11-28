@@ -66,7 +66,7 @@ class NotificationPage extends StatelessWidget {
                   border: Border(
                       bottom: BorderSide(color: darkcolor['card'], width: 1))),
               child: const myTextField(
-                hintText: "Search",
+                labelText: "Search",
               ),
             ),
             Expanded(

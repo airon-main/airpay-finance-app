@@ -56,13 +56,15 @@ class selectNominalTopup extends StatelessWidget {
               myTextField(
                 controller: topUpNominalCtr,
                 keyboardType: TextInputType.number,
-                hintText: "100000",
+                labelText: "Nominal",
                 hintColor: darkcolor['main'],
               ),
               myButton(
                 onClick: () {
-                  cardPageController.increaseNominalSelected(
-                      nominal: double.parse(topUpNominalCtr.text));
+                  topUpNominalCtr.text == ""
+                      ? null
+                      : cardPageController.increaseNominalSelected(
+                          nominal: double.parse(topUpNominalCtr.text));
                 },
                 text: "Top Up",
                 textAlign: TextAlign.center,
@@ -71,7 +73,6 @@ class selectNominalTopup extends StatelessWidget {
               )
             ].withSpaceBetween(height: 10)),
       ),
-
     );
   }
 }

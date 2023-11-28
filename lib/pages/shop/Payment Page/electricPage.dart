@@ -46,7 +46,7 @@ class _electricPageState extends State<electricPage> {
           child: Column(
             children: [
               const judulPage(title: "Nomor Meter/ID Pelanggan*", title1: null),
-              const myTextField(hintText: "Nomor Meter/ID Pelanggan"),
+              const myTextField(labelText: "Nomor Meter/ID Pelanggan"),
               const judulPage(title: "Select TopUp Nominal*", title1: null),
               const promoPage(
                   imageAssetPath: "assets/images/kelistrikan.png",
@@ -75,7 +75,7 @@ class _electricPageState extends State<electricPage> {
                   text2: "10,000 Token Listrik",
                   text3: "Rp.13.000"),
               const judulPage(title: "Email Receipt (Optional)", title1: null),
-              const myTextField(hintText: "Email"),
+              const myTextField(labelText: "Email"),
               const judulPage(title: "Confirm Payment", title1: null),
               Container(
                 padding: const EdgeInsets.all(10),

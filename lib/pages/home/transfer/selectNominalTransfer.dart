@@ -102,7 +102,7 @@ class selectNominalTransfer extends StatelessWidget {
                 ],
               ),
               myTextField(
-                hintText: "Rp.100.000",
+                labelText: "Nominal",
                 hintColor: darkcolor['main'],
               ),
               myButton(

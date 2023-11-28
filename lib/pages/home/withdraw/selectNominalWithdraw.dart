@@ -2,7 +2,6 @@ import 'package:air_pay/extensions.dart';
 import 'package:air_pay/formatter.dart';
 import 'package:air_pay/pages/card/cardPageController.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
@@ -66,7 +65,7 @@ class selectNominalWithdraw extends StatelessWidget {
               myTextField(
                 controller: textEditingController,
                 keyboardType: TextInputType.number,
-                hintText: "100000",
+                labelText: "Nominal",
                 hintColor: darkcolor['main'],
               ),
               myButton(

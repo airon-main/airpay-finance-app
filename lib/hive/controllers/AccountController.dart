@@ -10,9 +10,26 @@ class AccountController extends GetxController {
   var error = "";
 
   Future<void> logout() async {
-    boxUser.delete("myUser");
-    boxCard.delete("myCards");
-    Get.offAllNamed("/signup");
+    Get.defaultDialog(
+      title: "Warning",
+      middleText: "Are you sure you want to logout?, tap outside to cancel",
+      backgroundColor: darkcolor['main'],
+      titleStyle: TextStyle(color: darkcolor['contrastmain']),
+      middleTextStyle: TextStyle(color: darkcolor['contrastmain']),
+      radius: 5,
+      actions: [
+        GestureDetector(
+            onTap: () {
+              boxUser.delete("myUser");
+              boxCard.delete("myCards");
+              Get.offAllNamed("/signup");
+            },
+            child: Text(
+              "Yes, I want to logout",
+              style: TextStyle(color: darkcolor['red']),
+            )),
+      ],
+    );
   }
 
   Future<void> signup({
