@@ -27,19 +27,36 @@ class CardPageController extends GetxController {
 
   late RxDouble updatingNominalFormatted = selectedCard().nominal.obs;
 
+  @override
+  void onInit() {
+    super.onInit();
+    updatingNominalFormatted();
+  }
+
   Future<void> updateNominal() async {
     List<dynamic> cards = boxCard.get("myCards");
     MyCard selectedCard = cards[user.selectedCard];
     updatingNominalFormatted.value = selectedCard.nominal;
   }
 
-  Future<void> increaseNominalSelected({required double nominal}) async {
+  void increaseNominalSelected({required double nominal}) {
     List<dynamic> cards = boxCard.get("myCards");
     MyCard selectedCard = cards[user.selectedCard];
-    selectedCard.nominal += nominal;
-    cards[user.selectedCard] = selectedCard;
-    boxCard.put("myCards", cards);
-    updatingNominalFormatted.value = selectedCard.nominal;
+    if (nominal >= 0) {
+      selectedCard.nominal += nominal;
+      cards[user.selectedCard] = selectedCard;
+      boxCard.put("myCards", cards);
+      updatingNominalFormatted.value = selectedCard.nominal;
+    } else {
+      Get.defaultDialog(
+        title: "Hey, go to withdraw",
+        middleText: "You can't decrease your money here",
+        backgroundColor: darkcolor['main'],
+        titleStyle: TextStyle(color: darkcolor['contrastmain']),
+        middleTextStyle: TextStyle(color: darkcolor['contrastmain']),
+        radius: 5,
+      );
+    }
     update();
   }
 
@@ -48,10 +65,21 @@ class CardPageController extends GetxController {
     MyCard selectedCard = cards[user.selectedCard];
     double currentNominal = selectedCard.nominal;
     if ((currentNominal -= nominal) >= 0) {
-      selectedCard.nominal -= nominal;
-      cards[user.selectedCard] = selectedCard;
-      updatingNominalFormatted.value = selectedCard.nominal;
-      boxCard.put("myCards", cards);
+      if ((currentNominal -= nominal) >= currentNominal) {
+        selectedCard.nominal -= nominal;
+        cards[user.selectedCard] = selectedCard;
+        updatingNominalFormatted.value = selectedCard.nominal;
+        boxCard.put("myCards", cards);
+      } else {
+        Get.defaultDialog(
+          title: "Go to Top Up",
+          middleText: "You can't increase your money here",
+          backgroundColor: darkcolor['main'],
+          titleStyle: TextStyle(color: darkcolor['contrastmain']),
+          middleTextStyle: TextStyle(color: darkcolor['contrastmain']),
+          radius: 5,
+        );
+      }
     } else {
       Get.defaultDialog(
         title: "Whoa",
@@ -177,13 +205,11 @@ class MyCardList extends StatelessWidget {
   }
 }
 
-class MySelectedCard extends StatelessWidget {
+class MySelectedCard extends GetView<CardPageController> {
   const MySelectedCard({super.key});
 
   @override
   Widget build(BuildContext context) {
-    CardPageController cardPageController = CardPageController();
-    cardPageController.updatingNominalFormatted();
     return Obx(() => Container(
           width: double.infinity,
           decoration: BoxDecoration(
@@ -193,7 +219,7 @@ class MySelectedCard extends StatelessWidget {
             children: [
               Text(
                 formatNominal(
-                    nominal: cardPageController.updatingNominalFormatted.value),
+                    nominal: controller.updatingNominalFormatted.value),
                 style:
                     TextStyle(fontSize: 32, color: darkcolor['contrastmain']),
               ),
@@ -207,7 +233,7 @@ class MySelectedCard extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      cardPageController.updateNominal();
+                      controller.updateNominal();
                     },
                     child: const Icon(Icons.refresh, size: 18),
                   ),

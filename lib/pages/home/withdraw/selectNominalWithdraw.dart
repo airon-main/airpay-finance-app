@@ -8,12 +8,11 @@ import 'package:get/get_core/src/get_main.dart';
 import '../../../variables/colorpalette.dart';
 import '../../../widgets/custom.dart';
 
-class selectNominalWithdraw extends StatelessWidget {
+class selectNominalWithdraw extends GetView<CardPageController> {
   const selectNominalWithdraw({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    CardPageController cardPageController = CardPageController();
     TextEditingController textEditingController = TextEditingController();
     return Scaffold(
       appBar: myAppBar(
@@ -70,7 +69,7 @@ class selectNominalWithdraw extends StatelessWidget {
               ),
               myButton(
                 onClick: () {
-                  cardPageController.decreaseNominalSelected(
+                  controller.decreaseNominalSelected(
                       nominal: double.parse(textEditingController.text));
                 },
                 text: "Withdraw",

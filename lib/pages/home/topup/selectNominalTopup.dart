@@ -6,14 +6,13 @@ import 'package:get/get.dart';
 import '../../../variables/colorpalette.dart';
 import '../../../widgets/custom.dart';
 
-class selectNominalTopup extends StatelessWidget {
-  const selectNominalTopup({Key? key}) : super(key: key);
+class selectNominalTopup extends GetView<CardPageController> {
+  selectNominalTopup({Key? key}) : super(key: key);
+
+  final TextEditingController topUpNominalCtr = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController topUpNominalCtr = TextEditingController();
-    CardPageController cardPageController = CardPageController();
-
     return Scaffold(
       appBar: myAppBar(
         title: "Top Up",
@@ -61,10 +60,20 @@ class selectNominalTopup extends StatelessWidget {
               ),
               myButton(
                 onClick: () {
-                  topUpNominalCtr.text == ""
-                      ? null
-                      : cardPageController.increaseNominalSelected(
+                  try {
+                    controller.increaseNominalSelected(
                           nominal: double.parse(topUpNominalCtr.text));
+                  } catch (e) {
+                    Get.defaultDialog(
+                      title: "Whoops",
+                      middleText: "Invalid number input",
+                      backgroundColor: darkcolor['main'],
+                      titleStyle: TextStyle(color: darkcolor['contrastmain']),
+                      middleTextStyle:
+                          TextStyle(color: darkcolor['contrastmain']),
+                      radius: 5,
+                    );
+                  }
                 },
                 text: "Top Up",
                 textAlign: TextAlign.center,
