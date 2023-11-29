@@ -65,7 +65,7 @@ class CardPageController extends GetxController {
     MyCard selectedCard = cards[user.selectedCard];
     double currentNominal = selectedCard.nominal;
     if ((currentNominal -= nominal) >= 0) {
-      if ((currentNominal -= nominal) >= currentNominal) {
+      if (nominal >= 0) {
         selectedCard.nominal -= nominal;
         cards[user.selectedCard] = selectedCard;
         updatingNominalFormatted.value = selectedCard.nominal;
