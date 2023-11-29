@@ -38,16 +38,13 @@ class Cache extends StatelessWidget {
           children: [
             myButton(
               onClick: () {},
-              label: "Clean Cache",
-              labelWidth: 100,
               text: "Clean 125mb",
               textAlign: TextAlign.center,
               backgroundColor: darkcolor['card'],
               foregroundColor: darkcolor['contrast'],
             ),
             const myDropdown(
-              label: "Max Size",
-              labelWidth: 100,
+              hint: "Max Size",
               items: [
                 DropdownMenuItem(
                   value: '128mb',

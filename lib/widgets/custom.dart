@@ -366,10 +366,10 @@ class myDropdown extends StatelessWidget {
               hint: Text(hint,
                   style: TextStyle(
                       fontWeight: FontWeight.normal,
-                      color: darkcolor['disabled'])),
+                      color: darkcolor['disabled'], fontSize: 14)),
               padding: EdgeInsets.zero,
               dropdownColor: darkcolor['card'],
-              style: TextStyle(color: darkcolor['contrast']),
+              style: TextStyle(color: darkcolor['contrast'], fontSize: 14),
               value: ctr.selectedValue,
               onChanged: (newValue) {
                 ctr.onSelected(newValue!);
