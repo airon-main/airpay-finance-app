@@ -82,8 +82,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: "/home/withdraw", page: () => const WithdrawPage()),
 
         GetPage(
-            name: "/home/selectNominalTopup",
-            page: () => const selectNominalTopup()),
+            name: "/home/selectNominalTopup", page: () => selectNominalTopup()),
         GetPage(
             name: "/home/selectNominalTransfer",
             page: () => const selectNominalTransfer()),
@@ -95,8 +94,7 @@ class MyApp extends StatelessWidget {
             page: () => const selectNominalScan()),
 
         GetPage(
-            name: "/home/selectNominalTopup",
-            page: () => const selectNominalTopup()),
+            name: "/home/selectNominalTopup", page: () => selectNominalTopup()),
         GetPage(
             name: "/home/selectNominalTransfer",
             page: () => const selectNominalTransfer()),
