@@ -39,8 +39,7 @@ class Setting extends StatelessWidget {
         child: Column(
           children: [
             const myDropdown(
-              label: "Language",
-              labelWidth: 100,
+              hint: "Language",
               items: [
                 DropdownMenuItem(
                   value: 'English',

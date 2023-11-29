@@ -53,7 +53,7 @@ class Appearance extends StatelessWidget {
               labelText: "Custom Color",
             ),
             const myDropdown(
-              hint: "Choose an Icon Theme",
+              hint: "Custom Color",
               items: [
                 DropdownMenuItem(
                   value: 'Baseline',

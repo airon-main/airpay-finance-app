@@ -7,16 +7,17 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 class myTextField extends StatefulWidget {
-  const myTextField(
-      {super.key,
-      this.isObscured = false,
-      this.controller,
-      this.validator,
-      this.keyboardType,
-      this.backgroundColor = const Color(0xff222222),
-      this.foregroundColor = const Color(0xffffffff),
-      this.hintColor = const Color(0xffF2CE18),
-      this.labelText = "",});
+  const myTextField({
+    super.key,
+    this.isObscured = false,
+    this.controller,
+    this.validator,
+    this.keyboardType,
+    this.backgroundColor = const Color(0xff222222),
+    this.foregroundColor = const Color(0xffffffff),
+    this.hintColor = const Color(0xffF2CE18),
+    this.labelText = "",
+  });
   final bool isObscured;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
@@ -366,10 +367,11 @@ class myDropdown extends StatelessWidget {
               hint: Text(hint,
                   style: TextStyle(
                       fontWeight: FontWeight.normal,
-                      color: darkcolor['disabled'])),
+                      color: darkcolor['disabled'],
+                      fontSize: 14)),
               padding: EdgeInsets.zero,
               dropdownColor: darkcolor['card'],
-              style: TextStyle(color: darkcolor['contrast']),
+              style: TextStyle(color: darkcolor['contrast'], fontSize: 14),
               value: ctr.selectedValue,
               onChanged: (newValue) {
                 ctr.onSelected(newValue!);
