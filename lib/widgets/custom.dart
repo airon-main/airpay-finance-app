@@ -5,18 +5,21 @@ import 'package:air_pay/extensions.dart';
 import 'package:air_pay/variables/colorpalette.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:number_text_input_formatter/number_text_input_formatter.dart';
 
 class myTextField extends StatefulWidget {
-  const myTextField(
-      {super.key,
-      this.isObscured = false,
-      this.controller,
-      this.validator,
-      this.keyboardType,
-      this.backgroundColor = const Color(0xff222222),
-      this.foregroundColor = const Color(0xffffffff),
-      this.hintColor = const Color(0xffF2CE18),
-      this.labelText = "",});
+  const myTextField({
+    super.key,
+    this.isObscured = false,
+    this.controller,
+    this.validator,
+    this.keyboardType,
+    this.backgroundColor = const Color(0xff222222),
+    this.foregroundColor = const Color(0xffffffff),
+    this.hintColor = const Color(0xffF2CE18),
+    this.labelText = "",
+    this.inputFormatter,
+  });
   final bool isObscured;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
@@ -25,6 +28,7 @@ class myTextField extends StatefulWidget {
   final Color foregroundColor;
   final Color hintColor;
   final String labelText;
+  final List<TextInputFormatter>? inputFormatter;
 
   @override
   myTextFieldState createState() => myTextFieldState();
@@ -34,8 +38,8 @@ class myTextFieldState extends State<myTextField> {
   bool isChecked = true;
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      validator: widget.validator,
+    return TextField(
+      inputFormatters: widget.inputFormatter,
       keyboardType: widget.keyboardType,
       autofocus: false,
       style: TextStyle(color: darkcolor['contrast'], fontSize: 14),
@@ -366,7 +370,8 @@ class myDropdown extends StatelessWidget {
               hint: Text(hint,
                   style: TextStyle(
                       fontWeight: FontWeight.normal,
-                      color: darkcolor['disabled'], fontSize: 14)),
+                      color: darkcolor['disabled'],
+                      fontSize: 14)),
               padding: EdgeInsets.zero,
               dropdownColor: darkcolor['card'],
               style: TextStyle(color: darkcolor['contrast'], fontSize: 14),

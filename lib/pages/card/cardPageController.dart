@@ -177,13 +177,12 @@ class MyCardList extends StatelessWidget {
   }
 }
 
-class MySelectedCard extends StatelessWidget {
+class MySelectedCard extends GetView<CardPageController> {
   const MySelectedCard({super.key});
 
   @override
   Widget build(BuildContext context) {
-    CardPageController cardPageController = CardPageController();
-    cardPageController.updatingNominalFormatted();
+    controller.updatingNominalFormatted();
     return Obx(() => Container(
           width: double.infinity,
           decoration: BoxDecoration(
@@ -193,7 +192,7 @@ class MySelectedCard extends StatelessWidget {
             children: [
               Text(
                 formatNominal(
-                    nominal: cardPageController.updatingNominalFormatted.value),
+                    nominal: controller.updatingNominalFormatted.value),
                 style:
                     TextStyle(fontSize: 32, color: darkcolor['contrastmain']),
               ),
@@ -207,7 +206,7 @@ class MySelectedCard extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      cardPageController.updateNominal();
+                      controller.updateNominal();
                     },
                     child: const Icon(Icons.refresh, size: 18),
                   ),

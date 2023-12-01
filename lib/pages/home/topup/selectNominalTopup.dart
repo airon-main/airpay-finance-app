@@ -1,18 +1,19 @@
 import 'package:air_pay/extensions.dart';
+import 'package:air_pay/formatter.dart';
 import 'package:air_pay/pages/card/cardPageController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:number_text_input_formatter/number_text_input_formatter.dart';
 
 import '../../../variables/colorpalette.dart';
 import '../../../widgets/custom.dart';
 
-class selectNominalTopup extends StatelessWidget {
+class selectNominalTopup extends GetView<CardPageController> {
   const selectNominalTopup({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     TextEditingController topUpNominalCtr = TextEditingController();
-    CardPageController cardPageController = CardPageController();
 
     return Scaffold(
       appBar: myAppBar(
@@ -48,12 +49,26 @@ class selectNominalTopup extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Enter Top Up Nominal",
+                  Text("Enter Top Up Nominal (Rp)",
                       style: TextStyle(
                           fontSize: 14, color: darkcolor['contrast'])),
                 ],
               ),
               myTextField(
+                inputFormatter: [
+                  NumberTextInputFormatter(
+                    integerDigits: 10,
+                    decimalDigits: 0,
+                    maxValue: '1000000000.00',
+                    decimalSeparator: ',',
+                    groupDigits: 3,
+                    groupSeparator: '.',
+                    allowNegative: false,
+                    overrideDecimalPoint: true,
+                    insertDecimalPoint: false,
+                    insertDecimalDigits: true,
+                  ),
+                ],
                 controller: topUpNominalCtr,
                 keyboardType: TextInputType.number,
                 labelText: "Nominal",
@@ -63,8 +78,8 @@ class selectNominalTopup extends StatelessWidget {
                 onClick: () {
                   topUpNominalCtr.text == ""
                       ? null
-                      : cardPageController.increaseNominalSelected(
-                          nominal: double.parse(topUpNominalCtr.text));
+                      : controller.increaseNominalSelected(
+                          nominal: double.parse(removeNonNumeric(topUpNominalCtr.text)));
                 },
                 text: "Top Up",
                 textAlign: TextAlign.center,

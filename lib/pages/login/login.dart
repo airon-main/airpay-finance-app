@@ -106,7 +106,7 @@ class Login extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             myButton(
-              onClick: () {
+              onClick: () { 
                 Get.offNamed("/signup");
               },
               text: "Signup",

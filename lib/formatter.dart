@@ -18,3 +18,8 @@ String formatNominal({
   nominalFormat.updateValue(nominal);
   return nominalFormat.text;
 }
+
+String removeNonNumeric(String text) {
+  // Replace all non-numeric characters with an empty string
+  return text.replaceAll(RegExp(r'[^0-9]'), '');
+}

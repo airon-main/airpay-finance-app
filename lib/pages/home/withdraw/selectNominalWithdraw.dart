@@ -4,16 +4,16 @@ import 'package:air_pay/pages/card/cardPageController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:number_text_input_formatter/number_text_input_formatter.dart';
 
 import '../../../variables/colorpalette.dart';
 import '../../../widgets/custom.dart';
 
-class selectNominalWithdraw extends StatelessWidget {
+class selectNominalWithdraw extends GetView<CardPageController> {
   const selectNominalWithdraw({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    CardPageController cardPageController = CardPageController();
     TextEditingController textEditingController = TextEditingController();
     return Scaffold(
       appBar: myAppBar(
@@ -49,7 +49,7 @@ class selectNominalWithdraw extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Enter Withdraw Nominal",
+                  Text("Enter Withdraw Nominal (Rp)",
                       style: TextStyle(
                           fontSize: 14, color: darkcolor['contrast'])),
                   GestureDetector(
@@ -63,6 +63,20 @@ class selectNominalWithdraw extends StatelessWidget {
                 ],
               ),
               myTextField(
+                inputFormatter: [
+                  NumberTextInputFormatter(
+                    integerDigits: 10,
+                    decimalDigits: 0,
+                    maxValue: '1000000000.00',
+                    decimalSeparator: ',',
+                    groupDigits: 3,
+                    groupSeparator: '.',
+                    allowNegative: false,
+                    overrideDecimalPoint: true,
+                    insertDecimalPoint: false,
+                    insertDecimalDigits: true,
+                  ),
+                ],
                 controller: textEditingController,
                 keyboardType: TextInputType.number,
                 labelText: "Nominal",
@@ -70,8 +84,9 @@ class selectNominalWithdraw extends StatelessWidget {
               ),
               myButton(
                 onClick: () {
-                  cardPageController.decreaseNominalSelected(
-                      nominal: double.parse(textEditingController.text));
+                  controller.decreaseNominalSelected(
+                      nominal: double.parse(
+                          removeNonNumeric(textEditingController.text)));
                 },
                 text: "Withdraw",
                 textAlign: TextAlign.center,
