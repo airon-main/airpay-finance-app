@@ -1,6 +1,11 @@
 # air_pay
 
-A new Flutter project.
+AirPay Finance App.
+Made with Flutter using GetX and Hive Local Database.
+Disclaimer: This app is only for school projects and learning purposes.
+
+Figma Link:
+https://www.figma.com/file/e083DiyKCVg8Vv4Fo0IHIz/AirPay?type=design&node-id=45%3A53&mode=design&t=1yOW8qPi93xcLCzo-1
 
 ## Getting Started
 
